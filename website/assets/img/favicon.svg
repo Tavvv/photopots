@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PhotoPots">
+  <!-- Simplified full icon, tuned to stay legible at 16–32px -->
+  <g fill="none" stroke-width="92" stroke-linecap="round">
+    <path d="M245.4 104.4 A152 152 0 0 0 104.4 245.4" stroke="#2CD3E1"/>
+    <path d="M407.6 245.4 A152 152 0 0 0 266.6 104.4" stroke="#1C9DE0"/>
+    <path d="M266.6 407.6 A152 152 0 0 0 407.6 266.6" stroke="#EA8A1E"/>
+    <path d="M104.4 266.6 A152 152 0 0 0 245.4 407.6" stroke="#D8453E"/>
+  </g>
+  <circle cx="415" cy="92" r="32" fill="#3B3E46"/>
+  <circle cx="256" cy="256" r="142" fill="#FFFFFF"/>
+  <circle cx="256" cy="256" r="128" fill="#22252C"/>
+  <circle cx="258" cy="266" r="58" fill="#101117"/>
+  <ellipse cx="299" cy="238" rx="16" ry="23" fill="#FFFFFF" opacity="0.92" transform="rotate(-18 299 238)"/>
+</svg>

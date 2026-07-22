@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PhotoPots — Screenshot Organizer landing page
+  URL: https://www.photopots.com/screenshot-organizer/
+  Primary keyword: "organize screenshots iphone"
+  Built from template.html — header/footer kept identical, asset paths use
+  ../assets/... (directory page).
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Organize Screenshots on iPhone — PhotoPots</title>
+  <meta name="description" content="PhotoPots helps you organize screenshots on iPhone: batch-sort captures into pots in one quick session, find them with OCR search. Free to download.">
+
+  <link rel="canonical" href="https://www.photopots.com/screenshot-organizer/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Organize Screenshots on iPhone — PhotoPots">
+  <meta property="og:description" content="PhotoPots helps you organize screenshots on iPhone: batch-sort captures into pots in one quick session, find them with OCR search. Free to download.">
+  <meta property="og:url" content="https://www.photopots.com/screenshot-organizer/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Organize Screenshots on iPhone — PhotoPots">
+  <meta name="twitter:description" content="PhotoPots helps you organize screenshots on iPhone: batch-sort captures into pots in one quick session, find them with OCR search. Free to download.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+
+  <style>
+    /* Page-local: numbered workflow steps */
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-5); counter-reset: step; }
+    .steps__item { display: grid; grid-template-columns: 48px 1fr; gap: var(--space-4); align-items: start; }
+    .steps__num { counter-increment: step; width: 48px; height: 48px; border-radius: var(--radius-full); display: grid; place-items: center; background: var(--cyan-tint); color: var(--cyan-dark); font-family: var(--font-display); font-weight: 800; font-size: var(--text-h4); }
+    .steps__num::before { content: counter(step); }
+    .steps__item h3 { margin: 0 0 var(--space-1); font-size: var(--text-h4); }
+    .steps__item p { margin: 0; color: var(--ink-soft); }
+    @media (min-width: 768px) { .steps { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.photopots.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Organize Screenshots on iPhone", "item": "https://www.photopots.com/screenshot-organizer/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does sorting screenshots delete them from my iPhone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Sorting moves a screenshot out of your Camera Roll and into a pot inside PhotoPots. The original file is removed from the photo library — not hidden — and kept safely in the pot, where you can search, edit, and share it anytime. Nothing is deleted unless you delete it yourself."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I find a screenshot later if I only remember what it said?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PhotoPots reads the text in your screenshots with OCR, so you can search for a word from a receipt, a confirmation number, or a line from a chat and jump straight to the capture. You don't need to remember which pot you filed it in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many screenshots can I sort for free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The free plan includes 25 sorts a week, which covers a typical backlog for most people. Pro removes the limit entirely, so you can clear out months of screenshot clutter in as many sessions as you like."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do my screenshot pots sync to my iPad and Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every pot syncs over iCloud, so screenshots you triage on your iPhone show up on your iPad and Mac automatically. GPS metadata is preserved too, which matters when a capture doubles as a record of where a job or delivery happened."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="../index.html" aria-label="PhotoPots home">
+          <img src="../assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../features.html">Features</a></li>
+          <li><a class="nav__link" href="../how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="../pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="../blog/">Blog</a></li>
+          <li><a class="nav__link" href="../faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="container">
+      <p class="text-small text-mute" style="margin-top: var(--space-4);">
+        <a href="../index.html">Home</a> / Screenshot organizer
+      </p>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">Organize screenshots on iPhone before they <span class="hl">bury you</span>.</h1>
+        <p class="hero__sub">PhotoPots sorts screenshots out of your Camera Roll and into named pots — receipts in one, confirmations in another, family photos untouched. One batch session clears weeks of clutter.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+          <a class="btn btn--secondary btn--lg" href="#triage">See triage in action</a>
+        </div>
+        <p class="hero__note">Free · 25 sorts a week · iPhone, iPad &amp; Mac</p>
+      </div>
+    </section>
+
+    <!-- The screenshot problem -->
+    <section class="section section--cream">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--orange">The problem</span>
+          <h2 class="section-title">Screenshots are where good photos go to disappear</h2>
+          <p class="section-sub">You take them for a reason. Then they sink into the Camera Roll.</p>
+        </div>
+        <div class="reveal">
+          <p>Everyone's Camera Roll tells the same story. A picture of your kid's first goal sits next to a tracking number, a parking receipt, three error messages, and a chat thread you captured "just in case." Weeks later you need that receipt for an expense report — and it's gone, buried under two hundred newer shots of your dog.</p>
+          <p>Deleting doesn't work either. Half of those screenshots are work records: proof a delivery happened, a measurement on a wall, an approval in writing. You can't delete them, so you can't clean up, so your personal photos stay buried under screenshot clutter. It's a loop nobody escapes with willpower alone.</p>
+          <p>PhotoPots breaks the loop. Sort a screenshot and it <strong>leaves the Camera Roll for real</strong> — the original is moved into a pot, not just hidden. Your photo library goes back to being a photo library.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshot triage feature -->
+    <section class="section" id="triage">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Screenshot triage</span>
+          <h2 class="section-title">Batch sessions that clear the pile fast</h2>
+          <p class="section-sub">PhotoPots rounds up your screenshots and walks you through them one quick decision at a time.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--cyan">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="2"/><rect x="14" y="4" width="7" height="16" rx="2"/><path d="M10 12h4"/></svg>
+            </div>
+            <h3 class="card__title">Swipe-through sorting</h3>
+            <p class="card__body">Open a triage session and each screenshot comes up full-screen. Swipe or tap to file it into a pot — or drop it. Dozens of captures sorted in the time a coffee takes to brew.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--orange">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.5 8.38 8.38 0 0 1 8.5 8.5z"/></svg>
+            </div>
+            <h3 class="card__title">Pots that match your work</h3>
+            <p class="card__body">Make a pot per client, job, or category — "Receipts," "Job 214," "Warranty" — with your own names and colors. Screenshots land where you'll actually look for them.</p>
+          </li>
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg>
+            </div>
+            <h3 class="card__title">OCR search finds the words</h3>
+            <p class="card__body">Every sorted screenshot is text-searchable. Type a confirmation number, a vendor name, or a phrase from a chat and jump straight to the capture.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What people screenshot at work -->
+    <section class="section section--sand">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--green">Real work, real captures</span>
+          <h2 class="section-title">What actually fills your screenshot pile</h2>
+          <p class="section-sub">If you work with photos, most of your screenshots are records — not junk.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--orange">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18l-2-1.5L15 21l-2-1.5L11 21l-2-1.5L7 21l-2-1.5z"/><path d="M9 8h6M9 12h6"/></svg>
+            </div>
+            <h3 class="card__title">Receipts &amp; invoices</h3>
+            <p class="card__body">Contractors and field techs capture supply runs and parking. Sorted into a pot, they're ready when expense day comes — no scrolling through the Camera Roll.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <h3 class="card__title">Confirmations &amp; bookings</h3>
+            <p class="card__body">Agents and inspectors screenshot order numbers, lockbox codes, and appointment confirmations. One searchable pot beats a camera-roll scavenger hunt.</p>
+          </li>
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--violet">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+            </div>
+            <h3 class="card__title">Documents &amp; chats</h3>
+            <p class="card__body">Nurses, teachers, and admins capture shift notes, schedules, and message approvals. Keep them in a named pot and your personal photos stay personal.</p>
+          </li>
+          <li class="card reveal reveal--delay-3">
+            <div class="card__icon card__icon--red">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            </div>
+            <h3 class="card__title">Error messages &amp; evidence</h3>
+            <p class="card__body">The weird error, the damaged item, the "this is what it looked like when I arrived." File them with the job they belong to and share them in one tap.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Workflow walkthrough -->
+    <section class="section section--cream">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--violet">How it feels</span>
+          <h2 class="section-title">From pile to pots in one sitting</h2>
+          <p class="section-sub">A Friday-afternoon ritual that takes less time than finding one lost screenshot used to.</p>
+        </div>
+        <ol class="steps reveal">
+          <li class="steps__item">
+            <span class="steps__num" aria-hidden="true"></span>
+            <div>
+              <h3>Start a triage session</h3>
+              <p>PhotoPots gathers your unfiled screenshots — this week's, or the whole backlog. You pick how deep to dig.</p>
+            </div>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num" aria-hidden="true"></span>
+            <div>
+              <h3>Sort into pots, one tap each</h3>
+              <p>Receipt goes to Receipts, confirmation goes to Job 214, meme goes to the trash. Each sorted capture is removed from the Camera Roll, not just hidden.</p>
+            </div>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num" aria-hidden="true"></span>
+            <div>
+              <h3>Find anything by its words</h3>
+              <p>Next month, when accounting asks for the receipt, type the store name into OCR search. The screenshot surfaces in seconds, GPS metadata intact.</p>
+            </div>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num" aria-hidden="true"></span>
+            <div>
+              <h3>Share or sync, done</h3>
+              <p>One tap sends a capture to email, Messages, Slack — anywhere. And because pots sync over iCloud, everything is already on your iPad and Mac.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="text-center mt-6 reveal">Want the full picture of how pots work? <a href="../organize-work-photos/">See how to organize work photos</a> or <a href="../features.html">browse every feature</a>.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--red">Questions</span>
+          <h2 class="section-title">Screenshot cleanup, answered</h2>
+        </div>
+        <div class="faq faq--center reveal">
+          <details class="faq__item">
+            <summary class="faq__q">Does sorting screenshots delete them from my iPhone?</summary>
+            <div class="faq__a">
+              <p>No. Sorting moves a screenshot out of your Camera Roll and into a pot inside PhotoPots. The original file is removed from the photo library — not hidden — and kept safely in the pot, where you can search, edit, and share it anytime. Nothing is deleted unless you delete it yourself.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can I find a screenshot later if I only remember what it said?</summary>
+            <div class="faq__a">
+              <p>Yes. PhotoPots reads the text in your screenshots with OCR, so you can search for a word from a receipt, a confirmation number, or a line from a chat and jump straight to the capture. You don't need to remember which pot you filed it in.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">How many screenshots can I sort for free?</summary>
+            <div class="faq__a">
+              <p>The free plan includes 25 sorts a week, which covers a typical backlog for most people. Pro removes the limit entirely, so you can clear out months of screenshot clutter in as many sessions as you like.</p>
+              <p><a href="../pricing.html">Compare Free and Pro plans →</a></p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Do my screenshot pots sync to my iPad and Mac?</summary>
+            <div class="faq__a">
+              <p>Yes. Every pot syncs over iCloud, so screenshots you triage on your iPhone show up on your iPad and Mac automatically. GPS metadata is preserved too, which matters when a capture doubles as a record of where a job or delivery happened.</p>
+            </div>
+          </details>
+        </div>
+        <p class="text-center text-small text-mute mt-4 reveal">More questions? Read the <a href="../faq.html">full FAQ</a> or the latest tips on <a href="../blog/">the blog</a>.</p>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your screenshots deserve better than the pile.</h2>
+            <p class="cta-banner__sub">One triage session and your Camera Roll is a photo library again. Free to start.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--secondary btn--lg" href="../pricing.html">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="../features.html">Features</a></li>
+            <li><a href="../how-it-works.html">How it works</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+            <li><a href="../support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

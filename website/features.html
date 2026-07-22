@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Photo Organizer Features — PhotoPots</title>
+  <meta name="description" content="Every PhotoPots feature: sort photos into pots, capture past the Camera Roll, OCR search, GPS metadata kept, iCloud sync and more. Free to download.">
+
+  <link rel="canonical" href="https://www.photopots.com/features.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Photo Organizer Features — PhotoPots">
+  <meta property="og:description" content="Every PhotoPots feature: sort photos into pots, capture past the Camera Roll, OCR search, GPS metadata kept, iCloud sync and more. Free to download.">
+  <meta property="og:url" content="https://www.photopots.com/features.html">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Photo Organizer Features — PhotoPots">
+  <meta name="twitter:description" content="Every PhotoPots feature: sort photos into pots, capture past the Camera Roll, OCR search, GPS metadata kept, iCloud sync and more. Free to download.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Page-specific styles: breadcrumb, split feature rows, CSS illustrations -->
+  <style>
+    .crumbs { font-size: var(--text-tiny); color: var(--ink-mute); margin-bottom: var(--space-5); }
+    .crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; }
+    .crumbs li { display: flex; align-items: center; gap: var(--space-2); }
+    .crumbs li + li::before { content: "›"; color: var(--line); }
+    .crumbs a { color: var(--ink-mute); text-decoration: none; }
+    .crumbs a:hover { color: var(--blue-dark); }
+    .crumbs [aria-current] { color: var(--ink-soft); font-weight: 700; }
+
+    /* Split feature rows */
+    .feat { display: grid; gap: var(--space-6); align-items: center; }
+    @media (min-width: 769px) {
+      .feat { grid-template-columns: 1.05fr 0.95fr; gap: var(--space-8); }
+      .feat--flip .feat__visual { order: 2; }
+    }
+    .feat__copy p { color: var(--ink-soft); }
+    .feat__copy .btn { margin-top: var(--space-4); }
+    .feat h2 { margin-top: var(--space-2); }
+
+    /* Framed mock panels */
+    .mock { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-24); box-shadow: var(--shadow-lifted-sm); padding: var(--space-6); }
+    .mock__caption { font-size: var(--text-tiny); color: var(--ink-mute); text-align: center; margin: var(--space-4) 0 0; }
+
+    /* Camera-to-pot illustration */
+    .cam { background: var(--sand); border-radius: var(--radius-16); padding: var(--space-5); display: grid; gap: var(--space-4); justify-items: center; }
+    .cam__frame { position: relative; width: 100%; aspect-ratio: 4 / 3; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-12); }
+    .cam__corner { position: absolute; width: 22px; height: 22px; border: 3px solid var(--blue); }
+    .cam__corner--tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; }
+    .cam__corner--tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; border-radius: 0 6px 0 0; }
+    .cam__corner--bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; border-radius: 0 0 0 6px; }
+    .cam__corner--br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; }
+    .cam__dest { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: var(--cyan-tint); border: 1px solid var(--cyan); color: var(--cyan-dark); font-size: var(--text-tiny); font-weight: 800; padding: 4px 12px; border-radius: var(--radius-full); white-space: nowrap; }
+    .cam__row { display: flex; align-items: center; gap: var(--space-5); }
+    .cam__shutter { width: 56px; height: 56px; border-radius: var(--radius-full); border: 4px solid var(--blue); background: var(--white); box-shadow: var(--glow-blue-soft, var(--shadow-lifted-sm)); }
+    .cam__dots { display: flex; gap: var(--space-2); }
+    .cam__dots span { width: 14px; height: 14px; border-radius: var(--radius-full); }
+
+    /* Sort illustration: thumbs -> arrow -> pot */
+    .sortflow { display: flex; align-items: center; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+    .sortflow__thumbs { display: grid; grid-template-columns: repeat(2, 52px); gap: var(--space-2); }
+    .sortflow__thumbs span { aspect-ratio: 1; border-radius: var(--radius-10); border: 1px solid var(--line); }
+    .sortflow__arrow { color: var(--ink-mute); font-weight: 900; font-size: 24px; }
+    .sortflow__pot { width: 96px; aspect-ratio: 1; border-radius: var(--radius-16); background: var(--blue-tint); border: 1px solid var(--blue-tint-strong); box-shadow: var(--glow-blue-soft, var(--shadow-lifted-sm)); display: grid; place-items: center; font-weight: 800; color: var(--blue-dark); font-size: var(--text-tiny); text-align: center; padding: var(--space-2); }
+    .sortflow__note { text-align: center; font-size: var(--text-tiny); color: var(--ink-mute); margin-top: var(--space-4); }
+    .sortflow__note del { color: var(--red-dark); }
+
+    /* Screenshot strip */
+    .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+    .shot { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-10); aspect-ratio: 9 / 14; padding: 6px; display: grid; gap: 4px; align-content: start; }
+    .shot i { display: block; height: 6px; border-radius: 3px; background: var(--line); }
+    .shot i:nth-child(2) { width: 70%; }
+    .shot i:nth-child(3) { width: 85%; }
+    .shot i:nth-child(4) { width: 55%; }
+    .shot__tag { margin-top: 2px; font-size: 10px; font-weight: 800; text-align: center; border-radius: var(--radius-full); padding: 2px 0; }
+    .shot__tag--keep { background: var(--green-tint); color: var(--green-dark); }
+    .shot__tag--toss { background: var(--red-tint); color: var(--red-dark); }
+
+    /* OCR search mock */
+    .searchbar { display: flex; align-items: center; gap: var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-full); padding: 10px var(--space-4); background: var(--white); box-shadow: var(--shadow-lifted-sm); font-weight: 700; color: var(--ink); }
+    .searchbar svg { flex: none; color: var(--ink-mute); }
+    .searchhits { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+    .searchhits div { display: flex; align-items: center; gap: var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-12); padding: var(--space-3) var(--space-4); font-size: var(--text-small); color: var(--ink-soft); background: var(--cream); }
+    .searchhits div::before { content: ""; width: 34px; height: 34px; flex: none; border-radius: var(--radius-6); background: var(--violet-tint); border: 1px solid var(--violet-tint-strong); }
+    .searchhits div:nth-child(2)::before { background: var(--orange-tint); border-color: var(--orange-tint-strong); }
+    .searchhits div:nth-child(3)::before { background: var(--green-tint); border-color: var(--green-tint-strong); }
+    mark { background: var(--cyan-tint-strong); color: var(--ink); border-radius: 4px; padding: 0 3px; }
+
+    /* Share chips */
+    .chips { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
+    .chip { display: inline-flex; align-items: center; gap: var(--space-2); border: 1px solid var(--line); background: var(--white); border-radius: var(--radius-full); padding: 8px var(--space-4); font-size: var(--text-small); font-weight: 700; color: var(--ink-soft); box-shadow: var(--shadow-lifted-sm); }
+    .chip::before { content: ""; width: 10px; height: 10px; border-radius: var(--radius-full); background: var(--blue); }
+    .chip:nth-child(2)::before { background: var(--green); }
+    .chip:nth-child(3)::before { background: var(--orange); }
+    .chip:nth-child(4)::before { background: var(--cyan); }
+    .chip:nth-child(5)::before { background: var(--violet); }
+    .chip:nth-child(6)::before { background: var(--red); }
+
+    /* Device row for iCloud */
+    .devices { display: flex; align-items: flex-end; justify-content: center; gap: var(--space-5); }
+    .device { border: 2px solid var(--ink); background: var(--cream); border-radius: var(--radius-10); position: relative; }
+    .device::after { content: ""; position: absolute; inset: 8px; border-radius: 6px; background: var(--blue-tint); }
+    .device--phone { width: 56px; height: 108px; }
+    .device--pad { width: 84px; height: 116px; }
+    .device--mac { width: 140px; height: 92px; border-radius: var(--radius-10) var(--radius-10) 0 0; }
+    .device--mac::before { content: ""; position: absolute; left: -14px; right: -14px; bottom: -10px; height: 10px; background: var(--ink); border-radius: 0 0 8px 8px; }
+    .devices__sync { align-self: center; color: var(--green); }
+
+    /* NOT callout */
+    .not-box { background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--red); border-radius: var(--radius-16); padding: var(--space-6) var(--space-6); box-shadow: var(--shadow-lifted-sm); }
+    .not-box h2 { margin-top: 0; }
+    .not-list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-4); }
+    .not-list li { display: grid; grid-template-columns: 28px 1fr; gap: var(--space-3); align-items: start; color: var(--ink-soft); }
+    .not-list li strong { color: var(--ink); }
+    .not-x { width: 28px; height: 28px; border-radius: var(--radius-full); background: var(--red-tint); color: var(--red-dark); display: grid; place-items: center; font-weight: 900; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.photopots.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://www.photopots.com/features.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html" aria-current="page">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Hero + breadcrumb -->
+    <section class="hero">
+      <div class="container container--narrow">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><span aria-current="page">Features</span></li>
+          </ol>
+        </nav>
+        <h1 class="hero__title">Every feature, built for <span class="hl">working photos</span>.</h1>
+        <p class="hero__sub">Your Camera Roll was never built to hold a job site, a classroom, and a family vacation at once. PhotoPots is the photo organizer that gives each part of your life its own pot — plus fast ways to fill them, find things later, and share without the scroll. Here's everything it does, plainly.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+          <a class="btn btn--secondary btn--lg" href="how-it-works.html">See how it works</a>
+        </div>
+        <p class="hero__note">Free · 25 sorts a week · iPhone, iPad &amp; Mac</p>
+      </div>
+    </section>
+
+    <!-- 1. Pots -->
+    <section class="section section--cream" id="pots">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">01 · Pots</span>
+          <h2 class="section-title">One pot for every project, client, or part of life</h2>
+          <p class="section-sub">Name it, pick a color, done. A pot for each job site, each rental property, each class you teach — and one that's just yours.</p>
+        </div>
+        <ul class="pot-grid reveal reveal--delay-1">
+          <li class="pot-tile pot-tile--blue">
+            <svg class="pot-tile__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            <div class="pot-tile__name">Work</div>
+            <div class="pot-tile__meta">128 photos</div>
+          </li>
+          <li class="pot-tile pot-tile--orange">
+            <svg class="pot-tile__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6"/></svg>
+            <div class="pot-tile__name">Receipts</div>
+            <div class="pot-tile__meta">42 photos</div>
+          </li>
+          <li class="pot-tile pot-tile--green">
+            <svg class="pot-tile__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+            <div class="pot-tile__name">Home Reno</div>
+            <div class="pot-tile__meta">67 photos</div>
+          </li>
+          <li class="pot-tile pot-tile--violet">
+            <svg class="pot-tile__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 21h10M12 17v4M7 9l3 3 4-5"/></svg>
+            <div class="pot-tile__name">Whiteboards</div>
+            <div class="pot-tile__meta">19 photos</div>
+          </li>
+        </ul>
+        <p class="text-center text-mute mt-6 reveal reveal--delay-2" style="max-width: 640px; margin-left: auto; margin-right: auto;">Pots aren't albums that leave a copy behind — a photo lives in its pot and nowhere else. Work photos stay out of your Memories, and family photos stop showing up when you scroll for that invoice shot. Read more about <a href="organize-work-photos/">how to organize work photos</a> this way.</p>
+      </div>
+    </section>
+
+    <!-- 2. Capture directly into a pot -->
+    <section class="section" id="capture">
+      <div class="container">
+        <div class="feat reveal">
+          <div class="feat__copy">
+            <span class="eyebrow eyebrow--orange">02 · Capture</span>
+            <h2 class="section-title">Shoot straight into a pot, past the Camera Roll</h2>
+            <p>Open the in-app camera, pick a pot, snap. The photo lands in that pot and <strong>never touches your Camera Roll</strong> — not in Recents, not in Memories, not in the photo picker other apps see.</p>
+            <p>It's the difference between cleaning up later and never making the mess. Contractors photograph the job site; agents shoot the listing; inspectors capture the defect — and none of it mixes with the birthday photos.</p>
+            <a class="btn btn--ghost" href="camera-that-skips-camera-roll/">More about the camera that skips the Camera Roll →</a>
+          </div>
+          <div class="feat__visual">
+            <div class="mock">
+              <div class="cam" aria-hidden="true">
+                <div class="cam__frame">
+                  <span class="cam__corner cam__corner--tl"></span>
+                  <span class="cam__corner cam__corner--tr"></span>
+                  <span class="cam__corner cam__corner--bl"></span>
+                  <span class="cam__corner cam__corner--br"></span>
+                  <span class="cam__dest">Saving to: Work</span>
+                </div>
+                <div class="cam__row">
+                  <div class="cam__dots">
+                    <span style="background: var(--cyan);"></span>
+                    <span style="background: var(--blue);"></span>
+                    <span style="background: var(--orange);"></span>
+                    <span style="background: var(--red);"></span>
+                  </div>
+                  <div class="cam__shutter"></div>
+                  <div class="cam__dots">
+                    <span style="background: var(--green);"></span>
+                    <span style="background: var(--violet);"></span>
+                  </div>
+                </div>
+              </div>
+              <p class="mock__caption">Pick a pot, press the shutter — it never lands in Recents.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Sort existing photos -->
+    <section class="section section--cream" id="sort">
+      <div class="container">
+        <div class="feat feat--flip reveal">
+          <div class="feat__copy">
+            <span class="eyebrow">03 · Sort</span>
+            <h2 class="section-title">Sort the photos you already have — really out</h2>
+            <p>Already drowning? Sort your existing library in batches: swipe through, assign each photo to a pot, and PhotoPots <strong>moves the original out of your Camera Roll</strong>. Not hidden. Not flagged. Gone from the camera roll and filed where it belongs.</p>
+            <p>That's the promise the whole app is built on — when you sort a photo, it actually leaves. Your Camera Roll becomes personal again, and your work photos live where you'd think to look for them. See the full flow in <a href="how-it-works.html">how it works</a>.</p>
+          </div>
+          <div class="feat__visual">
+            <div class="mock">
+              <div class="sortflow" aria-hidden="true">
+                <div class="sortflow__thumbs">
+                  <span style="background: var(--blue-tint);"></span>
+                  <span style="background: var(--orange-tint);"></span>
+                  <span style="background: var(--green-tint);"></span>
+                  <span style="background: var(--red-tint);"></span>
+                </div>
+                <span class="sortflow__arrow">→</span>
+                <div class="sortflow__pot">Work<br>pot</div>
+              </div>
+              <p class="sortflow__note"><del>hidden in an album</del> &nbsp;→&nbsp; <strong>moved out of the Camera Roll</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Screenshot triage -->
+    <section class="section" id="screenshots">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--red">04 · Screenshot triage</span>
+          <h2 class="section-title">Batch through screenshot clutter in minutes</h2>
+          <p class="section-sub">Screenshots pile up fast — error messages, tracking numbers, things you meant to read. PhotoPots gathers them into triage sessions: keep what matters into a pot, toss the rest, one quick decision at a time.</p>
+        </div>
+        <div class="mock reveal reveal--delay-1" style="max-width: 720px; margin: 0 auto;">
+          <div class="shots" aria-hidden="true">
+            <div class="shot"><i></i><i></i><i></i><i></i><span class="shot__tag shot__tag--keep">KEEP</span></div>
+            <div class="shot"><i></i><i></i><i></i><i></i><span class="shot__tag shot__tag--toss">TOSS</span></div>
+            <div class="shot"><i></i><i></i><i></i><i></i><span class="shot__tag shot__tag--toss">TOSS</span></div>
+            <div class="shot"><i></i><i></i><i></i><i></i><span class="shot__tag shot__tag--keep">KEEP</span></div>
+          </div>
+          <p class="mock__caption">Keep or toss — dozens of screenshots settled in one sitting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. OCR search -->
+    <section class="section section--cream" id="ocr">
+      <div class="container">
+        <div class="feat reveal">
+          <div class="feat__copy">
+            <span class="eyebrow eyebrow--violet">05 · OCR search</span>
+            <h2 class="section-title">Search the text inside your photos</h2>
+            <p>PhotoPots reads the words in your photos, so you can search them like notes. Type an invoice number, a name on a whiteboard, a street on a sign — the photo comes up.</p>
+            <p>For anyone who photographs paperwork, serial plates, whiteboards, or business cards, this turns "I know I took a photo of that" into a ten-second find instead of a ten-minute scroll.</p>
+          </div>
+          <div class="feat__visual">
+            <div class="mock">
+              <div class="searchbar" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                <span>INV-2041</span>
+              </div>
+              <div class="searchhits" aria-hidden="true">
+                <div>Receipt — <mark>INV-2041</mark> · Receipts pot</div>
+                <div>Whiteboard — “…see <mark>INV-2041</mark> totals” · Whiteboards</div>
+                <div>Email screenshot — “re: <mark>INV-2041</mark>” · Work</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 + 7. GPS metadata & crop/edit -->
+    <section class="section" id="metadata">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--green">06 · Metadata</span>
+          <h2 class="section-title">Proof of place, kept intact</h2>
+          <p class="section-sub">When a photo is evidence — of a job done, a property's condition, a delivery — its data matters as much as its pixels.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <h3 class="card__title">GPS metadata preserved</h3>
+            <p class="card__body">Location, date, and time stay attached from the moment you capture — and stay attached through sorting, cropping, and sharing. Pull up any photo and know exactly where and when it was taken.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M2 6h14a2 2 0 0 1 2 2v14"/></svg>
+            </div>
+            <h3 class="card__title">Crop &amp; edit without losing data</h3>
+            <p class="card__body">Tighten a shot of a serial plate or straighten a whiteboard photo — the GPS and timestamp survive the edit. Most editors quietly strip that out. PhotoPots doesn't.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. One-tap share -->
+    <section class="section section--cream" id="share">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--orange">07 · Share</span>
+          <h2 class="section-title">One tap to any app you already use</h2>
+          <p class="section-sub">No exporting, no digging through Recents. Share straight from the pot to AirDrop, WeChat, Notes, Email, Messages, your cloud drive — anywhere the iOS share sheet reaches. The right photo, because it was already filed.</p>
+        </div>
+        <div class="chips reveal reveal--delay-1" aria-hidden="true">
+          <span class="chip">AirDrop</span>
+          <span class="chip">WeChat</span>
+          <span class="chip">Notes</span>
+          <span class="chip">Email</span>
+          <span class="chip">Messages</span>
+          <span class="chip">Drive</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. iCloud sync -->
+    <section class="section" id="icloud">
+      <div class="container">
+        <div class="feat feat--flip reveal">
+          <div class="feat__copy">
+            <span class="eyebrow">08 · iCloud sync</span>
+            <h2 class="section-title">Your pots, on iPhone, iPad, and Mac</h2>
+            <p>Sort on your phone at the job site; pull the photo up on your Mac when you write the invoice. Pots sync through your own iCloud account — no new login, no extra subscription service, nothing leaving Apple's ecosystem.</p>
+            <p>Take the photo where the work happens. Use it where the paperwork happens.</p>
+          </div>
+          <div class="feat__visual">
+            <div class="mock">
+              <div class="devices" aria-hidden="true">
+                <div class="device device--phone"></div>
+                <svg class="devices__sync" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+                <div class="device device--pad"></div>
+                <svg class="devices__sync" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+                <div class="device device--mac"></div>
+              </div>
+              <p class="mock__caption">Same pots, every device — synced through your iCloud.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Widget + share extension -->
+    <section class="section section--cream" id="everywhere">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--violet">09 · Everywhere you are</span>
+          <h2 class="section-title">PhotoPots, even outside the app</h2>
+          <p class="section-sub">Sorting works best when it takes zero effort, so two shortcuts bring pots to wherever your photos already are.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--violet">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
+            </div>
+            <h3 class="card__title">Home-screen widget</h3>
+            <p class="card__body">Your pots on your Home Screen. One tap jumps straight into the pot's camera — from "I should photograph this" to filed away in about two seconds.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/></svg>
+            </div>
+            <h3 class="card__title">Share extension</h3>
+            <p class="card__body">Sent a photo in another app? Use the share sheet to file it directly into a pot without opening PhotoPots first. Incoming work photos get sorted at the door.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What PhotoPots is NOT -->
+    <section class="section" id="not">
+      <div class="container container--narrow">
+        <div class="not-box reveal">
+          <h2 class="section-title">What PhotoPots is NOT</h2>
+          <ul class="not-list">
+            <li>
+              <span class="not-x" aria-hidden="true">✕</span>
+              <span><strong>Not a cloud backup service.</strong> Your photos sync through your own iCloud. PhotoPots doesn't run servers full of your pictures, and doesn't want to.</span>
+            </li>
+            <li>
+              <span class="not-x" aria-hidden="true">✕</span>
+              <span><strong>Not a photo editor suite.</strong> Crop, straighten, done. If you need layers and filters, there are great apps for that — this one is for keeping work and life apart.</span>
+            </li>
+            <li>
+              <span class="not-x" aria-hidden="true">✕</span>
+              <span><strong>Not another place your photos get uploaded to.</strong> Sorting moves photos between pots on your devices and your iCloud. Nothing is uploaded to us, because there's no "us" server to upload to.</span>
+            </li>
+          </ul>
+          <p class="text-mute text-small mt-4" style="margin-bottom: 0;">Questions about limits or what's free? Check <a href="pricing.html">pricing</a> or the <a href="faq.html">FAQ</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your Camera Roll is not a filing system.</h2>
+            <p class="cta-banner__sub">Put work photos in a work pot. Sorting 25 photos a week is free — and it takes seconds each.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--secondary btn--lg" href="pricing.html">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

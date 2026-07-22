@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PhotoPots — BASE PAGE TEMPLATE
+  ============================================================================
+  HOW TO USE (page builders):
+  1. Copy this file to your page location (see DESIGN_BRIEF.md → File
+     conventions: root-level `pagename.html` for main pages, directory-style
+     `landing-name/index.html` for SEO landing pages and blog posts).
+  2. Fix ASSET PATHS if your page lives in a subdirectory:
+     use `../assets/...` instead of `assets/...` (all references below use
+     root-relative `assets/...` — keep them consistent per page).
+  3. Replace every `TODO:` placeholder (title, description, canonical, OG
+     URL, JSON-LD, content slot).
+  4. One <h1> per page. Follow SEO_BRIEF.md for titles, metas, schema.
+  5. Download buttons/links: use `<a class="btn btn--primary" data-appstore>`
+     — config.js wires the App Store URL automatically. Never hard-code it.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TODO: Page title — max 60 chars, see SEO_BRIEF.md formulas -->
+  <title>Page Title | PhotoPots</title>
+  <!-- TODO: Meta description — max 155 chars -->
+  <meta name="description" content="TODO: one-sentence page description with primary keyword.">
+
+  <!-- TODO: Canonical — absolute URL on https://www.photopots.com -->
+  <link rel="canonical" href="https://www.photopots.com/TODO">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="TODO: same as title">
+  <meta property="og:description" content="TODO: same as meta description">
+  <meta property="og:url" content="https://www.photopots.com/TODO">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TODO: same as title">
+  <meta name="twitter:description" content="TODO: same as meta description">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- TODO: JSON-LD — pick the right schema per SEO_BRIEF.md §7.
+       Home page: Organization + SoftwareApplication (with offers).
+       FAQ page: FAQPage. Subpages: BreadcrumbList. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TODO"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <!-- Keep this block identical on every page. Update aria-current to
+       mark the active nav item. -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <!-- TODO: PAGE CONTENT GOES HERE.
+       - Exactly one <h1> on the page.
+       - Wrap each band in <section class="section"> (+ optional
+         .section--cream) with an inner <div class="container">.
+       - Add class="reveal" to blocks that should animate in on scroll.
+       - Give sections with in-page links an id (anchors auto-clear the
+         sticky header via scroll-margin-top).
+       Example:
+       <section class="section">
+         <div class="container">
+           <div class="section-header section-header--center reveal">
+             <span class="eyebrow">Eyebrow label</span>
+             <h2 class="section-title">Section title</h2>
+             <p class="section-sub">Supporting sentence.</p>
+           </div>
+         </div>
+       </section>
+  -->
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <h1>TODO: Page heading</h1>
+        <p>TODO: Page content.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <!-- Keep this block identical on every page. -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+/* ==========================================================================
+   PhotoPots — Design Tokens
+   Single source of truth for color, spacing, radii, shadows, type.
+   Page builders: never hard-code hex values; always use these variables.
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------
+     Brand palette (from the app)
+     ------------------------------------------------------------------ */
+  --blue:   #1C9DE0;  /* aperture blue — primary accent / CTA          */
+  --cyan:   #2CD3E1;
+  --orange: #EA8A1E;
+  --red:    #D8453E;
+  --green:  #1D9E75;
+  --violet: #8C5BD9;
+
+  /* Darker variants — hover states, text on pastel tints */
+  --blue-dark:   #157FB8;
+  --cyan-dark:   #1FA9B5;
+  --orange-dark: #C7751A;
+  --red-dark:    #B83B35;
+  --green-dark:  #178263;
+  --violet-dark: #7449B5;
+
+  /* Pastel tints (color ≈15% on white) — pot tile backgrounds, washes */
+  --blue-tint:   #DCF0FA;
+  --cyan-tint:   #DFF8FA;
+  --orange-tint: #FBEDDD;
+  --red-tint:    #F9E3E2;
+  --green-tint:  #DDF0EA;
+  --violet-tint: #EDE6F9;
+
+  /* Stronger pastel (color ≈30%) — gradient end stops for pot tiles */
+  --blue-tint-strong:   #BAE1F6;
+  --cyan-tint-strong:   #BFF2F6;
+  --orange-tint-strong: #F8DBBB;
+  --red-tint-strong:    #F3C7C5;
+  --green-tint-strong:  #BBE2D6;
+  --violet-tint-strong: #DCCDF4;
+
+  /* ------------------------------------------------------------------
+     Neutrals — large surfaces stay here (visual policy: low saturation)
+     ------------------------------------------------------------------ */
+  --white:     #FFFFFF;
+  --cream:     #FAF7F2;  /* signature warm background                  */
+  --sand:      #F3EEE6;  /* slightly deeper warm neutral               */
+  --line:      #E8E2D8;  /* hairlines, borders                         */
+  --ink:       #23262E;  /* headings, high-emphasis text               */
+  --ink-soft:  #4A4F5A;  /* body text                                  */
+  --ink-mute:  #777C88;  /* captions, meta text                        */
+
+  /* ------------------------------------------------------------------
+     Spacing — 4pt grid
+     ------------------------------------------------------------------ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ------------------------------------------------------------------
+     Radii
+     ------------------------------------------------------------------ */
+  --radius-6: 6px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;   /* pot tiles, cards                             */
+  --radius-24: 24px;   /* hero panels, CTA banner                      */
+  --radius-full: 999px;
+
+  /* ------------------------------------------------------------------
+     Shadows — neutral lifts + per-color glows
+     Glow recipe from the app: color @ 45% opacity, blur 14, y 6.
+     ------------------------------------------------------------------ */
+  --shadow-lifted-sm: 0 1px 3px rgba(35, 38, 46, 0.06),
+                      0 6px 16px rgba(35, 38, 46, 0.07);
+  --shadow-lifted:    0 2px 6px rgba(35, 38, 46, 0.05),
+                      0 14px 36px rgba(35, 38, 46, 0.10);
+
+  --glow-blue:   0 6px 14px rgba(28, 157, 224, 0.45);
+  --glow-cyan:   0 6px 14px rgba(44, 211, 225, 0.45);
+  --glow-orange: 0 6px 14px rgba(234, 138, 30, 0.45);
+  --glow-red:    0 6px 14px rgba(216, 69, 62, 0.45);
+  --glow-green:  0 6px 14px rgba(29, 158, 117, 0.45);
+  --glow-violet: 0 6px 14px rgba(140, 91, 217, 0.45);
+
+  /* Softer glow for large tiles (45% is too heavy at scale) */
+  --glow-blue-soft:   0 8px 20px rgba(28, 157, 224, 0.22);
+  --glow-cyan-soft:   0 8px 20px rgba(44, 211, 225, 0.22);
+  --glow-orange-soft: 0 8px 20px rgba(234, 138, 30, 0.22);
+  --glow-red-soft:    0 8px 20px rgba(216, 69, 62, 0.22);
+  --glow-green-soft:  0 8px 20px rgba(29, 158, 117, 0.22);
+  --glow-violet-soft: 0 8px 20px rgba(140, 91, 217, 0.22);
+
+  /* ------------------------------------------------------------------
+     Typography
+     Headings: rounded & heavy. Body: Nunito regular / system.
+     ------------------------------------------------------------------ */
+  --font-display: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-display: clamp(2.5rem, 5.2vw, 3.5rem);    /* 40–56px hero     */
+  --text-h1: clamp(2.25rem, 4.5vw, 3rem);          /* 36–48px          */
+  --text-h2: clamp(1.75rem, 3.2vw, 2.25rem);       /* 28–36px          */
+  --text-h3: 1.375rem;                             /* 22px             */
+  --text-h4: 1.125rem;                             /* 18px             */
+  --text-body: 1.0625rem;                          /* 17px             */
+  --text-small: 0.9375rem;                         /* 15px             */
+  --text-tiny: 0.8125rem;                          /* 13px             */
+
+  --leading-tight: 1.12;
+  --leading-snug: 1.3;
+  --leading-body: 1.65;
+
+  /* ------------------------------------------------------------------
+     Layout
+     ------------------------------------------------------------------ */
+  --container: 1120px;
+  --container-narrow: 768px;
+  --header-height: 68px;
+
+  /* Breakpoints (reference — use in @media queries):
+     --bp-sm: 480px   phones
+     --bp-md: 768px   tablets
+     --bp-lg: 1024px  small laptops
+     --bp-xl: 1280px  desktops
+     Nav collapses below 860px. */
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

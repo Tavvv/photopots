@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Organize Work Photos — PhotoPots</title>
+  <meta name="description" content="Organize work photos into pots by project, client, or site. Search text inside photos with OCR, keep GPS metadata, sync everywhere. Free to download.">
+
+  <link rel="canonical" href="https://www.photopots.com/organize-work-photos/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Organize Work Photos — PhotoPots">
+  <meta property="og:description" content="Organize work photos into pots by project, client, or site. Search text inside photos with OCR, keep GPS metadata, sync everywhere. Free to download.">
+  <meta property="og:url" content="https://www.photopots.com/organize-work-photos/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Organize Work Photos — PhotoPots">
+  <meta name="twitter:description" content="Organize work photos into pots by project, client, or site. Search text inside photos with OCR, keep GPS metadata, sync everywhere. Free to download.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Fonts: Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+
+  <style>
+    /* Page-specific: breadcrumbs + before/after comparison */
+    .breadcrumbs { padding: var(--space-4) 0 0; font-size: var(--text-tiny); color: var(--ink-mute); }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: var(--space-2); color: var(--line); }
+    .breadcrumbs a { color: var(--ink-mute); }
+    .breadcrumbs [aria-current="page"] { color: var(--ink-soft); font-weight: 600; }
+
+    .ba { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4); }
+    .ba__col { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-16); padding: var(--space-5); }
+    .ba__label { display: inline-block; font-size: var(--text-tiny); font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-3); }
+    .ba__label--before { color: var(--red-dark); }
+    .ba__label--after { color: var(--green-dark); }
+    .ba__col p { margin: 0; font-size: var(--text-small); color: var(--ink-soft); }
+    @media (max-width: 768px) { .ba { grid-template-columns: 1fr; } }
+
+    .workflow { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-16); padding: var(--space-6); }
+    .workflow h3 { margin-top: 0; }
+    .workflow + .workflow { margin-top: var(--space-5); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.photopots.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Organize Work Photos", "item": "https://www.photopots.com/organize-work-photos/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does sorting a photo remove it from my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Sorting moves the original into the pot — it's removed from your Camera Roll, not just hidden. Your personal library stays personal, and your work photos live where you can actually find them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I organize work photos I took months ago?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can sort existing Camera Roll photos into pots at any time, in batches. Free includes 25 sorts a week; Pro removes the limit, so a backlog of thousands clears fast."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does OCR search work on whiteboards, documents, and labels?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PhotoPots reads the text inside your photos — whiteboards, forms, equipment labels, business cards, handwritten notes — so you can search for what was written, not when it was taken."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do my pots sync to my iPad and Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every pot, photo, and edit syncs over iCloud across iPhone, iPad, and Mac. Capture on your phone at the site, review and share from your Mac at the office."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="../index.html" aria-label="PhotoPots home">
+          <img src="../assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../features.html">Features</a></li>
+          <li><a class="nav__link" href="../how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="../pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="../blog/">Blog</a></li>
+          <li><a class="nav__link" href="../faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><span aria-current="page">Organize Work Photos</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">Organize work photos so you can find them <span class="hl">months later</span>.</h1>
+        <p class="hero__sub">PhotoPots sorts your work photos into pots — by project, client, or site — and gets them out of your Camera Roll for good. Every photo stays searchable, stamped with location, and synced across your devices.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+          <a class="btn btn--secondary btn--lg" href="../pricing.html">See pricing</a>
+        </div>
+        <p class="hero__note">Free · 25 sorts a week · iPhone, iPad &amp; Mac</p>
+      </div>
+    </section>
+
+    <!-- ============================ THE PROBLEM ============================ -->
+    <section class="section section--cream">
+      <div class="container container--narrow">
+        <div class="section-header reveal">
+          <span class="eyebrow eyebrow--red">The problem</span>
+          <h2 class="section-title">Your Camera Roll is not a filing system</h2>
+        </div>
+        <div class="reveal">
+          <p>If you work with photos, you already know how this goes. You snap a picture of a cracked foundation, a finished kitchen, a patient's wound dressing, a whiteboard full of measurements. It lands in your Camera Roll between your kid's birthday and a picture of your lunch. Then life happens.</p>
+          <p>Three months later, a client disputes an invoice. An inspector asks for documentation. A homeowner swears the railing was already damaged. You know you took the photo. It's somewhere in a scroll of 14,000 images, and the Camera Roll gives you nothing but a date.</p>
+          <p>Work photos aren't snapshots. They're a record that builds over time: progress, proof, condition, completion. And a record only works if you can retrieve it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ POTS MAP TO WORK ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Pots, not albums</span>
+          <h2 class="section-title">Organized the way you think about work</h2>
+          <p class="section-sub">Nobody thinks in camera rolls. You think in jobs, clients, and sites. Pots match that.</p>
+        </div>
+
+        <ul class="pot-grid reveal">
+          <li class="pot-tile pot-tile--blue">
+            <svg class="pot-tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+            <div class="pot-tile__name">Maple St Reno</div>
+            <div class="pot-tile__meta">214 photos · per project</div>
+          </li>
+          <li class="pot-tile pot-tile--orange">
+            <svg class="pot-tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <div class="pot-tile__name">Nguyen Family</div>
+            <div class="pot-tile__meta">86 photos · per client</div>
+          </li>
+          <li class="pot-tile pot-tile--green">
+            <svg class="pot-tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div class="pot-tile__name">Site 42 — North Lot</div>
+            <div class="pot-tile__meta">158 photos · per site</div>
+          </li>
+          <li class="pot-tile pot-tile--violet">
+            <svg class="pot-tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
+            <div class="pot-tile__name">Inspections 2025</div>
+            <div class="pot-tile__meta">342 photos · per category</div>
+          </li>
+        </ul>
+
+        <div class="grid-2 mt-8">
+          <div class="reveal">
+            <h3>File it the second it exists</h3>
+            <p>Capture with the in-app camera and the photo lands straight in the pot you choose. It never touches your Camera Roll — there's nothing to clean up later. Already have a backlog? Sort existing photos into pots in batches. Sorting <em>moves</em> the original out of your library; it doesn't hide it or duplicate it.</p>
+            <p>That's the difference between PhotoPots and albums: the work photo leaves your personal life entirely. Read <a href="../separate-work-and-personal-photos/">how to separate work and personal photos</a> for the full story.</p>
+          </div>
+          <div class="reveal reveal--delay-1">
+            <h3>Name it and color it your way</h3>
+            <p>Each pot gets its own name and color, so "Active jobs" looks different from "Invoiced" at a glance. Open the app and you're looking at your work, organized the way your brain already organizes it — not a wall of timestamps.</p>
+            <p>A home-screen widget puts your most-used pot one tap away; the share extension files photos from anywhere in iOS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ OCR SPOTLIGHT ============================ -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <span class="eyebrow eyebrow--orange">OCR search</span>
+            <h2 class="section-title">Search what's written in the photo</h2>
+            <p>Dates don't help you find the whiteboard from the March walkthrough. What was <em>written on it</em> does. PhotoPots reads the text inside your photos — whiteboards, forms, equipment labels, business cards, serial numbers, handwritten notes — and makes all of it searchable.</p>
+            <p>Type "HVAC unit 3 ton" and the photo of the spec plate appears. Search a client's name and find the signed change order you photographed on the hood of your truck. You stop remembering <em>when</em> you took things and start finding them by <em>what they say</em>.</p>
+            <p class="text-mute text-small">Screenshots piling up too? PhotoPots batches them for triage — see the <a href="../screenshot-organizer/">screenshot organizer</a>.</p>
+          </div>
+          <div class="reveal reveal--delay-1">
+            <ul class="check-list">
+              <li>Search whiteboards, documents, labels, and handwriting</li>
+              <li>Find a photo by a name, part number, or phrase inside it</li>
+              <li>Works across every pot at once, or scoped to one job</li>
+              <li>On-device — your photos aren't uploaded to anyone's cloud for indexing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ GPS + SYNC ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--green">Proof, preserved</span>
+          <h2 class="section-title">Metadata intact. Everywhere you work.</h2>
+          <p class="section-sub">A work photo is only evidence if its details survive. PhotoPots keeps them.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <h3 class="card__title">GPS stays on the photo</h3>
+            <p class="card__body">Location metadata is preserved through sorting, cropping, and editing. When a photo says the work was done at 422 Maple St at 9:14 AM, it still says it after you've cropped out your thumb. For documentation and disputes, that stamp matters.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .4-8.98 6 6 0 0 0-11.7 1.5A4 4 0 0 0 7 19h10.5z"/></svg>
+            </div>
+            <h3 class="card__title">iCloud sync across devices</h3>
+            <p class="card__body">Capture on your iPhone at the site. Review on your iPad in the truck. Build the report on your Mac at the office. Every pot, photo, and edit syncs automatically — no exporting, no AirDrop chains.</p>
+          </li>
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 3v12M7 8l5-5 5 5"/></svg>
+            </div>
+            <h3 class="card__title">Share anywhere, one tap</h3>
+            <p class="card__body">Send a photo — or a whole job's worth — to email, Messages, WhatsApp, Slack, or your project management tool with the standard iOS share sheet. The person receiving it gets a normal photo, metadata included. No app required on their end.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ PROFESSION WORKFLOWS ============================ -->
+    <section class="section section--sand">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--violet">In the field</span>
+          <h2 class="section-title">What organized work photos look like</h2>
+          <p class="section-sub">Three jobs, three before-and-afters.</p>
+        </div>
+
+        <div class="workflow reveal">
+          <h3>The contractor</h3>
+          <div class="ba">
+            <div class="ba__col">
+              <span class="ba__label ba__label--before">Before</span>
+              <p>Progress photos mixed into a Camera Roll with family pictures. When a client questions a change order four months later, it's 40 minutes of scrolling and an awkward conversation about the invoice.</p>
+            </div>
+            <div class="ba__col">
+              <span class="ba__label ba__label--after">After</span>
+              <p>Every job is a pot. Photos are captured straight into "Maple St Reno" and never touch the Camera Roll. The dispute takes two minutes: open the pot, find the framing photo, GPS and date intact, share it. Invoice paid.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow reveal">
+          <h3>The real estate agent</h3>
+          <div class="ba">
+            <div class="ba__col">
+              <span class="ba__label ba__label--before">Before</span>
+              <p>Twelve active listings means hundreds of property photos jumbled together. Which ensuite was 8 Cedar Lane and which was 14? The shot for the listing refresh is somewhere in last Tuesday, probably.</p>
+            </div>
+            <div class="ba__col">
+              <span class="ba__label ba__label--after">After</span>
+              <p>One pot per listing, color-coded by status. Photos file themselves at capture. OCR search finds the photo of the utility closet by the text on the breaker panel. At closing, the whole pot exports to the client file in one share.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow reveal">
+          <h3>The field inspector</h3>
+          <div class="ba">
+            <div class="ba__col">
+              <span class="ba__label ba__label--before">Before</span>
+              <p>Six sites a day, photos dumped into one stream. Back at the office the report takes longer than the inspections: matching photos to sites from memory, cropping out a co-worker and losing the GPS data to an export.</p>
+            </div>
+            <div class="ba__col">
+              <span class="ba__label ba__label--after">After</span>
+              <p>A pot per site keeps photos separated from the moment of capture. Cropping and annotating in PhotoPots preserves the metadata, so every photo in the report still carries its coordinates. The report writes itself from pots that are already in order.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center mt-6 reveal">Nurse, teacher, technician, designer — if photos are how you communicate at work, the same pattern applies. Read more workflows on the <a href="../blog/">PhotoPots blog</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Questions</span>
+          <h2 class="section-title">Organizing work photos, answered</h2>
+        </div>
+        <div class="faq faq--center">
+          <details class="faq__item">
+            <summary class="faq__q">Does sorting a photo remove it from my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>Yes. Sorting moves the original into the pot — it's removed from your Camera Roll, not just hidden. Your personal library stays personal, and your work photos live where you can actually find them.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can I organize work photos I took months ago?</summary>
+            <div class="faq__a">
+              <p>Yes. You can sort existing Camera Roll photos into pots at any time, in batches. Free includes 25 sorts a week; Pro removes the limit, so a backlog of thousands clears fast.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Does OCR search work on whiteboards, documents, and labels?</summary>
+            <div class="faq__a">
+              <p>Yes. PhotoPots reads the text inside your photos — whiteboards, forms, equipment labels, business cards, handwritten notes — so you can search for what was written, not when it was taken.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Do my pots sync to my iPad and Mac?</summary>
+            <div class="faq__a">
+              <p>Yes. Every pot, photo, and edit syncs over iCloud across iPhone, iPad, and Mac. Capture on your phone at the site, review and share from your Mac at the office.</p>
+            </div>
+          </details>
+        </div>
+        <p class="text-center mt-6 text-mute">More questions? See the full <a href="../faq.html">FAQ</a> or compare plans on the <a href="../pricing.html">pricing page</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your next work photo, filed from the start.</h2>
+            <p class="cta-banner__sub">Download PhotoPots, make your first pot, and never scroll for a job photo again.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--secondary btn--lg" href="../pricing.html">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="../features.html">Features</a></li>
+            <li><a href="../how-it-works.html">How it works</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+            <li><a href="../support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

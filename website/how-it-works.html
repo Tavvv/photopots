@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How PhotoPots Works — Sort &amp; Capture Photos</title>
+  <meta name="description" content="See how PhotoPots works: sort Camera Roll photos into pots (originals are moved, not hidden) or capture straight into a pot. No servers, no account.">
+
+  <link rel="canonical" href="https://www.photopots.com/how-it-works.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="How PhotoPots Works — Sort &amp; Capture Photos">
+  <meta property="og:description" content="See how PhotoPots works: sort Camera Roll photos into pots (originals are moved, not hidden) or capture straight into a pot. No servers, no account.">
+  <meta property="og:url" content="https://www.photopots.com/how-it-works.html">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How PhotoPots Works — Sort &amp; Capture Photos">
+  <meta name="twitter:description" content="See how PhotoPots works: sort Camera Roll photos into pots (originals are moved, not hidden) or capture straight into a pot. No servers, no account.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Page-specific styles: breadcrumb, flow steps, mini illustrations, privacy strip -->
+  <style>
+    /* Breadcrumb */
+    .breadcrumb { padding-top: var(--space-5); }
+    .breadcrumb ol {
+      list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2);
+      padding: 0; margin: 0; font-size: var(--text-tiny); color: var(--ink-mute);
+    }
+    .breadcrumb li + li::before { content: "/"; margin-right: var(--space-2); color: var(--line); }
+    .breadcrumb a { color: var(--ink-mute); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--blue-dark); text-decoration: underline; }
+    .breadcrumb [aria-current="page"] { color: var(--ink-soft); font-weight: 700; }
+
+    /* Flow header */
+    .flow-head { max-width: 640px; margin-bottom: var(--space-7); }
+    .flow-head h2 { margin-bottom: var(--space-3); }
+
+    /* Step list */
+    .steps {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; gap: var(--space-5);
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 1024px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px)  { .steps { grid-template-columns: 1fr; } }
+
+    .step {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-16);
+      padding: var(--space-5);
+      display: flex; flex-direction: column; gap: var(--space-4);
+      box-shadow: var(--shadow-lifted-sm);
+    }
+    .step__num {
+      width: 32px; height: 32px; border-radius: var(--radius-full);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: var(--text-small); color: var(--white);
+      background: var(--step-accent, var(--blue));
+    }
+    .step--blue   { --step-accent: var(--blue);   --step-tint: var(--blue-tint); }
+    .step--cyan   { --step-accent: var(--cyan-dark); --step-tint: var(--cyan-tint); }
+    .step--orange { --step-accent: var(--orange); --step-tint: var(--orange-tint); }
+    .step--green  { --step-accent: var(--green);  --step-tint: var(--green-tint); }
+
+    .step h3 { font-size: var(--text-h4); margin: 0; }
+    .step p  { font-size: var(--text-small); color: var(--ink-soft); margin: 0; }
+
+    /* Mini CSS illustrations */
+    .step__art {
+      border-radius: var(--radius-12);
+      background: var(--cream);
+      border: 1px solid var(--line);
+      min-height: 96px;
+      display: flex; align-items: center; justify-content: center;
+      gap: var(--space-2); padding: var(--space-3);
+      overflow: hidden;
+    }
+    .thumb {
+      width: 34px; height: 44px; border-radius: var(--radius-6);
+      background: linear-gradient(160deg, var(--sand), var(--line));
+      border: 2px solid var(--white);
+      box-shadow: var(--shadow-lifted-sm);
+    }
+    .thumb:nth-child(2) { transform: rotate(-5deg) translateY(3px); }
+    .thumb:nth-child(3) { transform: rotate(4deg); }
+    .thumb--picked { background: linear-gradient(160deg, var(--blue-tint), var(--blue-tint-strong)); outline: 2px solid var(--blue); }
+    .thumb--picked-b { background: linear-gradient(160deg, var(--cyan-tint), var(--cyan-tint-strong)); outline: 2px solid var(--cyan-dark); }
+    .thumb--picked-c { background: linear-gradient(160deg, var(--orange-tint), var(--orange-tint-strong)); outline: 2px solid var(--orange); }
+    .art-arrow {
+      color: var(--ink-mute); font-weight: 800; font-size: var(--text-h4);
+      flex: none;
+    }
+    .mini-pot {
+      width: 52px; height: 52px; border-radius: var(--radius-12);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: var(--text-tiny); font-weight: 800; color: var(--ink);
+      flex: none;
+    }
+    .mini-pot--blue   { background: linear-gradient(160deg, var(--blue-tint), var(--blue-tint-strong)); box-shadow: var(--glow-blue-soft); }
+    .mini-pot--cyan   { background: linear-gradient(160deg, var(--cyan-tint), var(--cyan-tint-strong)); box-shadow: var(--glow-cyan-soft); }
+    .mini-pot--orange { background: linear-gradient(160deg, var(--orange-tint), var(--orange-tint-strong)); box-shadow: var(--glow-orange-soft); }
+    .mini-pot--green  { background: linear-gradient(160deg, var(--green-tint), var(--green-tint-strong)); box-shadow: var(--glow-green-soft); }
+    .mini-pot--ring   { outline: 2px solid var(--step-accent, var(--blue)); outline-offset: 2px; }
+    .art-check {
+      width: 28px; height: 28px; border-radius: var(--radius-full);
+      background: var(--green-tint); color: var(--green-dark);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 900; flex: none;
+    }
+    .viewfinder {
+      width: 64px; height: 80px; border-radius: var(--radius-10);
+      border: 2px dashed var(--ink-mute);
+      display: inline-flex; align-items: flex-end; justify-content: center;
+      padding-bottom: var(--space-2); flex: none;
+    }
+    .viewfinder__dot {
+      width: 16px; height: 16px; border-radius: var(--radius-full);
+      background: var(--white); border: 3px solid var(--step-accent, var(--blue));
+    }
+
+    /* Explainer blocks */
+    .explainer {
+      display: grid; gap: var(--space-6);
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 900px) { .explainer { grid-template-columns: 1fr; } }
+    .explainer h3 { font-size: var(--text-h4); margin-bottom: var(--space-2); }
+    .explainer p  { font-size: var(--text-small); color: var(--ink-soft); }
+    .explainer p + p { margin-top: var(--space-3); }
+
+    /* Privacy strip */
+    .privacy-strip {
+      display: grid; gap: var(--space-4);
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 720px) { .privacy-strip { grid-template-columns: 1fr; } }
+    .privacy-strip__item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-16);
+      padding: var(--space-5);
+      text-align: center;
+    }
+    .privacy-strip__item h3 { font-size: var(--text-h4); margin-bottom: var(--space-2); }
+    .privacy-strip__item p  { font-size: var(--text-small); color: var(--ink-soft); margin: 0; }
+    .privacy-strip__icon {
+      width: 40px; height: 40px; margin: 0 auto var(--space-3);
+      border-radius: var(--radius-12);
+      display: flex; align-items: center; justify-content: center;
+      background: var(--green-tint); color: var(--green-dark);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.photopots.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "How it works",
+            "item": "https://www.photopots.com/how-it-works.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do sorted photos disappear from my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — and that's the point. Sorting moves the original into the pot; it isn't hidden or copied. Your Camera Roll gets lighter, and the photo lives inside PhotoPots with its GPS and metadata intact. You can share it back out or move it to another pot anytime."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the in-app camera also save to my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Photos taken with the PhotoPots camera land directly in the pot you picked and never touch your Camera Roll at all — nothing in Recents, nothing in Memories, nothing mixed into family photos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to my photos if I delete the app?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your pots live in PhotoPots' container on your device and sync through your private iCloud. Deleting the app removes its container from that device, and we can't guarantee what iCloud keeps afterward — so keep the app installed on at least one device, or export your pots before deleting."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html" aria-current="page">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Breadcrumb -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><span aria-current="page">How it works</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Intro hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">How PhotoPots <span class="hl">works</span>.</h1>
+        <p class="hero__sub">
+          Two simple flows, one calm photo library. Sort the photos you already
+          have, or capture new ones straight into a pot — either way, work and
+          life stop sharing the same Camera Roll.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+          <a class="btn btn--secondary btn--lg" href="features.html">See all features</a>
+        </div>
+        <p class="hero__note">Free · 25 sorts a week · iPhone, iPad &amp; Mac</p>
+      </div>
+    </section>
+
+    <!-- FLOW A: Sort existing photos -->
+    <section class="section section--cream" id="sort">
+      <div class="container">
+        <div class="flow-head reveal">
+          <span class="eyebrow">Flow A</span>
+          <h2 class="section-title">Sort existing photos</h2>
+          <p class="section-sub">
+            For the backlog: job-site photos, receipts, rental walkthroughs, and
+            whiteboard shots already sitting in your Camera Roll next to your
+            kids' birthday party.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step step--blue reveal">
+            <span class="step__num" aria-hidden="true">1</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="thumb"></span>
+              <span class="thumb"></span>
+              <span class="thumb"></span>
+            </div>
+            <h3>Open your Camera Roll inside PhotoPots</h3>
+            <p>
+              PhotoPots shows your photo library right in the app. Nothing is
+              imported or uploaded — you browse your own photos, on your own
+              device, and pick what needs a better home.
+            </p>
+          </li>
+          <li class="step step--cyan reveal reveal--delay-1">
+            <span class="step__num" aria-hidden="true">2</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="thumb thumb--picked"></span>
+              <span class="thumb thumb--picked-b"></span>
+              <span class="thumb thumb--picked-c"></span>
+            </div>
+            <h3>Pick the photos that belong together</h3>
+            <p>
+              Tap a handful, or grab a whole batch from one job, one shift, or
+              one listing. Sorting works the same on three photos or three
+              hundred.
+            </p>
+          </li>
+          <li class="step step--orange reveal reveal--delay-2">
+            <span class="step__num" aria-hidden="true">3</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="mini-pot mini-pot--blue mini-pot--ring">Work</span>
+              <span class="mini-pot mini-pot--orange">Home</span>
+              <span class="mini-pot mini-pot--cyan">Kids</span>
+            </div>
+            <h3>Choose a pot</h3>
+            <p>
+              Drop them into Work, Receipts, Rentals — whatever pots you've
+              named and colored. Need a new one? Make it on the spot, right
+              from the picker.
+            </p>
+          </li>
+          <li class="step step--green reveal reveal--delay-3">
+            <span class="step__num" aria-hidden="true">4</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="thumb thumb--picked"></span>
+              <span class="art-arrow">→</span>
+              <span class="mini-pot mini-pot--blue">Work</span>
+              <span class="art-check">✓</span>
+            </div>
+            <h3>Done — originals leave the Camera Roll</h3>
+            <p>
+              This is the part that matters: sorting <strong>moves</strong> the
+              photo. The original is removed from your library and lives safely
+              inside the app, synced through your iCloud — GPS and metadata
+              untouched.
+            </p>
+          </li>
+        </ol>
+
+        <p class="text-center text-mute text-small mt-8">
+          Sorting is free up to 25 photos a week. Need more?
+          <a href="pricing.html">Pro removes the limit</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- FLOW B: Capture directly -->
+    <section class="section" id="capture">
+      <div class="container">
+        <div class="flow-head reveal">
+          <span class="eyebrow eyebrow--orange">Flow B</span>
+          <h2 class="section-title">Capture directly into a pot</h2>
+          <p class="section-sub">
+            For everything new: shoot with the in-app camera and the photo
+            never touches your Camera Roll in the first place.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step step--blue reveal">
+            <span class="step__num" aria-hidden="true">1</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="viewfinder"><span class="viewfinder__dot"></span></span>
+            </div>
+            <h3>Open the PhotoPots camera</h3>
+            <p>
+              One tap from inside the app or from the home-screen widget. It
+              opens fast, because the moment you're documenting rarely waits.
+            </p>
+          </li>
+          <li class="step step--cyan reveal reveal--delay-1">
+            <span class="step__num" aria-hidden="true">2</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="mini-pot mini-pot--blue">Work</span>
+              <span class="art-arrow">⇄</span>
+              <span class="mini-pot mini-pot--orange mini-pot--ring">Home</span>
+            </div>
+            <h3>Swipe to the pot you want</h3>
+            <p>
+              The pot picker lives in the viewfinder. Swipe between Work and
+              Personal <em>before</em> you shoot — not in a cleanup session
+              three weeks later.
+            </p>
+          </li>
+          <li class="step step--orange reveal reveal--delay-2">
+            <span class="step__num" aria-hidden="true">3</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="viewfinder"><span class="viewfinder__dot" style="background: var(--orange-tint-strong);"></span></span>
+            </div>
+            <h3>Capture, crop, move on</h3>
+            <p>
+              Shoot like normal. Crop and edit right there — PhotoPots keeps
+              the GPS location and the rest of the metadata intact through
+              every edit, so the record stays trustworthy.
+            </p>
+          </li>
+          <li class="step step--green reveal reveal--delay-3">
+            <span class="step__num" aria-hidden="true">4</span>
+            <div class="step__art" aria-hidden="true">
+              <span class="mini-pot mini-pot--orange">Home</span>
+              <span class="art-check">✓</span>
+            </div>
+            <h3>It lands in the pot — never the Camera Roll</h3>
+            <p>
+              The photo goes straight into the pot you picked. Nothing appears
+              in Recents, nothing sneaks into Memories, nothing gets mixed into
+              family photos. It never touches your Camera Roll at all.
+            </p>
+          </li>
+        </ol>
+
+        <p class="text-center text-mute text-small mt-8">
+          Both flows work with OCR search, batch screenshot triage, and the
+          share extension — <a href="features.html">see the full feature list</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- What happens to my photos? -->
+    <section class="section section--sand" id="your-photos">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--green">Straight answers</span>
+          <h2 class="section-title">What happens to my photos?</h2>
+          <p class="section-sub">
+            Fair question — you're trusting an app with your pictures. Here's
+            exactly where they live.
+          </p>
+        </div>
+
+        <div class="explainer">
+          <div class="reveal">
+            <h3>Where the files live</h3>
+            <p>
+              Photos you sort or capture move into PhotoPots' own container on
+              your device. They're out of the Camera Roll, but they're not
+              "in the cloud" with us — we don't run photo servers and never
+              see your pictures.
+            </p>
+            <p>
+              Inside the app they behave like normal photos: view, crop, edit,
+              search with OCR, and share anywhere with one tap.
+            </p>
+          </div>
+          <div class="reveal reveal--delay-1">
+            <h3>How iCloud sync works</h3>
+            <p>
+              Your pots sync across iPhone, iPad, and Mac through your own
+              private iCloud account — the same mechanism that syncs your
+              notes and documents. Sort a photo on your phone at the job site
+              and it's in the same pot on your Mac when you're back at your
+              desk.
+            </p>
+            <p>
+              Sync follows your iCloud settings and availability. No PhotoPots
+              account, no extra login, nothing to manage.
+            </p>
+          </div>
+          <div class="reveal reveal--delay-2">
+            <h3>If you delete the app</h3>
+            <p>
+              Honest answer: deleting PhotoPots removes its container from that
+              device, and we can't promise what iCloud retains afterward or for
+              how long. Your Camera Roll photos are untouched either way.
+            </p>
+            <p>
+              So before deleting, keep the app installed on at least one
+              device — or share your pots out first. One-tap share makes
+              exporting painless.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy by design strip -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="privacy-strip">
+          <div class="privacy-strip__item reveal">
+            <div class="privacy-strip__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M4 4l16 16"/></svg>
+            </div>
+            <h3>No servers</h3>
+            <p>Your photos never pass through anything we operate. There is no PhotoPots cloud to breach.</p>
+          </div>
+          <div class="privacy-strip__item reveal reveal--delay-1">
+            <div class="privacy-strip__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/><path d="M3 3l18 18"/></svg>
+            </div>
+            <h3>No account</h3>
+            <p>No email, no password, no profile. Download the app and start sorting in under a minute.</p>
+          </div>
+          <div class="privacy-strip__item reveal reveal--delay-2">
+            <div class="privacy-strip__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18a4 4 0 1 1 .6-7.96A5.5 5.5 0 0 1 17.3 8.6 4.5 4.5 0 0 1 17.5 18H6z"/></svg>
+            </div>
+            <h3>Your iCloud</h3>
+            <p>Sync rides on your private iCloud account, protected by Apple's security — not ours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mini FAQ -->
+    <section class="section section--cream" id="faq">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--violet">Quick questions</span>
+          <h2 class="section-title">Flow FAQ</h2>
+          <p class="section-sub">
+            The three questions everyone asks before their first sort.
+            <a href="faq.html">More answers on the full FAQ page</a>.
+          </p>
+        </div>
+
+        <div class="faq faq--center">
+          <details class="faq__item">
+            <summary class="faq__q">Do sorted photos disappear from my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>
+                Yes — and that's the point. Sorting moves the original into the
+                pot; it isn't hidden or copied. Your Camera Roll gets lighter,
+                and the photo lives inside PhotoPots with its GPS and metadata
+                intact. You can share it back out or move it to another pot
+                anytime.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Does the in-app camera also save to my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>
+                No. Photos taken with the PhotoPots camera land directly in the
+                pot you picked and never touch your Camera Roll at all —
+                nothing in Recents, nothing in Memories, nothing mixed into
+                family photos.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">What happens to my photos if I delete the app?</summary>
+            <div class="faq__a">
+              <p>
+                Your pots live in PhotoPots' container on your device and sync
+                through your private iCloud. Deleting the app removes its
+                container from that device, and we can't guarantee what iCloud
+                keeps afterward — so keep the app installed on at least one
+                device, or export your pots before deleting.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <p class="text-center text-mute text-small mt-6">
+          Wondering why separation matters at all?
+          <a href="separate-work-and-personal-photos/">Read why work and personal photos don't belong together</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Keep work and life apart.</h2>
+            <p class="cta-banner__sub">
+              Download PhotoPots, make your first pot, and sort your first batch
+              — all in under a minute. Free for 25 sorts a week.
+            </p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--secondary btn--lg" href="pricing.html">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

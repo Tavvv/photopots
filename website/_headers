@@ -1,0 +1,30 @@
+# Cloudflare Pages headers
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: no-cache
+
+/
+  Cache-Control: no-cache
+
+/blog/*
+  Cache-Control: no-cache
+
+/separate-work-and-personal-photos/*
+  Cache-Control: no-cache
+
+/organize-work-photos/*
+  Cache-Control: no-cache
+
+/camera-that-skips-camera-roll/*
+  Cache-Control: no-cache
+
+/screenshot-organizer/*
+  Cache-Control: no-cache
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY

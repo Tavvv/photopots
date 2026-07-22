@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pricing — PhotoPots</title>
+  <meta name="description" content="PhotoPots pricing: free forever with 25 sorts a week, or Pro for unlimited sorting. No trials, no dark patterns. Free for iPhone, iPad &amp; Mac.">
+
+  <link rel="canonical" href="https://www.photopots.com/pricing.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Pricing — PhotoPots">
+  <meta property="og:description" content="PhotoPots pricing: free forever with 25 sorts a week, or go Pro for unlimited sorting. No trials, no dark patterns. Download free for iPhone, iPad &amp; Mac.">
+  <meta property="og:url" content="https://www.photopots.com/pricing.html">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing — PhotoPots">
+  <meta name="twitter:description" content="PhotoPots pricing: free forever with 25 sorts a week, or go Pro for unlimited sorting. No trials, no dark patterns. Download free for iPhone, iPad &amp; Mac.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Page-specific styles: comparison table -->
+  <style>
+    .compare-wrap {
+      overflow-x: auto;
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-16);
+      box-shadow: var(--shadow-lifted-sm);
+    }
+    .compare-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+    }
+    .compare-table th,
+    .compare-table td {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--line);
+      font-size: var(--text-small);
+      text-align: left;
+    }
+    .compare-table thead th {
+      background: var(--sand);
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .compare-table tbody tr:last-child td { border-bottom: 0; }
+    .compare-table td:first-child { color: var(--ink-soft); font-weight: 600; }
+    .compare-table th:not(:first-child),
+    .compare-table td:not(:first-child) { text-align: center; width: 130px; }
+    .compare-yes { color: var(--green-dark); font-weight: 800; }
+    .compare-no { color: var(--ink-mute); }
+    .breadcrumb { font-size: var(--text-tiny); color: var(--ink-mute); margin-bottom: var(--space-5); }
+    .breadcrumb a { color: var(--ink-mute); }
+    .breadcrumb a:hover { color: var(--blue-dark); }
+  </style>
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- JSON-LD: FAQPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is the free version really free forever?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Free isn't a trial that expires — it's a real plan. You get 25 sorts a week, unlimited pots, capture straight into a pot, iCloud sync, and all the core features, forever. The limit resets every week and never turns into a paywall."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens when I hit the 25-sort weekly limit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nothing scary. The limit only applies to sorting existing Camera Roll photos into pots — everything else keeps working. Sorting picks up again when your week resets, and the app shows you exactly when that is. No surprise charges, and photos you already sorted stay right where you put them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I cancel my Pro subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Anytime, in a few taps: on your iPhone or Mac go to Settings → your name → Subscriptions, or open the App Store app. Canceling stops the next renewal — you keep Pro until the current period ends, and everything in your pots stays exactly where it is. No retention flows, no guilt trips."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I restore my purchase on a new device?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Pro is tied to your Apple ID, so it follows you to any iPhone, iPad, or Mac signed into the same account. On a new device, open PhotoPots, go to the upgrade screen, and tap Restore Purchases. No codes, no emails to support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Pro support Family Sharing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — Pro works with Apple's Family Sharing, so up to six family members can use it under one subscription. Each person keeps their own private library and pots; only the subscription is shared. Manage it like any other subscription in your App Store settings."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.photopots.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Pricing",
+            "item": "https://www.photopots.com/pricing.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html" aria-current="page">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> &nbsp;/&nbsp; <span aria-current="page">Pricing</span>
+        </nav>
+        <h1 class="hero__title">Simple pricing. <span class="hl--blue">Free to start</span>.</h1>
+        <p class="hero__sub">
+          PhotoPots keeps work and personal photos in separate pots. Start free with
+          25 sorts a week — forever, not a trial. Upgrade to Pro when sorting photos
+          is part of your daily work. That's the whole pricing model.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+          <a class="btn btn--secondary btn--lg" href="#compare">Compare plans</a>
+        </div>
+        <p class="hero__note">No credit card · No account required · iPhone, iPad &amp; Mac</p>
+      </div>
+    </section>
+
+    <!-- Pricing cards -->
+    <section class="section section--cream section--tight" id="plans">
+      <div class="container">
+        <div class="pricing-grid">
+
+          <div class="price-card reveal">
+            <h2 class="price-card__name">Free</h2>
+            <p class="price-card__price">$0 <small>forever</small></p>
+            <ul class="check-list price-card__features">
+              <li>25 sorts per week</li>
+              <li>Unlimited pots with custom names &amp; colors</li>
+              <li>Capture straight into a pot</li>
+              <li>iCloud sync across iPhone, iPad &amp; Mac</li>
+              <li>All core features included</li>
+            </ul>
+            <p class="text-mute text-small mb-4">Perfect for trying it out — and for most casual sorting, it's all you'll ever need.</p>
+            <a class="btn btn--secondary" data-appstore>Download free</a>
+          </div>
+
+          <div class="price-card price-card--featured reveal reveal--delay-1">
+            <span class="price-card__badge">Best for daily work</span>
+            <h2 class="price-card__name">Pro</h2>
+            <p class="price-card__price" style="font-size:1.9rem; line-height:1.15;">One simple upgrade</p>
+            <ul class="check-list price-card__features">
+              <li>Unlimited capture &amp; sorting — no weekly limit</li>
+              <li>Everything in Free</li>
+              <li>Priority access to new features</li>
+              <li>Supports independent development</li>
+            </ul>
+            <p class="text-mute text-small mb-4">See current pricing in the app — subscribe monthly or yearly, cancel anytime.</p>
+            <a class="btn btn--primary" data-appstore>Download &amp; go Pro</a>
+          </div>
+
+        </div>
+
+        <p class="text-center text-mute text-small mt-6">
+          Both plans get the same honest app. Pro removes one limit. That's it.
+        </p>
+      </div>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="section" id="compare">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Compare</span>
+          <h2 class="section-title">What's in each plan</h2>
+          <p class="section-sub">
+            Every feature works on Free. Pro is about volume, not locked features.
+            See the <a href="features.html">full feature list</a> for what each one does.
+          </p>
+        </div>
+
+        <div class="compare-wrap reveal">
+          <table class="compare-table">
+            <caption class="visually-hidden">Feature comparison between PhotoPots Free and Pro</caption>
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">Free</th>
+                <th scope="col">Pro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sort existing Camera Roll photos into pots</td>
+                <td>25 per week</td>
+                <td class="compare-yes">Unlimited</td>
+              </tr>
+              <tr>
+                <td>Pots with custom names &amp; colors</td>
+                <td class="compare-yes">Unlimited</td>
+                <td class="compare-yes">Unlimited</td>
+              </tr>
+              <tr>
+                <td>In-app camera — never touches Camera Roll</td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+              <tr>
+                <td>iCloud sync across iPhone, iPad &amp; Mac</td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+              <tr>
+                <td>GPS metadata preserved</td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+              <tr>
+                <td>Crop &amp; edit without losing metadata</td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+              <tr>
+                <td>OCR search — find photos by the text in them</td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+              <tr>
+                <td>Share anywhere, share extension &amp; home-screen widget</td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+              <tr>
+                <td>Batch screenshot triage</td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+              <tr>
+                <td>Priority access to new features</td>
+                <td class="compare-no"><span aria-hidden="true">—</span><span class="visually-hidden">Not included</span></td>
+                <td class="compare-yes"><span aria-hidden="true">✓</span><span class="visually-hidden">Included</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why a weekly limit -->
+    <section class="section section--sand">
+      <div class="container container--narrow">
+        <div class="section-header reveal">
+          <span class="eyebrow eyebrow--green">Fair by design</span>
+          <h2 class="section-title">Why a weekly limit?</h2>
+        </div>
+        <div class="reveal">
+          <p>
+            Because we wanted Free to be genuinely free — not a 7-day trial with a
+            countdown timer. Most people sort a handful of photos here and there, and
+            25 a week covers that comfortably. If you sort photos for work every day —
+            contractors documenting job sites, agents shooting listings, inspectors
+            filing reports — that's real, daily value, and Pro is how you pay for it.
+          </p>
+          <p>
+            The limit resets every week and never expires, so Free never quietly turns
+            into a paywall. Want to see what a "sort" actually does before you count
+            them? <a href="how-it-works.html">Here's how sorting works</a> — the short
+            version: the photo moves into the pot, and the original leaves your Camera
+            Roll. Gone from the mess, kept in the right place.
+          </p>
+          <p>
+            And a promise, in plain words: <strong>no dark patterns.</strong> No fake
+            discounts, no countdown timers, no hiding the cancel button. The free tier
+            stays free, and Pro cancels in a few taps. That's the whole trick — there
+            isn't one.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing FAQ -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--orange">Questions</span>
+          <h2 class="section-title">Pricing questions, straight answers</h2>
+          <p class="section-sub">
+            Billing, restoring, canceling — the stuff nobody likes reading about, written
+            like we'd want to read it. More questions? The <a href="faq.html">full FAQ</a>
+            covers the app itself.
+          </p>
+        </div>
+
+        <div class="faq reveal">
+          <details class="faq__item">
+            <summary class="faq__q">Is the free version really free forever?</summary>
+            <div class="faq__a">
+              <p>Yes. Free isn't a trial that expires — it's a real plan. You get 25 sorts a week, unlimited pots, capture straight into a pot, iCloud sync, and all the core features, forever. The limit resets every week and never turns into a paywall.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">What happens when I hit the 25-sort weekly limit?</summary>
+            <div class="faq__a">
+              <p>Nothing scary. The limit only applies to sorting existing Camera Roll photos into pots — everything else keeps working. Sorting picks up again when your week resets, and the app shows you exactly when that is. No surprise charges, and photos you already sorted stay right where you put them.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">How do I cancel my Pro subscription?</summary>
+            <div class="faq__a">
+              <p>Anytime, in a few taps: on your iPhone or Mac go to Settings → your name → Subscriptions, or open the App Store app. Canceling stops the next renewal — you keep Pro until the current period ends, and everything in your pots stays exactly where it is. No retention flows, no guilt trips.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Can I restore my purchase on a new device?</summary>
+            <div class="faq__a">
+              <p>Yes. Pro is tied to your Apple ID, so it follows you to any iPhone, iPad, or Mac signed into the same account. On a new device, open PhotoPots, go to the upgrade screen, and tap Restore Purchases. No codes, no emails to support.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Does Pro support Family Sharing?</summary>
+            <div class="faq__a">
+              <p>Yes — Pro works with Apple's Family Sharing, so up to six family members can use it under one subscription. Each person keeps their own private library and pots; only the subscription is shared. Manage it like any other subscription in your App Store settings.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Start free. Upgrade only if it earns it.</h2>
+            <p class="cta-banner__sub">25 sorts a week, no credit card, no account. See how it feels to have a clean Camera Roll.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--ghost" href="features.html">See every feature →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

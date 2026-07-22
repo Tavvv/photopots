@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page Not Found — PhotoPots</title>
+  <meta name="description" content="This photo fell between the pots. The page you're looking for isn't here — head back home or browse the PhotoPots FAQ.">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Page Not Found — PhotoPots">
+  <meta property="og:description" content="This photo fell between the pots. Head back home or browse the PhotoPots FAQ.">
+  <meta property="og:url" content="https://www.photopots.com/404.html">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page Not Found — PhotoPots">
+  <meta name="twitter:description" content="This photo fell between the pots. Head back home or browse the PhotoPots FAQ.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons (absolute paths so this page works at any depth) -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (absolute paths) -->
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Scripts (absolute paths) -->
+  <script src="/assets/js/config.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <style>
+    .nf {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-9) var(--space-4);
+    }
+    .nf__logo {
+      margin-bottom: var(--space-6);
+    }
+    .nf__code {
+      font-size: var(--text-tiny);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: var(--space-3);
+    }
+    .nf__title {
+      font-size: var(--text-h1);
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+      max-width: 20ch;
+    }
+    .nf__sub {
+      font-size: var(--text-body);
+      color: var(--ink-soft);
+      max-width: 46ch;
+      margin-bottom: var(--space-7);
+    }
+    .nf__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      margin-bottom: var(--space-8);
+    }
+    .nf__pots {
+      list-style: none;
+      display: flex;
+      gap: var(--space-4);
+      padding: 0;
+      margin: 0;
+    }
+    .nf__pots .pot-tile {
+      width: 88px;
+      padding: var(--space-3);
+    }
+    .nf__pots .pot-tile__name {
+      font-size: var(--text-tiny);
+    }
+    .nf__pots .pot-tile:nth-child(2) { transform: rotate(2deg); }
+    .nf__pots .pot-tile:nth-child(3) { transform: rotate(-2deg); }
+    @media (prefers-reduced-motion: no-preference) {
+      .nf__pots .pot-tile { transition: transform 0.25s ease; }
+      .nf__pots .pot-tile:hover { transform: translateY(-4px) rotate(0deg); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.photopots.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Page not found",
+        "item": "https://www.photopots.com/404.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <main id="main">
+    <section class="nf">
+      <a href="/" aria-label="PhotoPots home">
+        <img class="nf__logo" src="/assets/img/logo.svg" alt="PhotoPots logo" width="72" height="72">
+      </a>
+
+      <p class="nf__code">Error 404</p>
+      <h1 class="nf__title">This photo fell between the pots.</h1>
+      <p class="nf__sub">The page you're looking for isn't here — maybe it got sorted somewhere else. Everything else is right where it should be.</p>
+
+      <div class="nf__actions">
+        <a class="btn btn--primary btn--lg" href="/">Back to home</a>
+        <a class="btn btn--secondary btn--lg" href="/faq.html">Read the FAQ</a>
+      </div>
+
+      <ul class="nf__pots" aria-hidden="true">
+        <li class="pot-tile pot-tile--blue">
+          <div class="pot-tile__name">Work</div>
+        </li>
+        <li class="pot-tile pot-tile--orange">
+          <div class="pot-tile__name">Family</div>
+        </li>
+        <li class="pot-tile pot-tile--green">
+          <div class="pot-tile__name">Receipts</div>
+        </li>
+        <li class="pot-tile pot-tile--violet">
+          <div class="pot-tile__name">???</div>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

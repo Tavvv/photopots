@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The PhotoPots Journal — Work &amp; Life Photo Tips</title>
+  <meta name="description" content="The PhotoPots Journal: practical guides to separating work and personal photos, taming screenshots, and keeping your Camera Roll under control.">
+
+  <link rel="canonical" href="https://www.photopots.com/blog/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="The PhotoPots Journal — Work &amp; Life Photo Tips">
+  <meta property="og:description" content="The PhotoPots Journal: practical guides to separating work and personal photos, taming screenshots, and keeping your Camera Roll under control.">
+  <meta property="og:url" content="https://www.photopots.com/blog/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The PhotoPots Journal — Work &amp; Life Photo Tips">
+  <meta name="twitter:description" content="The PhotoPots Journal: practical guides to separating work and personal photos, taming screenshots, and keeping your Camera Roll under control.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+
+  <!-- Page-specific styles: article cards -->
+  <style>
+    .post-grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--space-5);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .post-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-16);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-lifted-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .post-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lifted);
+    }
+    .post-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: var(--text-tiny);
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-4);
+    }
+    .post-tag--blue   { background: var(--blue-tint);   color: var(--blue-dark); }
+    .post-tag--orange { background: var(--orange-tint); color: var(--orange-dark); }
+    .post-tag--green  { background: var(--green-tint);  color: var(--green-dark); }
+    .post-card__title {
+      font-size: var(--text-h4);
+      line-height: var(--leading-snug);
+      margin-bottom: var(--space-3);
+    }
+    .post-card__title a { color: var(--ink); }
+    .post-card__title a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-16);
+    }
+    .post-card__excerpt {
+      font-size: var(--text-small);
+      color: var(--ink-soft);
+      margin-bottom: var(--space-5);
+    }
+    .post-card__meta {
+      margin-top: auto;
+      font-size: var(--text-tiny);
+      color: var(--ink-mute);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .post-card { transition: none; }
+      .post-card:hover { transform: none; }
+    }
+  </style>
+
+  <!-- JSON-LD: BreadcrumbList (Home → Blog) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.photopots.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://www.photopots.com/blog/"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="../index.html" aria-label="PhotoPots home">
+          <img src="../assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../features.html">Features</a></li>
+          <li><a class="nav__link" href="../how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="../pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="../blog/" aria-current="page">Blog</a></li>
+          <li><a class="nav__link" href="../faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">The PhotoPots Journal</span>
+        <h1 class="hero__title">Notes on keeping work and life photos <span class="hl">apart</span>.</h1>
+        <p class="hero__sub">
+          Short, practical guides from the PhotoPots team — for contractors, agents,
+          inspectors, nurses, teachers, and anyone whose Camera Roll doubles as a
+          filing cabinet. No hype, no fluff. Just ways to find the photo you need,
+          the moment you need it.
+        </p>
+      </div>
+    </section>
+
+    <!-- Article cards -->
+    <section class="section section--cream section--tight">
+      <div class="container">
+        <ul class="post-grid">
+          <li class="post-card reveal">
+            <span class="post-tag post-tag--blue">Organization</span>
+            <h2 class="post-card__title">
+              <a href="how-to-separate-work-and-personal-photos-iphone/">How to Separate Work and Personal Photos on iPhone (2026 Guide)</a>
+            </h2>
+            <p class="post-card__excerpt">
+              Four honest ways to split work photos from your life — what each one
+              gets right, where it falls short, and the method that actually sticks.
+            </p>
+            <span class="post-card__meta">8 min read · Jul 22, 2026</span>
+          </li>
+
+          <li class="post-card reveal reveal--delay-1">
+            <span class="post-tag post-tag--orange">Camera Roll</span>
+            <h2 class="post-card__title">
+              <a href="camera-app-that-doesnt-save-to-camera-roll/">The Camera App That Doesn't Save to Your Camera Roll</a>
+            </h2>
+            <p class="post-card__excerpt">
+              Job-site shots, receipts, and evidence photos shouldn't live in your
+              personal backup. Why a camera that skips the Camera Roll changes everything.
+            </p>
+            <span class="post-card__meta">6 min read · Jul 22, 2026</span>
+          </li>
+
+          <li class="post-card reveal reveal--delay-2">
+            <span class="post-tag post-tag--green">Field Guide</span>
+            <h2 class="post-card__title">
+              <a href="work-photo-documentation-guide/">Work Photo Documentation: A Field Guide</a>
+            </h2>
+            <p class="post-card__excerpt">
+              Good documentation protects you, gets you paid, and settles arguments
+              before they start. A simple habit: a pot per project, capture at every visit.
+            </p>
+            <span class="post-card__meta">7 min read · Jul 22, 2026</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Who we write for / cross-links -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--orange">Made for the field</span>
+          <h2 class="section-title">Writing for people who work with photos</h2>
+          <p class="section-sub">
+            Most of what we publish starts with a real workflow — someone snapping
+            proof of work, a listing, a whiteboard, a wound dressing — and needing
+            it out of their personal library.
+          </p>
+        </div>
+        <p class="text-center">
+          See how PhotoPots fits your workflow:
+          <a href="../separate-work-and-personal-photos/">separate work and personal photos</a>,
+          <a href="../organize-work-photos/">organize work photos</a>, or
+          <a href="../camera-that-skips-camera-roll/">shoot with a camera that skips the Camera Roll</a>.
+          Or start from the <a href="../index.html">PhotoPots home page</a> to
+          <a href="../features.html">see every feature</a> and
+          <a href="../pricing.html">check pricing</a> — the free plan covers 25 sorts a week.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your Camera Roll is not a filing system.</h2>
+            <p class="cta-banner__sub">Put work photos in a work pot. It takes seconds — and the originals leave your Camera Roll for good.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="../features.html">Features</a></li>
+            <li><a href="../how-it-works.html">How it works</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+            <li><a href="../support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

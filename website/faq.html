@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FAQ — PhotoPots</title>
+  <meta name="description" content="Answers to common PhotoPots questions: sorting photos out of your Camera Roll, capture-to-pot, iCloud sync, pricing, and privacy. Free to download.">
+
+  <link rel="canonical" href="https://www.photopots.com/faq.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="FAQ — PhotoPots">
+  <meta property="og:description" content="Answers to common PhotoPots questions: sorting photos out of your Camera Roll, capture-to-pot, iCloud sync, pricing, and privacy. Free to download.">
+  <meta property="og:url" content="https://www.photopots.com/faq.html">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAQ — PhotoPots">
+  <meta name="twitter:description" content="Answers to common PhotoPots questions: sorting photos out of your Camera Roll, capture-to-pot, iCloud sync, pricing, and privacy. Free to download.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <style>
+    /* FAQ page — small page-specific pieces only */
+    .breadcrumb {
+      font-size: var(--text-tiny);
+      color: var(--ink-mute);
+      margin-bottom: var(--space-4);
+    }
+    .breadcrumb a { color: var(--ink-soft); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--blue-dark); text-decoration: underline; }
+    .jump-links {
+      list-style: none;
+      margin: var(--space-6) 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+    }
+    .jump-links a {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      background: var(--white);
+      color: var(--ink-soft);
+      font-weight: 700;
+      font-size: var(--text-small);
+      text-decoration: none;
+      transition: border-color .15s ease, color .15s ease;
+    }
+    .jump-links a:hover { border-color: var(--blue); color: var(--blue-dark); }
+    .faq-group { max-width: 780px; margin: 0 auto; }
+    .faq-group .section-header { text-align: left; margin-bottom: var(--space-5); }
+    .deeper-links { max-width: 780px; margin: 0 auto; }
+    @media (prefers-reduced-motion: reduce) {
+      .jump-links a { transition: none; }
+    }
+  </style>
+
+  <!-- JSON-LD: FAQPage + BreadcrumbList (answers match visible copy exactly) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.photopots.com/" },
+          { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://www.photopots.com/faq.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a pot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A pot is a private container inside PhotoPots — like a folder, but for a part of your life. Make one for work, one for receipts, one for the kids. Each pot gets its own name and color, and photos in a pot stay out of your Camera Roll."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is PhotoPots different from albums in the Photos app?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Albums in the Photos app just add a label — the photo stays in your Camera Roll, your Memories, and your widgets. Sorting into a pot actually moves the photo: the original leaves the Camera Roll and lives in PhotoPots instead. Work photos stop showing up next to vacation shots."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does sorting delete my photos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No — sorting moves them, it never deletes them. The original is removed from the Camera Roll and kept safely inside PhotoPots, with iCloud backup if you use it. You can view, edit, share, or move any photo back to the Camera Roll whenever you like."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is PhotoPots for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Anyone who communicates with photos on the job — contractors, real estate agents, inspectors, nurses, teachers, and field techs. If your Camera Roll mixes job-site shots with family photos, PhotoPots was built for you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does capture-to-pot work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pick a pot, tap the camera, and shoot. The photo lands straight in that pot and never touches your Camera Roll. It's the fastest way to keep a work photo work-only from the moment you take it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the in-app camera really skip the Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, really. Photos taken with the PhotoPots camera are written directly to your pot, not to the system photo library. There's nothing to clean up later — no duplicates, no leftovers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to GPS and other metadata?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PhotoPots keeps it. GPS coordinates, timestamps, and camera details stay attached to your photos, and cropping or editing inside the app doesn't strip them. If you need to prove where and when a job-site photo was taken, that record is intact."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does iCloud sync work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If you're signed in to iCloud, your pots and photos sync automatically across your devices. Snap a photo on your iPhone and it's waiting on your iPad or Mac when you get back to your desk. There's nothing to set up beyond turning iCloud on."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which devices does PhotoPots run on?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "iPhone, iPad, and Mac. Capture and sort on your phone in the field, then review, crop, and share on a bigger screen at the office. Your pots look and work the same everywhere."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if iCloud is turned off?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PhotoPots still works — your pots and photos simply stay on that device only. Nothing breaks and nothing is lost. Turn iCloud on later and everything starts syncing from where you left off."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What do I get for free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The free version includes everything you need to try PhotoPots properly: pots, the in-app camera, OCR search, and 25 sorts a week. For a lot of people that's plenty. No trial timer, no credit card."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does Pro add?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pro removes the weekly limit, so sorting and capturing are unlimited. That's the whole deal — every other feature works the same on both plans. If 25 sorts a week starts to feel tight, Pro is the fix."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you see my photos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. PhotoPots has no servers of its own and there's no account to create. Your photos live on your device and in your personal iCloud — the same place Apple already keeps them. We can't see them because they never come to us."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need an account to start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No account, ever. Download the app and make your first pot in under a minute. You only pay if you decide to upgrade to Pro for unlimited sorting, and that's handled privately through the App Store."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html" aria-current="page">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Intro + jump links -->
+    <section class="section section--cream">
+      <div class="container container--narrow text-center">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> &rsaquo; <span aria-current="page">FAQ</span>
+        </nav>
+        <h1 class="hero__title">Frequently asked <span class="hl">questions</span></h1>
+        <p class="hero__sub">
+          This FAQ covers what people ask most before downloading PhotoPots —
+          what a pot actually is, what happens to a photo when you sort it,
+          whether the in-app camera really skips the Camera Roll, and how
+          sync, pricing, and privacy shake out. Short version: your work
+          photos live in pots, your Camera Roll stays personal, and nobody
+          but you ever sees any of it.
+        </p>
+        <ul class="jump-links">
+          <li><a href="#getting-started">Getting started</a></li>
+          <li><a href="#camera">Camera</a></li>
+          <li><a href="#sync-devices">Sync &amp; devices</a></li>
+          <li><a href="#pricing-privacy">Pricing &amp; privacy</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Group 1: Getting started -->
+    <section class="section" id="getting-started">
+      <div class="container">
+        <div class="faq-group">
+          <div class="section-header reveal">
+            <span class="eyebrow">Getting started</span>
+            <h2 class="section-title">Pots, sorting, and who it's for</h2>
+          </div>
+          <div class="faq">
+            <details class="faq__item">
+              <summary class="faq__q">What is a pot?</summary>
+              <div class="faq__a">
+                <p>A pot is a private container inside PhotoPots — like a folder, but for a part of your life. Make one for work, one for receipts, one for the kids. Each pot gets its own name and color, and photos in a pot stay out of your Camera Roll.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">How is PhotoPots different from albums in the Photos app?</summary>
+              <div class="faq__a">
+                <p>Albums in the Photos app just add a label — the photo stays in your Camera Roll, your Memories, and your widgets. Sorting into a pot actually moves the photo: the original leaves the Camera Roll and lives in PhotoPots instead. Work photos stop showing up next to vacation shots.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Does sorting delete my photos?</summary>
+              <div class="faq__a">
+                <p>No — sorting moves them, it never deletes them. The original is removed from the Camera Roll and kept safely inside PhotoPots, with iCloud backup if you use it. You can view, edit, share, or move any photo back to the Camera Roll whenever you like.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Who is PhotoPots for?</summary>
+              <div class="faq__a">
+                <p>Anyone who communicates with photos on the job — contractors, real estate agents, inspectors, nurses, teachers, and field techs. If your Camera Roll mixes job-site shots with family photos, PhotoPots was built for you.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group 2: Camera -->
+    <section class="section section--cream" id="camera">
+      <div class="container">
+        <div class="faq-group">
+          <div class="section-header reveal">
+            <span class="eyebrow eyebrow--orange">Camera</span>
+            <h2 class="section-title">Capture straight into a pot</h2>
+          </div>
+          <div class="faq">
+            <details class="faq__item">
+              <summary class="faq__q">How does capture-to-pot work?</summary>
+              <div class="faq__a">
+                <p>Pick a pot, tap the camera, and shoot. The photo lands straight in that pot and never touches your Camera Roll. It's the fastest way to keep a work photo work-only from the moment you take it.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Does the in-app camera really skip the Camera Roll?</summary>
+              <div class="faq__a">
+                <p>Yes, really. Photos taken with the PhotoPots camera are written directly to your pot, not to the system photo library. There's nothing to clean up later — no duplicates, no leftovers.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">What happens to GPS and other metadata?</summary>
+              <div class="faq__a">
+                <p>PhotoPots keeps it. GPS coordinates, timestamps, and camera details stay attached to your photos, and cropping or editing inside the app doesn't strip them. If you need to prove where and when a job-site photo was taken, that record is intact.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group 3: Sync & devices -->
+    <section class="section" id="sync-devices">
+      <div class="container">
+        <div class="faq-group">
+          <div class="section-header reveal">
+            <span class="eyebrow eyebrow--green">Sync &amp; devices</span>
+            <h2 class="section-title">Your pots, everywhere you work</h2>
+          </div>
+          <div class="faq">
+            <details class="faq__item">
+              <summary class="faq__q">How does iCloud sync work?</summary>
+              <div class="faq__a">
+                <p>If you're signed in to iCloud, your pots and photos sync automatically across your devices. Snap a photo on your iPhone and it's waiting on your iPad or Mac when you get back to your desk. There's nothing to set up beyond turning iCloud on.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Which devices does PhotoPots run on?</summary>
+              <div class="faq__a">
+                <p>iPhone, iPad, and Mac. Capture and sort on your phone in the field, then review, crop, and share on a bigger screen at the office. Your pots look and work the same everywhere.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">What happens if iCloud is turned off?</summary>
+              <div class="faq__a">
+                <p>PhotoPots still works — your pots and photos simply stay on that device only. Nothing breaks and nothing is lost. Turn iCloud on later and everything starts syncing from where you left off.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group 4: Pricing & privacy -->
+    <section class="section section--cream" id="pricing-privacy">
+      <div class="container">
+        <div class="faq-group">
+          <div class="section-header reveal">
+            <span class="eyebrow eyebrow--violet">Pricing &amp; privacy</span>
+            <h2 class="section-title">Simple pricing, nothing to hide</h2>
+          </div>
+          <div class="faq">
+            <details class="faq__item">
+              <summary class="faq__q">What do I get for free?</summary>
+              <div class="faq__a">
+                <p>The free version includes everything you need to try PhotoPots properly: pots, the in-app camera, OCR search, and 25 sorts a week. For a lot of people that's plenty. No trial timer, no credit card.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">What does Pro add?</summary>
+              <div class="faq__a">
+                <p>Pro removes the weekly limit, so sorting and capturing are unlimited. That's the whole deal — every other feature works the same on both plans. If 25 sorts a week starts to feel tight, Pro is the fix.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Do you see my photos?</summary>
+              <div class="faq__a">
+                <p>No. PhotoPots has no servers of its own and there's no account to create. Your photos live on your device and in your personal iCloud — the same place Apple already keeps them. We can't see them because they never come to us.</p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Do I need an account to start?</summary>
+              <div class="faq__a">
+                <p>No account, ever. Download the app and make your first pot in under a minute. You only pay if you decide to upgrade to Pro for unlimited sorting, and that's handled privately through the App Store.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deeper links -->
+    <section class="section">
+      <div class="container">
+        <div class="deeper-links text-center reveal">
+          <h2 class="section-title">Want the full picture?</h2>
+          <p class="section-sub mt-2">
+            See <a href="how-it-works.html">how sorting and capture-to-pot actually work</a>,
+            compare the plans on the <a href="pricing.html">pricing page</a>,
+            or <a href="support.html">get in touch with support</a> if your question isn't answered here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your Camera Roll is not a filing system.</h2>
+            <p class="cta-banner__sub">Put work photos in a work pot. Free to start — 25 sorts a week, no account needed.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--ghost" href="pricing.html">See pricing →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

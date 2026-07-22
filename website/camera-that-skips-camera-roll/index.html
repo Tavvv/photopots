@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Camera App That Doesn't Save to Camera Roll — PhotoPots</title>
+  <meta name="description" content="PhotoPots is a camera app that doesn't save to the Camera Roll — photos land straight in a pot, with GPS kept and one-tap sharing. Free to download.">
+
+  <link rel="canonical" href="https://www.photopots.com/camera-that-skips-camera-roll/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Camera App That Doesn't Save to Camera Roll — PhotoPots">
+  <meta property="og:description" content="PhotoPots is a camera app that doesn't save to the Camera Roll — photos land straight in a pot, with GPS kept and one-tap sharing. Free to download.">
+  <meta property="og:url" content="https://www.photopots.com/camera-that-skips-camera-roll/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Camera App That Doesn't Save to Camera Roll — PhotoPots">
+  <meta name="twitter:description" content="PhotoPots is a camera app that doesn't save to the Camera Roll — photos land straight in a pot, with GPS kept and one-tap sharing. Free to download.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Fonts: Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Scripts -->
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+
+  <style>
+    /* Page-specific: capture-flow hero illustration + step/scenario styling */
+    .breadcrumbs {
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+      margin-bottom: var(--space-4);
+    }
+    .breadcrumbs ol {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin: 0;
+      padding: 0;
+    }
+    .breadcrumbs li + li::before {
+      content: "›";
+      margin-right: var(--space-2);
+      color: var(--line);
+    }
+    .breadcrumbs a { color: var(--blue-dark); }
+
+    .capture-flow {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-24);
+      box-shadow: var(--shadow-lifted-sm);
+      padding: var(--space-6);
+    }
+    .capture-flow svg { display: block; width: 100%; height: auto; }
+    .capture-flow__caption {
+      margin: var(--space-4) 0 0;
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+      text-align: center;
+    }
+    .flow-dash {
+      stroke-dasharray: 7 7;
+    }
+    .flow-photo {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .flow-dash { animation: dashmove 1.6s linear infinite; }
+      .flow-photo { animation: photofloat 3.2s ease-in-out infinite; }
+    }
+    @keyframes dashmove { to { stroke-dashoffset: -14; } }
+    @keyframes photofloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: step;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-5);
+    }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: calc(var(--space-8) + var(--space-3));
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: var(--space-8);
+      height: var(--space-8);
+      border-radius: var(--radius-full);
+      background: var(--blue-tint);
+      color: var(--blue-dark);
+      font-weight: 800;
+      font-size: var(--text-h4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-list h3 { margin: 0 0 var(--space-2); font-size: var(--text-h4); }
+    .step-list p { margin: 0; color: var(--ink-soft); }
+
+    .scenario-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-4);
+    }
+    .scenario-list li {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius-12);
+      padding: var(--space-4) var(--space-5);
+    }
+    .scenario-list li.scenario--orange { border-left-color: var(--orange); }
+    .scenario-list li.scenario--green { border-left-color: var(--green); }
+    .scenario-list li.scenario--violet { border-left-color: var(--violet); }
+    .scenario-list h3 { margin: 0 0 var(--space-2); font-size: var(--text-h4); }
+    .scenario-list p { margin: 0; color: var(--ink-soft); }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius-16);
+      overflow: hidden;
+      box-shadow: var(--shadow-lifted-sm);
+      font-size: var(--text-small);
+    }
+    .compare-table th, .compare-table td {
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .compare-table thead th {
+      background: var(--sand);
+      font-size: var(--text-small);
+    }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+
+    @media (max-width: 767px) {
+      .capture-flow { padding: var(--space-4); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.photopots.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Camera That Skips the Camera Roll",
+            "item": "https://www.photopots.com/camera-that-skips-camera-roll/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does the PhotoPots camera save photos to my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. When you shoot with the in-app camera, the photo is written straight into the pot you picked. It never enters your Camera Roll, iCloud Photos library, Memories, or Recently Deleted — there is nothing to clean up afterward."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What about photos I already took with the regular Camera app?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sort them into a pot. PhotoPots moves the original out of your Camera Roll — it is removed from the library, not just hidden in an album. After sorting, the photo lives only in its pot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is GPS location still saved on pot photos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. GPS coordinates, date, and time are captured and preserved, and they survive the built-in crop and edit tools. That makes pot photos usable as documentation for job sites, inspections, and deliveries."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I share a photo right after taking it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every photo in a pot has one-tap sharing to Messages, Mail, WhatsApp, Slack, Drive, or any other app in the iOS share sheet — no detour through the Camera Roll."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the camera that skips the Camera Roll free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The free plan includes 25 sorts or captures a week, which covers light use. Pro removes the limit for unlimited capture and sorting. See pricing — download PhotoPots free and upgrade only if you hit the cap."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="../index.html" aria-label="PhotoPots home">
+          <img src="../assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../features.html">Features</a></li>
+          <li><a class="nav__link" href="../how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="../pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="../blog/">Blog</a></li>
+          <li><a class="nav__link" href="../faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero hero--split">
+      <div class="container">
+        <div>
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="../index.html">Home</a></li>
+              <li aria-current="page">Camera that skips the Camera Roll</li>
+            </ol>
+          </nav>
+          <h1 class="hero__title">A camera app that <span class="hl">doesn't save</span> to your Camera Roll.</h1>
+          <p class="hero__sub">Shoot with the PhotoPots camera and the photo lands straight in a colored pot — job site, receipts, class notes. Your Camera Roll never sees it. No duplicates, no cleanup, no work photos in your Memories.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+            <a class="btn btn--secondary btn--lg" href="../pricing.html">See pricing</a>
+          </div>
+          <p class="hero__note">Free · 25 sorts a week · iPhone, iPad &amp; Mac</p>
+        </div>
+
+        <div>
+          <figure class="capture-flow reveal">
+            <svg viewBox="0 0 460 300" role="img" aria-label="Illustration: a photo bypasses a greyed-out Camera Roll and flies straight into a blue work pot.">
+              <!-- Camera Roll (greyed out) -->
+              <rect x="24" y="96" width="150" height="120" rx="16" fill="#F3EEE6" stroke="#E8E2D8" stroke-width="2"/>
+              <rect x="48" y="122" width="46" height="46" rx="8" fill="#E8E2D8"/>
+              <rect x="104" y="122" width="46" height="46" rx="8" fill="#E8E2D8"/>
+              <rect x="48" y="176" width="46" height="46" rx="8" fill="#E8E2D8" transform="translate(0,-8)"/>
+              <text x="99" y="246" text-anchor="middle" font-size="14" font-weight="700" fill="#777C88">Camera Roll</text>
+              <!-- "skipped" cross -->
+              <line x1="34" y1="106" x2="164" y2="206" stroke="#777C88" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+
+              <!-- Bypass arrow -->
+              <path class="flow-dash" d="M 60 78 C 150 10, 300 10, 372 72" fill="none" stroke="#1C9DE0" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M 372 72 l -14 -2 l 8 12 z" fill="#1C9DE0"/>
+              <text x="230" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#157FB8">never touches it</text>
+
+              <!-- Flying photo -->
+              <g class="flow-photo">
+                <rect x="238" y="86" width="56" height="44" rx="8" fill="#FFFFFF" stroke="#1C9DE0" stroke-width="2.5"/>
+                <circle cx="252" cy="100" r="5" fill="#EA8A1E"/>
+                <path d="M 242 126 l 12 -14 l 8 8 l 10 -12 l 18 18 z" fill="#2CD3E1" opacity="0.7"/>
+              </g>
+
+              <!-- Pot -->
+              <rect x="330" y="96" width="106" height="120" rx="20" fill="#DCF0FA" stroke="#1C9DE0" stroke-width="2.5"/>
+              <path d="M 352 96 a 22 18 0 0 1 62 0" fill="#1C9DE0"/>
+              <text x="383" y="166" text-anchor="middle" font-size="15" font-weight="800" fill="#157FB8">Job Site</text>
+              <text x="383" y="188" text-anchor="middle" font-size="12" fill="#4A4F5A">43 photos</text>
+              <path d="M 372 128 l 7 7 l 13 -14" fill="none" stroke="#1D9E75" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(0,84)"/>
+            </svg>
+            <figcaption class="capture-flow__caption">Shot in PhotoPots → straight into the pot. The Camera Roll is bypassed, not just ignored.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why people need this -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Why it matters</span>
+          <h2 class="section-title">Some photos were never meant for your Camera Roll</h2>
+          <p class="section-sub">Your library is for your life. These shots are for work, records, and proof — and they deserve their own home.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+            </div>
+            <h3 class="card__title">Work documentation</h3>
+            <p class="card__body">Progress shots, before-and-afters, site conditions. They pile up fast, and none of them belong next to your kid's birthday photos.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2zM9 7h6M9 11h6"/></svg>
+            </div>
+            <h3 class="card__title">Receipts &amp; expenses</h3>
+            <p class="card__body">Snap the receipt at the register, straight into the expenses pot. At tax time it's all in one place — not buried under 400 screenshots.</p>
+          </li>
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9h6M7 12h10"/></svg>
+            </div>
+            <h3 class="card__title">Whiteboards &amp; notes</h3>
+            <p class="card__body">Meeting whiteboards, lesson plans, serial numbers, wiring diagrams. Useful for a week, visual noise forever after — unless they live in a pot.</p>
+          </li>
+          <li class="card reveal">
+            <div class="card__icon card__icon--violet">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            </div>
+            <h3 class="card__title">Privacy by default</h3>
+            <p class="card__body">Patient photos, student work, client properties. Anything sensitive stays out of the personal library other apps can see, and out of shared albums and Memories.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--red">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3 class="card__title">Evidence photos</h3>
+            <p class="card__body">Damage reports, deliveries, rental condition, accident scenes. Timestamped, GPS-stamped, and kept apart from everything personal.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- How the camera works -->
+    <section class="section" id="how-it-captures">
+      <div class="container container--narrow">
+        <div class="section-header reveal">
+          <span class="eyebrow eyebrow--orange">The PhotoPots camera</span>
+          <h2 class="section-title">Take photos without saving to the Camera Roll — here's the flow</h2>
+          <p class="section-sub">It feels like the camera you already know. The difference is where the photo goes.</p>
+        </div>
+        <ol class="step-list">
+          <li class="reveal">
+            <h3>Swipe to choose a pot</h3>
+            <p>Pots sit along the capture screen — Work, Receipts, Site 12, whatever you've named them, each with its own color. One swipe and the next shot has a destination.</p>
+          </li>
+          <li class="reveal reveal--delay-1">
+            <h3>Capture</h3>
+            <p>Tap the shutter. The photo is written directly into the chosen pot. It never enters the Camera Roll, iCloud Photos, or Recently Deleted. Nothing to delete later, because there's nothing to delete.</p>
+          </li>
+          <li class="reveal reveal--delay-2">
+            <h3>Crop and edit on the spot</h3>
+            <p>Straighten the whiteboard, crop out your thumb, adjust the light. The built-in editor keeps every byte of metadata intact — no stripped timestamps like you get from share-sheet workarounds.</p>
+          </li>
+          <li class="reveal reveal--delay-3">
+            <h3>GPS metadata stays attached</h3>
+            <p>Location, date, and time are captured and preserved. For contractors and inspectors, that turns a photo into a record: this place, this day, this condition.</p>
+          </li>
+          <li class="reveal">
+            <h3>One-tap share, anywhere</h3>
+            <p>Send the shot to Messages, Mail, WhatsApp, Slack, or Drive straight from the pot. The client gets the photo in seconds; your Camera Roll stays clean.</p>
+          </li>
+        </ol>
+        <p class="mt-6 text-mute">Already took shots with the regular Camera app? You can still <a href="../separate-work-and-personal-photos/">sort them into pots</a> — sorting moves the original out of your Camera Roll, it doesn't just hide it.</p>
+      </div>
+    </section>
+
+    <!-- Scenarios -->
+    <section class="section section--sand">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow eyebrow--green">In the field</span>
+          <h2 class="section-title">What it looks like on a real workday</h2>
+        </div>
+        <ul class="scenario-list">
+          <li class="reveal">
+            <h3>The contractor at the job site</h3>
+            <p>Framing done at 2 pm. He swipes to the "Maple St Reno" pot, shoots six angles, crops one, and texts the best shot to the client before he's back in the truck. GPS on every frame. His Camera Roll? Still just family photos.</p>
+          </li>
+          <li class="scenario--orange reveal reveal--delay-1">
+            <h3>The nurse documenting a wound</h3>
+            <p>Clinical photos go into a locked, separate pot — never into a personal library that syncs to a family iPad or surfaces in Memories. Sensitive images stay exactly where they should.</p>
+          </li>
+          <li class="scenario--green reveal reveal--delay-2">
+            <h3>The teacher capturing whiteboards</h3>
+            <p>End of class, one swipe to the "Period 4" pot, three shots of the board. OCR search finds "quadratic" weeks later. The weekend's personal photos aren't diluted by forty diagrams.</p>
+          </li>
+          <li class="scenario--violet reveal reveal--delay-3">
+            <h3>The freelancer stacking receipts</h3>
+            <p>Lunch with a client, taxi, printer ink. Each receipt shot lands in "Expenses 2025" the moment it's taken. Quarter-end is a scroll, not an archaeological dig.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Why not just delete later -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="section-header reveal">
+          <span class="eyebrow eyebrow--red">The honest comparison</span>
+          <h2 class="section-title">Why not just shoot normally and delete later?</h2>
+          <p class="section-sub">You can. People do. Here's what it actually costs.</p>
+        </div>
+        <div class="reveal">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">Shoot now, delete later</th>
+                <th scope="col">Capture straight into a pot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Work shots mix with personal photos for hours or days — and surface in Memories and widgets.</td>
+                <td>The photo never enters your library. There's nothing to mix.</td>
+              </tr>
+              <tr>
+                <td>"Delete later" becomes a Sunday chore of hunting through hundreds of thumbnails.</td>
+                <td>Filing happened at capture. Zero cleanup time.</td>
+              </tr>
+              <tr>
+                <td>Forwarded or edited copies often lose GPS and timestamps.</td>
+                <td>Metadata is captured once and preserved, even after cropping.</td>
+              </tr>
+              <tr>
+                <td>Miss one sensitive photo and it sits in a synced library.</td>
+                <td>Sensitive shots never touch the synced library at all.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-6 reveal">Deleting later is a habit built on cleanup. PhotoPots removes the mess at the source — the same idea behind how the app <a href="../index.html">keeps work and life photos apart</a> everywhere else. Want the longer story? Read our guide to a <a href="../blog/camera-app-that-doesnt-save-to-camera-roll/">camera app that doesn't save to the Camera Roll</a> on the blog.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--cream" id="faq">
+      <div class="container container--narrow">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Questions</span>
+          <h2 class="section-title">Camera-to-pot FAQ</h2>
+        </div>
+        <div class="faq faq--center">
+          <details class="faq__item">
+            <summary class="faq__q">Does the PhotoPots camera save photos to my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>No. When you shoot with the in-app camera, the photo is written straight into the pot you picked. It never enters your Camera Roll, iCloud Photos library, Memories, or Recently Deleted — there is nothing to clean up afterward.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">What about photos I already took with the regular Camera app?</summary>
+            <div class="faq__a">
+              <p>Sort them into a pot. PhotoPots moves the original out of your Camera Roll — it is removed from the library, not just hidden in an album. After sorting, the photo lives only in its pot.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Is GPS location still saved on pot photos?</summary>
+            <div class="faq__a">
+              <p>Yes. GPS coordinates, date, and time are captured and preserved, and they survive the built-in crop and edit tools. That makes pot photos usable as documentation for job sites, inspections, and deliveries.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can I share a photo right after taking it?</summary>
+            <div class="faq__a">
+              <p>Yes. Every photo in a pot has one-tap sharing to Messages, Mail, WhatsApp, Slack, Drive, or any other app in the iOS share sheet — no detour through the Camera Roll.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Is the camera that skips the Camera Roll free?</summary>
+            <div class="faq__a">
+              <p>Yes. The free plan includes 25 sorts or captures a week, which covers light use. Pro removes the limit for unlimited capture and sorting. <a href="../pricing.html">See pricing</a> — download PhotoPots free and upgrade only if you hit the cap.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your next work photo doesn't need a detour through your Camera Roll.</h2>
+            <p class="cta-banner__sub">Pick a pot, tap the shutter, get on with your day. Free for iPhone, iPad &amp; Mac.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--ghost" href="../pricing.html">Compare Free &amp; Pro →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="../features.html">Features</a></li>
+            <li><a href="../how-it-works.html">How it works</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+            <li><a href="../support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

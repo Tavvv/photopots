@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Work Photo Documentation: A Field Guide — PhotoPots Blog</title>
+  <meta name="description" content="Why work photo records matter and how to build a simple documentation habit: a pot per project, capture at every visit, share weekly. Free to download.">
+
+  <link rel="canonical" href="https://www.photopots.com/blog/work-photo-documentation-guide/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Work Photo Documentation: A Field Guide — PhotoPots Blog">
+  <meta property="og:description" content="Why work photo records matter and how to build a simple documentation habit: a pot per project, capture at every visit, share weekly. Free to download.">
+  <meta property="og:url" content="https://www.photopots.com/blog/work-photo-documentation-guide/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="article:published_time" content="2026-07-22">
+  <meta property="article:modified_time" content="2026-07-22">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work Photo Documentation: A Field Guide — PhotoPots Blog">
+  <meta name="twitter:description" content="Why work photo records matter and how to build a simple documentation habit: a pot per project, capture at every visit, share weekly. Free to download.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="../../assets/js/config.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+  <style>
+    /* Article-specific styles (blog post only) */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+      margin: 0 0 var(--space-5);
+      padding: 0;
+      font-size: var(--text-tiny);
+      color: var(--ink-mute);
+    }
+    .breadcrumb li + li::before {
+      content: "/";
+      margin-right: var(--space-2);
+      color: var(--line);
+    }
+    .breadcrumb a { color: var(--ink-soft); }
+    .breadcrumb a:hover { color: var(--blue-dark); }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+    }
+
+    .article-body { max-width: 42rem; }
+    .article-body h2 {
+      margin: var(--space-7) 0 var(--space-4);
+      font-size: var(--text-h3);
+      color: var(--ink);
+    }
+    .article-body h3 {
+      margin: var(--space-6) 0 var(--space-3);
+      font-size: var(--text-h4);
+      color: var(--ink);
+    }
+    .article-body p {
+      margin: 0 0 var(--space-4);
+      font-size: var(--text-body);
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .article-body ul, .article-body ol {
+      margin: 0 0 var(--space-5);
+      padding-left: var(--space-6);
+      font-size: var(--text-body);
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .article-body li { margin-bottom: var(--space-2); }
+    .article-body a { color: var(--blue-dark); }
+    .article-body strong { color: var(--ink); }
+
+    .callout {
+      margin: var(--space-6) 0;
+      padding: var(--space-5);
+      background: var(--blue-tint);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius-12);
+    }
+    .callout p { margin: 0; }
+
+    .keep-reading {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: 1fr;
+      margin-top: var(--space-5);
+    }
+    @media (min-width: 768px) {
+      .keep-reading { grid-template-columns: repeat(3, 1fr); }
+    }
+    .keep-reading__card {
+      display: block;
+      padding: var(--space-5);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-16);
+      text-decoration: none;
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+    .keep-reading__card:hover {
+      box-shadow: var(--shadow-lifted-sm);
+      transform: translateY(-2px);
+    }
+    .keep-reading__label {
+      display: block;
+      margin-bottom: var(--space-2);
+      font-size: var(--text-tiny);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--ink-mute);
+    }
+    .keep-reading__title {
+      margin: 0 0 var(--space-2);
+      font-size: var(--text-h4);
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .keep-reading__desc {
+      margin: 0;
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keep-reading__card { transition: none; }
+      .keep-reading__card:hover { transform: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Work Photo Documentation: A Field Guide for Contractors, Inspectors, and Agents",
+        "description": "Why work photo records matter and how to build a simple documentation habit: a pot per project, capture at every visit, share weekly.",
+        "datePublished": "2026-07-22",
+        "dateModified": "2026-07-22",
+        "author": {
+          "@type": "Organization",
+          "name": "PhotoPots Team",
+          "url": "https://www.photopots.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "PhotoPots",
+          "url": "https://www.photopots.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.photopots.com/assets/img/app-icon-512.png"
+          }
+        },
+        "image": "https://www.photopots.com/assets/img/og-image.png",
+        "mainEntityOfPage": "https://www.photopots.com/blog/work-photo-documentation-guide/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.photopots.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.photopots.com/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Work Photo Documentation: A Field Guide",
+            "item": "https://www.photopots.com/blog/work-photo-documentation-guide/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="../../index.html" aria-label="PhotoPots home">
+          <img src="../../assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../../features.html">Features</a></li>
+          <li><a class="nav__link" href="../../how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="../../pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="../../blog/" aria-current="page">Blog</a></li>
+          <li><a class="nav__link" href="../../faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+    <article>
+      <section class="section">
+        <div class="container container--narrow">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../blog/">Blog</a></li>
+              <li aria-current="page">Work Photo Documentation</li>
+            </ol>
+          </nav>
+
+          <span class="eyebrow">Field guide</span>
+          <h1 class="section-title">Work Photo Documentation: A Field Guide for Contractors, Inspectors, and Agents</h1>
+          <div class="article-meta">
+            <span>By the PhotoPots Team</span>
+            <span><time datetime="2026-07-22">July 22, 2026</time></span>
+            <span>7 min read</span>
+          </div>
+
+          <div class="article-body mt-6">
+            <p>
+              If you work with your hands, your photos are part of the job. The cracked
+              joist you flagged. The scuff on the baseboard before the tenant moved in.
+              The panel you wired before the drywall went up. Good work photo
+              documentation protects you, gets you paid, and settles arguments before
+              they start. Bad documentation is a camera roll full of everything and
+              proof of nothing. This guide is the difference between the two.
+            </p>
+
+            <h2>Why photo records matter</h2>
+            <p>
+              Nobody takes work photos for fun. You take them because one day you'll
+              need them — and that day usually arrives at the worst possible time.
+            </p>
+            <ul>
+              <li><strong>Disputes.</strong> "That scratch was already there." "We never approved that change order." A timestamped photo from the right day ends the conversation. Without one, it's your word against theirs, and memory always loses to a confident client.</li>
+              <li><strong>Progress records.</strong> Weekly photos of a job site are proof of pace. They justify draw requests, keep remote clients calm, and give you a record of what was behind the walls before they closed up.</li>
+              <li><strong>Insurance.</strong> Adjusters believe photos. A clear set of before-and-after images — with dates and locations intact — turns a weeks-long claim into a short email thread.</li>
+              <li><strong>Compliance.</strong> Inspectors, nurses documenting wound care, teachers logging classroom incidents, techs recording serial numbers: plenty of jobs legally require a visual record. "I think I have it somewhere" is not a record.</li>
+            </ul>
+            <p>
+              The pattern is the same everywhere: the photo only counts if you can
+              find it, and it only convinces anyone if it carries its context with it.
+            </p>
+
+            <h2>What makes a good documentation photo</h2>
+            <p>
+              A documentation photo isn't art. It's evidence. Three things separate a
+              useful one from a useless one:
+            </p>
+            <h3>1. GPS metadata, intact</h3>
+            <p>
+              A photo of a foundation crack is a photo of a foundation crack anywhere.
+              A photo with GPS coordinates is a photo of the crack <em>at 412 Meridian
+              Street</em>. Location data is what ties the image to the property, the
+              site, or the unit — and it's the first thing that gets stripped when a
+              photo passes through the wrong app.
+            </p>
+            <h3>2. Timestamps you can trust</h3>
+            <p>
+              "Before" and "after" only mean something with dates attached. The capture
+              time embedded in the file is far stronger than your recollection, so
+              whatever tools you use need to preserve it — not reset it to the day you
+              exported or edited.
+            </p>
+            <h3>3. Findability</h3>
+            <p>
+              The best photo ever taken is worthless if it's buried under 4,000
+              screenshots, birthday videos, and pictures of your lunch. A
+              documentation photo needs a home: one place per project, searchable,
+              shareable in seconds.
+            </p>
+
+            <div class="callout">
+              <p>
+                <strong>The test:</strong> could you hand a client, adjuster, or
+                attorney every photo from a specific job, in order, with dates and
+                locations intact — in under five minutes? If not, your system has a
+                hole in it.
+              </p>
+            </div>
+
+            <h2>Common failure modes</h2>
+            <p>
+              Most people don't have a documentation system. They have habits that
+              feel like a system until the day they're tested. Three of them fail over
+              and over:
+            </p>
+            <ul>
+              <li><strong>Photos living in your personal camera roll.</strong> Work shots mixed with family shots. Six months later you're scrolling through a birthday party looking for a photo of a water heater. Worse, the personal and the professional are one accidental share away from each other.</li>
+              <li><strong>Photos lost in chat threads.</strong> You texted the site photo to the crew, the PM, or the client. Now it exists as a compressed copy in three messaging apps, stripped of metadata, impossible to retrieve in full quality. Chat is a delivery mechanism, not a filing cabinet.</li>
+              <li><strong>Metadata destroyed by editing or sharing.</strong> Crop a photo in the wrong tool and the GPS data vanishes. Send it through the wrong channel and the timestamp resets. The photo still looks fine — it's just stopped being evidence.</li>
+            </ul>
+
+            <h2>A practical system that actually holds up</h2>
+            <p>
+              You don't need a records-management degree. You need three rules and the
+              discipline to spend ten seconds following them.
+            </p>
+            <ol>
+              <li><strong>One pot per project.</strong> Every job, property, inspection round, or case gets its own container. "Maple St Reno." "Unit 4B Move-Out." "Q3 Site Inspections." When the job ends, the archive is already assembled.</li>
+              <li><strong>Capture at every visit.</strong> Arrive, shoot the state of things before you touch anything, shoot again before you leave. Capture straight into the project's pot so there's nothing to file later. Later never comes.</li>
+              <li><strong>Share weekly.</strong> Pick the shots that matter and send a progress set to whoever needs it — client, office, adjuster — on a fixed day. Regular sharing builds the habit, builds trust, and means a dispute never catches you with stale records.</li>
+            </ol>
+            <p>
+              That's the whole system. It works because it moves the filing to the
+              moment of capture, when it costs nothing, instead of the moment of
+              need, when it costs everything.
+            </p>
+
+            <h2>How PhotoPots supports the workflow end-to-end</h2>
+            <p>
+              PhotoPots was built for exactly this. It keeps work and life photos in
+              separate pots, so your job photos never mix with your personal ones —
+              and it does the filing at the moment you shoot.
+            </p>
+            <ul>
+              <li><strong>Capture straight into a pot.</strong> The in-app camera drops photos directly into the project pot you choose. They never touch your Camera Roll, so there's nothing to clean up later.</li>
+              <li><strong>GPS metadata preserved.</strong> Location and timestamps stay intact — even when you crop or edit a shot. Your photo keeps its context, which is what makes it evidence.</li>
+              <li><strong>Find anything in seconds.</strong> OCR search reads the text in your photos, so that serial number, street sign, or whiteboard note is searchable. No more scrolling.</li>
+              <li><strong>One-tap share anywhere.</strong> Send the weekly progress set by email, message, or any app you already use — full quality, metadata intact.</li>
+              <li><strong>Everywhere you work.</strong> iCloud sync keeps every pot current across iPhone, iPad, and Mac. Shoot on your phone at the site, assemble the report on your Mac at the office.</li>
+            </ul>
+            <p>
+              Already have a backlog of work shots in your Camera Roll? Sorting moves
+              them into a pot — the original is removed from your library, not just
+              hidden — so your personal roll goes back to being personal. Read more
+              about <a href="../../organize-work-photos/">organizing work photos</a>,
+              or see the full list of <a href="../../features.html">PhotoPots
+              features</a> and <a href="../../how-it-works.html">how sorting and
+              capture work</a>.
+            </p>
+            <p>
+              The free plan gives you 25 sorts a week — plenty to start a habit.
+              Pro removes the limit when your backlog needs a bigger push. Details
+              are on the <a href="../../pricing.html">pricing page</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section section--tight">
+        <div class="container">
+          <div class="cta-banner reveal">
+            <div>
+              <h2 class="cta-banner__title">Your Camera Roll is not a filing system.</h2>
+              <p class="cta-banner__sub">One pot per project. Capture at every visit. Share weekly. PhotoPots makes it the easy option.</p>
+            </div>
+            <div class="cta-banner__actions">
+              <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots free</a>
+              <a class="btn btn--secondary" href="../../pricing.html">See pricing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Keep reading -->
+      <section class="section section--cream">
+        <div class="container container--narrow">
+          <div class="section-header reveal">
+            <span class="eyebrow">Keep reading</span>
+            <h2 class="section-title">More from the blog</h2>
+          </div>
+          <div class="keep-reading">
+            <a class="keep-reading__card reveal" href="../how-to-separate-work-and-personal-photos-iphone/">
+              <span class="keep-reading__label">Guide</span>
+              <h3 class="keep-reading__title">How to Separate Work and Personal Photos on iPhone</h3>
+              <p class="keep-reading__desc">Four honest ways to split work photos from your life — and the method that actually sticks.</p>
+            </a>
+            <a class="keep-reading__card reveal reveal--delay-1" href="../camera-app-that-doesnt-save-to-camera-roll/">
+              <span class="keep-reading__label">Camera</span>
+              <h3 class="keep-reading__title">The Camera App That Doesn't Save to Your Camera Roll</h3>
+              <p class="keep-reading__desc">Job-site shots, receipts, and evidence photos stay out of your personal backups.</p>
+            </a>
+            <a class="keep-reading__card reveal reveal--delay-2" href="../../organize-work-photos/">
+              <span class="keep-reading__label">PhotoPots</span>
+              <h3 class="keep-reading__title">Organize Work Photos Without the Weekend Cleanup</h3>
+              <p class="keep-reading__desc">How pots keep job photos filed from the moment you shoot them.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../../assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="../../features.html">Features</a></li>
+            <li><a href="../../how-it-works.html">How it works</a></li>
+            <li><a href="../../pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="../../blog/">Blog</a></li>
+            <li><a href="../../faq.html">FAQ</a></li>
+            <li><a href="../../support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

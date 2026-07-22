@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Support — PhotoPots</title>
+  <meta name="description" content="Get help with PhotoPots: getting started, restore purchases, iCloud sync fixes, and sorting questions. Real answers within 2 business days.">
+
+  <link rel="canonical" href="https://www.photopots.com/support.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Support — PhotoPots">
+  <meta property="og:description" content="Get help with PhotoPots: getting started, restore purchases, iCloud sync fixes, and sorting questions. Real answers within 2 business days.">
+  <meta property="og:url" content="https://www.photopots.com/support.html">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support — PhotoPots">
+  <meta name="twitter:description" content="Get help with PhotoPots: getting started, restore purchases, iCloud sync fixes, and sorting questions. Real answers within 2 business days.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <style>
+    .support-steps {
+      list-style: none;
+      margin: var(--space-3) 0 0;
+      padding: 0;
+      counter-reset: step;
+    }
+    .support-steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-2);
+      font-size: var(--text-small);
+      color: var(--ink-soft);
+    }
+    .support-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-full);
+      background: var(--blue-tint);
+      color: var(--blue-dark);
+      font-size: var(--text-tiny);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-24);
+      padding: var(--space-7);
+      box-shadow: var(--shadow-lifted-sm);
+    }
+    .contact-card__email {
+      display: inline-block;
+      font-weight: 800;
+      font-size: var(--text-h4);
+      color: var(--blue-dark);
+      margin-top: var(--space-3);
+    }
+    .breadcrumb {
+      font-size: var(--text-tiny);
+      color: var(--ink-mute);
+      margin-bottom: var(--space-5);
+    }
+    .breadcrumb a { color: var(--ink-mute); }
+    .breadcrumb a:hover { color: var(--blue-dark); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.photopots.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Support",
+        "item": "https://www.photopots.com/support.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+    <section class="section section--cream">
+      <div class="container container--narrow">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> / Support
+        </nav>
+        <div class="section-header reveal">
+          <span class="eyebrow">Support</span>
+          <h1 class="section-title">How can we help?</h1>
+          <p class="section-sub">PhotoPots support is run by the people who built the app. Most answers are one tap away below — and if you need a human, you'll get one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <h2 class="section-title">Common topics</h2>
+          <p class="section-sub">Start here. These cover most of what lands in our inbox.</p>
+        </div>
+
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Getting started</h3>
+            <p class="card__body">New to pots? Learn how sorting moves photos out of your Camera Roll, how capture-to-pot works, and how to set up your first pots in under a minute.</p>
+            <p class="card__body"><a href="faq.html">Read the getting started answers in the FAQ →</a></p>
+          </li>
+
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Restore purchases</h3>
+            <p class="card__body">Bought Pro and it's not showing on a new phone or your Mac? It's tied to your Apple ID, so it's quick to bring back:</p>
+            <ol class="support-steps">
+              <li>Open PhotoPots and go to Settings.</li>
+              <li>Tap <strong>Restore purchases</strong>.</li>
+              <li>Sign in with the Apple ID you used to buy Pro.</li>
+            </ol>
+            <p class="card__body">Still stuck? <a href="#contact">Email us</a> and we'll sort it out.</p>
+          </li>
+
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17.5 19a4.5 4.5 0 0 0 .42-8.98 6 6 0 0 0-11.7 1.62A4 4 0 0 0 7 19h10.5z"/>
+              </svg>
+            </div>
+            <h3 class="card__title">iCloud sync troubles</h3>
+            <p class="card__body">Pots sync across iPhone, iPad, and Mac through iCloud. If something's not showing up everywhere, work through these in order:</p>
+            <ol class="support-steps">
+              <li>Check you're signed into the same Apple ID on every device (Settings → your name).</li>
+              <li>Make sure iCloud Drive is on for PhotoPots (Settings → your name → iCloud).</li>
+              <li>Connect to Wi-Fi and leave the app open for a minute — big pots sync in the background.</li>
+              <li>Restart the app. Still nothing after an hour? <a href="#contact">Tell us</a> which device is missing what.</li>
+            </ol>
+          </li>
+
+          <li class="card reveal reveal--delay-3">
+            <div class="card__icon card__icon--violet">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 6h18M3 12h18M3 18h12"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Sorting questions</h3>
+            <p class="card__body">Where did my photo go? Can I get it back? What does the free 25-sorts-a-week limit actually count? Honest answers, no fine print.</p>
+            <p class="card__body"><a href="faq.html">See sorting questions in the FAQ →</a></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--sand" id="contact">
+      <div class="container container--narrow">
+        <div class="contact-card reveal">
+          <span class="eyebrow eyebrow--orange">Contact us</span>
+          <h2 class="section-title">Talk to a human</h2>
+          <p>Something broken, confusing, or just not right? Email us and tell us what happened — a screenshot of the problem helps a lot. Include your device and iOS or macOS version if you know them.</p>
+          <a class="contact-card__email" href="mailto:support@photopots.com">support@photopots.com</a>
+          <p class="text-mute text-small mt-4">We reply within 2 business days. Usually faster.</p>
+          <p class="text-small mt-6">Before you write: the <a href="faq.html">FAQ</a> answers the most common questions, and the <a href="blog/">blog</a> has walkthroughs and workflow tips for contractors, agents, inspectors, nurses, teachers, and field techs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Haven't tried PhotoPots yet?</h2>
+            <p class="cta-banner__sub">Free gets you 25 sorts a week. That's plenty to see if pots fit your life.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+            <a class="btn btn--ghost" href="pricing.html">See pricing →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

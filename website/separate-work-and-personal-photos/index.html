@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Separate Work and Personal Photos — PhotoPots</title>
+  <meta name="description" content="Keep work photos separate on iPhone: PhotoPots moves sorted photos out of your Camera Roll and captures new ones straight into a pot. Free to download.">
+
+  <link rel="canonical" href="https://www.photopots.com/separate-work-and-personal-photos/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Separate Work and Personal Photos — PhotoPots">
+  <meta property="og:description" content="Keep work photos separate on iPhone: PhotoPots moves sorted photos out of your Camera Roll and captures new ones straight into a pot. Free to download.">
+  <meta property="og:url" content="https://www.photopots.com/separate-work-and-personal-photos/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Separate Work and Personal Photos — PhotoPots">
+  <meta name="twitter:description" content="Keep work photos separate on iPhone: PhotoPots moves sorted photos out of your Camera Roll and captures new ones straight into a pot. Free to download.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Fonts: Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Scripts -->
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+
+  <!-- Page-specific styles: breadcrumb, numbered steps, comparison table -->
+  <style>
+    .breadcrumb {
+      font-size: var(--text-tiny);
+      color: var(--ink-mute);
+      margin-bottom: var(--space-5);
+    }
+    .breadcrumb ol {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      padding: 0;
+      margin: 0;
+    }
+    .breadcrumb li + li::before {
+      content: "/";
+      margin-right: var(--space-2);
+      color: var(--line);
+    }
+    .breadcrumb a { color: var(--ink-mute); }
+    .breadcrumb a:hover { color: var(--blue-dark); }
+    .breadcrumb [aria-current] { color: var(--ink-soft); font-weight: 700; }
+
+    .steps {
+      list-style: none;
+      counter-reset: step;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--space-5);
+      max-width: var(--container-narrow);
+    }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 56px;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      background: var(--blue-tint);
+      color: var(--blue-dark);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-h4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .steps h3 {
+      font-size: var(--text-h4);
+      margin-bottom: var(--space-1);
+    }
+    .steps p { margin: 0; color: var(--ink-soft); font-size: var(--text-small); }
+
+    .compare-wrap { overflow-x: auto; }
+    .compare {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius-16);
+      overflow: hidden;
+      box-shadow: var(--shadow-lifted-sm);
+      font-size: var(--text-small);
+    }
+    .compare th, .compare td {
+      text-align: left;
+      padding: var(--space-4) var(--space-4);
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .compare thead th {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-body);
+      color: var(--ink);
+      background: var(--cream);
+    }
+    .compare thead th.compare__pp { color: var(--blue-dark); }
+    .compare tbody th { font-weight: 700; color: var(--ink); width: 34%; }
+    .compare tbody tr:last-child th, .compare tbody tr:last-child td { border-bottom: none; }
+    .compare .yes { color: var(--green-dark); font-weight: 700; }
+    .compare .no { color: var(--red-dark); font-weight: 700; }
+  </style>
+
+  <!-- JSON-LD: FAQPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do sorted photos disappear from my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — that's the point. When you sort a photo into a pot, PhotoPots moves the original out of your photo library. It isn't hidden in another album; it's genuinely gone from the Camera Roll, Memories, and shared albums, and it lives only inside the pot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between a pot and a regular photo album?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An album in the Photos app is a view — the original photo stays in your library, so it still shows up in Memories, searches, and shared albums. A pot is a separate container. Sorting into a pot removes the photo from your library entirely, and photos captured into a pot never enter it at all."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I capture work photos without them ever touching my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PhotoPots has a built-in camera that saves each shot directly into the pot you choose. The photo never enters your Camera Roll, so there's nothing to clean up afterwards. GPS metadata is preserved, which matters for job-site and property documentation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will my pots sync to my iPad and Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PhotoPots syncs your pots over iCloud, so the same work photos are waiting for you on iPhone, iPad, and Mac — sorted on one device, available on all of them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is PhotoPots free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The free plan includes 25 sorts per week plus capture-to-pot, which is enough for most people to try the workflow. Pro removes the weekly limit for unlimited sorting. No account is required to start. See pricing or the full FAQ for details."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.photopots.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Separate Work and Personal Photos",
+            "item": "https://www.photopots.com/separate-work-and-personal-photos/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="../index.html" aria-label="PhotoPots home">
+          <img src="../assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../features.html">Features</a></li>
+          <li><a class="nav__link" href="../how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="../pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="../blog/">Blog</a></li>
+          <li><a class="nav__link" href="../faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero hero--split">
+      <div class="container">
+        <div>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li><a href="../index.html">Home</a></li>
+              <li aria-current="page"><span aria-current="page">Separate Work and Personal Photos</span></li>
+            </ol>
+          </nav>
+          <h1 class="hero__title">Separate work and personal photos on iPhone — <span class="hl">for real</span>.</h1>
+          <p class="hero__sub">PhotoPots keeps work photos out of your personal life. Sort existing photos into a pot and the original leaves your Camera Roll. Or capture straight into a pot with the in-app camera — it never enters your library at all.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+            <a class="btn btn--secondary btn--lg" href="#how-to-separate">How to separate your photos</a>
+          </div>
+          <p class="hero__note">Free · 25 sorts a week · iPhone, iPad &amp; Mac</p>
+        </div>
+        <div>
+          <ul class="pot-grid">
+            <li class="pot-tile pot-tile--orange">
+              <svg class="pot-tile__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l7 7-9 9H5v-7l9-9z"/><path d="M12 5l7 7"/></svg>
+              <div class="pot-tile__name">Job Sites</div>
+              <div class="pot-tile__meta">214 photos</div>
+            </li>
+            <li class="pot-tile pot-tile--blue">
+              <svg class="pot-tile__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              <div class="pot-tile__name">Client Work</div>
+              <div class="pot-tile__meta">86 photos</div>
+            </li>
+            <li class="pot-tile pot-tile--green">
+              <svg class="pot-tile__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M9 21V12h6v9"/></svg>
+              <div class="pot-tile__name">Family</div>
+              <div class="pot-tile__meta">1,432 photos</div>
+            </li>
+            <li class="pot-tile pot-tile--violet">
+              <svg class="pot-tile__icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              <div class="pot-tile__name">Personal</div>
+              <div class="pot-tile__meta">312 photos</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- The problem -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">The problem</span>
+          <h2 class="section-title">Your Camera Roll was never meant to hold two lives</h2>
+          <p class="section-sub">If you work with photos, mixing them with personal ones costs you more than tidiness.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--red">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+            </div>
+            <h3 class="card__title">Memories resurfaces everything</h3>
+            <p class="card__body">iPhone Memories and slideshows pull from your whole library. That means a drywall tear-out or a wound-dressing photo can pop up in the "year in review" you play for your kids. Your Camera Roll doesn't know the difference between a moment and a deliverable — but you do.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            </div>
+            <h3 class="card__title">Shared albums leak context</h3>
+            <p class="card__body">Share a holiday album with family and your work shots are still sitting one swipe away in the same library. iCloud sharing, AirDrop suggestions, and "For You" recommendations all treat every photo as fair game.</p>
+          </li>
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--violet">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 class="card__title">Showing photos gets awkward</h3>
+            <p class="card__body">Hand your phone to a client to show the finished kitchen and they're a thumb-swipe from your weekend. Or hand it to your kid to see a puppy picture and they're a swipe from a customer invoice. Privacy shouldn't depend on nobody swiping.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Why albums don't work -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="section-header reveal">
+          <span class="eyebrow eyebrow--orange">Why not albums?</span>
+          <h2 class="section-title">Albums and the Hidden folder don't actually separate anything</h2>
+        </div>
+        <div class="reveal">
+          <p>The built-in fixes feel like separation, but they aren't. An album in the Photos app is just a view — sort a work photo into a "Jobs" album and the original <em>still lives in your library</em>. It still appears in Memories, in search, in shared suggestions, and in the "Recents" view everyone scrolls through.</p>
+          <p>The Hidden folder is closer, but it's built for hiding, not organizing. One long list, no categories, no color, no way to tell a plumbing invoice from a permit photo at a glance — and anything in it is still technically in the same library, one toggle away.</p>
+          <p>Real separation means the photo is <strong>gone</strong> from your personal library. That's exactly what PhotoPots does differently.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How PhotoPots solves it -->
+    <section class="section section--cream" id="how-it-helps">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">The fix</span>
+          <h2 class="section-title">Two ways PhotoPots keeps work and life apart</h2>
+          <p class="section-sub">Every photo in a pot is out of your Camera Roll — not hidden, not bookmarked, removed.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+            </div>
+            <h3 class="card__title">Sort: the original leaves your library</h3>
+            <p class="card__body">Pick photos already in your Camera Roll and sort them into a pot. PhotoPots moves them — the original is removed from your library, not just tucked behind a filter. Work photos stop showing up in Memories, shared albums, and family scroll-throughs. Crop or edit inside the pot and GPS and timestamp metadata stay intact.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <h3 class="card__title">Capture: never enters your library</h3>
+            <p class="card__body">Open the PhotoPots camera, pick a pot, shoot. The photo lands straight in that pot and <a href="../camera-that-skips-camera-roll/">never touches your Camera Roll</a> — nothing to clean up later. It's the fastest way to keep work photos separate on iPhone when you're on site and moving fast.</p>
+          </li>
+        </ul>
+        <ul class="check-list mt-6 reveal" style="max-width: var(--container-narrow); margin-inline: auto;">
+          <li>Custom pot names and colors — one glance tells work from life</li>
+          <li>OCR search finds text inside receipts, signs, and whiteboards</li>
+          <li>Batch screenshot triage clears screenshots in minutes</li>
+          <li>iCloud sync keeps pots identical on iPhone, iPad, and Mac</li>
+          <li>One-tap share to Messages, Mail, Slack, or anywhere else</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Step-by-step -->
+    <section class="section" id="how-to-separate">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--green">Get started</span>
+          <h2 class="section-title">How to separate your photos in five minutes</h2>
+          <p class="section-sub">No account, no import wizard. Here's the whole setup.</p>
+        </div>
+        <ol class="steps reveal">
+          <li>
+            <h3>Download PhotoPots and create your first pot</h3>
+            <p>Name it something obvious — "Job Sites", "Listings", "Patients" — and give it a color. Make a second pot for personal stuff if you want, or leave personal photos in the Camera Roll where they belong.</p>
+          </li>
+          <li>
+            <h3>Sort the backlog</h3>
+            <p>Scroll your Camera Roll inside PhotoPots and tap the work shots. Each sort moves the original out of your library into the pot. The free plan gives you 25 sorts a week — enough to chip away at the backlog, or <a href="../pricing.html">go Pro for unlimited sorting</a> and clear it in one sitting.</p>
+          </li>
+          <li>
+            <h3>Switch your habit to capture-to-pot</h3>
+            <p>From now on, take work photos with the PhotoPots camera. They land directly in the pot with GPS metadata preserved, and your Camera Roll stays personal by default.</p>
+          </li>
+          <li>
+            <h3>Triage your screenshots</h3>
+            <p>Run the batch screenshot tool to sweep receipts, whiteboard photos, and job details out of your library in bulk — sorted or deleted, your call.</p>
+          </li>
+          <li>
+            <h3>Share from the pot, not the library</h3>
+            <p>When a client, office, or insurer needs a photo, share it straight from the pot to Messages, Mail, or any app. Your personal photos never enter the conversation.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Use cases -->
+    <section class="section section--sand">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--violet">Who it's for</span>
+          <h2 class="section-title">Built for people who communicate with photos</h2>
+          <p class="section-sub">If your camera is a work tool, separation isn't a nice-to-have.</p>
+        </div>
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l7 7-9 9H5v-7l9-9z"/></svg>
+            </div>
+            <h3 class="card__title">Contractors</h3>
+            <p class="card__body">Before-and-after shots, damage documentation, material receipts. Capture them on site with the PhotoPots camera and they're filed by the time you're back in the truck — GPS intact for the invoice, and completely absent from the family album.</p>
+          </li>
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M9 21V12h6v9"/></svg>
+            </div>
+            <h3 class="card__title">Real estate agents</h3>
+            <p class="card__body">One pot per listing. Walk-through photos, staging shots, and seller notes stay organized per property, searchable by OCR ("find the photo with the water heater label"), and shareable to clients without exposing anything personal.</p>
+          </li>
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3 class="card__title">Inspectors &amp; field techs</h3>
+            <p class="card__body">Compliance photos need timestamps and locations — PhotoPots preserves both, even after cropping. Sync over iCloud and the day's evidence is waiting on your Mac when you sit down to write the report.</p>
+          </li>
+        </ul>
+        <p class="text-center mt-6 reveal"><a class="btn btn--ghost" href="../blog/how-to-separate-work-and-personal-photos-iphone/">Read the full iPhone separation guide →</a></p>
+      </div>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Compare</span>
+          <h2 class="section-title">Albums vs. Hidden folder vs. PhotoPots</h2>
+          <p class="section-sub">What "separate" actually gets you with each option.</p>
+        </div>
+        <div class="compare-wrap reveal">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col">What you need</th>
+                <th scope="col">Camera Roll albums</th>
+                <th scope="col">Hidden folder</th>
+                <th scope="col" class="compare__pp">PhotoPots</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Original removed from library</th>
+                <td class="no">No — it's a view</td>
+                <td class="no">No — still in library</td>
+                <td class="yes">Yes — moved out</td>
+              </tr>
+              <tr>
+                <th scope="row">Kept out of Memories &amp; slideshows</th>
+                <td class="no">No</td>
+                <td class="yes">Mostly</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Organized categories with names &amp; colors</th>
+                <td class="yes">Yes</td>
+                <td class="no">No — one list</td>
+                <td class="yes">Yes — pots</td>
+              </tr>
+              <tr>
+                <th scope="row">Capture that skips the Camera Roll</th>
+                <td class="no">No</td>
+                <td class="no">No</td>
+                <td class="yes">Yes — in-app camera</td>
+              </tr>
+              <tr>
+                <th scope="row">GPS metadata preserved after edits</th>
+                <td class="no">Edits can strip it</td>
+                <td class="no">No</td>
+                <td class="yes">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Syncs to iPad &amp; Mac</th>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes</td>
+                <td class="yes">Yes — via iCloud</td>
+              </tr>
+              <tr>
+                <th scope="row">Searchable text inside photos (OCR)</th>
+                <td class="yes">Yes</td>
+                <td class="no">No</td>
+                <td class="yes">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--cream" id="faq">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--orange">Questions</span>
+          <h2 class="section-title">Separating work photos, answered</h2>
+        </div>
+        <div class="faq faq--center reveal">
+          <details class="faq__item">
+            <summary class="faq__q">Do sorted photos disappear from my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>Yes — that's the point. When you sort a photo into a pot, PhotoPots moves the original out of your photo library. It isn't hidden in another album; it's genuinely gone from the Camera Roll, Memories, and shared albums, and it lives only inside the pot.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">What's the difference between a pot and a regular photo album?</summary>
+            <div class="faq__a">
+              <p>An album in the Photos app is a view — the original photo stays in your library, so it still shows up in Memories, searches, and shared albums. A pot is a separate container. Sorting into a pot removes the photo from your library entirely, and photos captured into a pot never enter it at all.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Can I capture work photos without them ever touching my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>Yes. PhotoPots has a built-in camera that saves each shot directly into the pot you choose. The photo never enters your Camera Roll, so there's nothing to clean up afterwards. GPS metadata is preserved, which matters for job-site and property documentation.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Will my pots sync to my iPad and Mac?</summary>
+            <div class="faq__a">
+              <p>Yes. PhotoPots syncs your pots over iCloud, so the same work photos are waiting for you on iPhone, iPad, and Mac — sorted on one device, available on all of them.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Is PhotoPots free?</summary>
+            <div class="faq__a">
+              <p>Yes. The free plan includes 25 sorts per week plus capture-to-pot, which is enough for most people to try the workflow. Pro removes the weekly limit for unlimited sorting. No account is required to start. See <a href="../pricing.html">pricing</a> or the <a href="../faq.html">full FAQ</a> for details.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your Camera Roll is not a filing system.</h2>
+            <p class="cta-banner__sub">Put work photos in a work pot. It takes seconds — and this time they actually leave.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--secondary btn--lg" href="../pricing.html">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="../features.html">Features</a></li>
+            <li><a href="../how-it-works.html">How it works</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+            <li><a href="../support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

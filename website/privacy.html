@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Privacy Policy — PhotoPots</title>
+  <meta name="description" content="PhotoPots privacy policy: your photos sync through your own iCloud, never our servers. No analytics, no ads, no tracking — we can't see your photos.">
+
+  <link rel="canonical" href="https://www.photopots.com/privacy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Privacy Policy — PhotoPots">
+  <meta property="og:description" content="PhotoPots privacy policy: your photos sync through your own iCloud, never our servers. No analytics, no ads, no tracking — we can't see your photos.">
+  <meta property="og:url" content="https://www.photopots.com/privacy.html">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy — PhotoPots">
+  <meta name="twitter:description" content="PhotoPots privacy policy: your photos sync through your own iCloud, never our servers. No analytics, no ads, no tracking — we can't see your photos.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <style>
+    /* Legal page: breadcrumb, summary box, readable prose */
+    .breadcrumb {
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+      margin-bottom: var(--space-6);
+    }
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .breadcrumb li + li::before {
+      content: "›";
+      margin-right: var(--space-2);
+      color: var(--ink-mute);
+    }
+    .breadcrumb a {
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      color: var(--blue-dark);
+      text-decoration: underline;
+    }
+    .breadcrumb [aria-current="page"] {
+      color: var(--ink-mute);
+    }
+
+    .legal-updated {
+      color: var(--ink-mute);
+      font-size: var(--text-small);
+      margin: var(--space-2) 0 var(--space-6);
+    }
+
+    .short-version {
+      background: var(--blue-tint);
+      border: 1px solid var(--blue-tint-strong);
+      border-radius: var(--radius-16);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    .short-version__label {
+      display: block;
+      font-weight: 800;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--blue-dark);
+      margin-bottom: var(--space-2);
+    }
+    .short-version p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .prose {
+      color: var(--ink-soft);
+      font-size: var(--text-body);
+      line-height: 1.7;
+    }
+    .prose h2 {
+      font-size: var(--text-h3);
+      color: var(--ink);
+      margin: var(--space-8) 0 var(--space-3);
+    }
+    .prose h2:first-child {
+      margin-top: 0;
+    }
+    .prose p {
+      margin: 0 0 var(--space-4);
+    }
+    .prose ul {
+      margin: 0 0 var(--space-4);
+      padding-left: var(--space-6);
+    }
+    .prose li {
+      margin-bottom: var(--space-2);
+    }
+    .prose a {
+      color: var(--blue-dark);
+    }
+    .prose a:hover {
+      text-decoration: underline;
+    }
+    .prose strong {
+      color: var(--ink);
+    }
+    .prose address {
+      font-style: normal;
+      line-height: 1.7;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.photopots.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy Policy",
+        "item": "https://www.photopots.com/privacy.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+    <section class="section">
+      <div class="container container--narrow">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><span aria-current="page">Privacy Policy</span></li>
+          </ol>
+        </nav>
+
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="legal-updated">Last updated: June 2026</p>
+
+        <div class="short-version">
+          <span class="short-version__label">The short version</span>
+          <p>Your photos live on your devices and in your own iCloud — we never see them. There's no PhotoPots server, no analytics, no ads, and no tracking. The only thing we ever receive is an App Store receipt token when you buy Pro, and whatever you choose to send us if you email support.</p>
+        </div>
+
+        <div class="prose">
+          <h2>Summary</h2>
+          <p>PhotoPots is built so that we, the developer, <strong>cannot see your photos</strong>. They sync between your devices through your own iCloud account using Apple's CloudKit — no PhotoPots server is involved. We don't run analytics, we don't show ads, and we don't track you.</p>
+          <p>This page explains what data exists, where it lives, and what we do (and don't) collect.</p>
+
+          <h2>What stays on your devices and in your iCloud</h2>
+          <ul>
+            <li><strong>Photos you sort into pots.</strong> Stored locally in the PhotoPots app sandbox on the device that performed the sort. Synced to your other devices through your private iCloud database. We have no access to your iCloud — Apple does not give us read access to user data.</li>
+            <li><strong>Pot names, colors, ordering, tags.</strong> Same as above — local + your iCloud only.</li>
+            <li><strong>OCR text</strong> extracted from your photos for search. Generated on-device using Apple's Vision framework. Stored alongside the photo. Never transmitted to us.</li>
+            <li><strong>App preferences</strong> (which pot is the default, widget configuration, onboarding completion). Stored locally and via Apple's <code>NSUbiquitousKeyValueStore</code> for cross-device sync. Never transmitted to us.</li>
+          </ul>
+          <p>If you delete the app, the local data is removed. Your iCloud data persists until you sign out of iCloud or delete the app's data from iCloud settings (Settings → Apple ID → iCloud → PhotoPots).</p>
+
+          <h2>What we receive from Apple</h2>
+          <ul>
+            <li><strong>App Store purchase verification.</strong> When you purchase PhotoPots Pro or an Offboarding Pass through the App Store, Apple sends us a receipt token. We use it only to confirm the purchase is valid and to grant the corresponding entitlement on your account. We never receive your name, email, payment details, or any identifying information.</li>
+            <li><strong>Apple Push Notification Service (APNs) device tokens.</strong> Apple sends us an opaque token so silent push notifications from CloudKit can wake the app to sync. The token is meaningless to us outside Apple's notification system.</li>
+          </ul>
+
+          <h2>What we do NOT collect</h2>
+          <ul>
+            <li>We do not run analytics SDKs (no Firebase, Mixpanel, Amplitude, etc.).</li>
+            <li>We do not have a server to send your data to.</li>
+            <li>We do not see your photos, your tags, your pot names, your filenames, or your search queries.</li>
+            <li>We do not have your email address, name, or any personal identifier — unless you contact us directly.</li>
+          </ul>
+
+          <h2>Optional contact</h2>
+          <p>If you email us at <strong><a href="mailto:support@photopots.com">support@photopots.com</a></strong>, we receive whatever you choose to send. Standard email — no special handling. We retain support emails for as long as needed to help you, then delete them.</p>
+
+          <h2>Children</h2>
+          <p>PhotoPots is not directed to children under 13. We do not knowingly collect data from anyone under 13.</p>
+
+          <h2>Changes</h2>
+          <p>If this policy materially changes, the "Last updated" date at the top will reflect that and the change will be summarized in the app's release notes.</p>
+
+          <h2>Contact</h2>
+          <address>
+            <strong>OhhWowLabs</strong><br>
+            <a href="mailto:support@photopots.com">support@photopots.com</a><br>
+            <a href="https://www.photopots.com">www.photopots.com</a>
+          </address>
+        </div>
+
+        <p class="text-small text-mute mt-6">Also see our <a href="terms.html">Terms of Use</a>.</p>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html" aria-current="page">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

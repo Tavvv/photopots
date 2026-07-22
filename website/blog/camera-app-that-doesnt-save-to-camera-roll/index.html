@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Camera App That Doesn't Save to Camera Roll — PhotoPots Blog</title>
+  <meta name="description" content="Why a camera app that doesn't save to your Camera Roll matters: job-site shots, receipts, and evidence photos stay out of personal backups. Free to try.">
+
+  <link rel="canonical" href="https://www.photopots.com/blog/camera-app-that-doesnt-save-to-camera-roll/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="Camera App That Doesn't Save to Camera Roll — PhotoPots Blog">
+  <meta property="og:description" content="Why a camera app that doesn't save to your Camera Roll matters: job-site shots, receipts, and evidence photos stay out of personal backups. Free to try.">
+  <meta property="og:url" content="https://www.photopots.com/blog/camera-app-that-doesnt-save-to-camera-roll/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Camera App That Doesn't Save to Camera Roll — PhotoPots Blog">
+  <meta name="twitter:description" content="Why a camera app that doesn't save to your Camera Roll matters: job-site shots, receipts, and evidence photos stay out of personal backups. Free to try.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="../../assets/js/config.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+  <!-- Page-local styles: blog article typography -->
+  <style>
+    .breadcrumb {
+      font-size: var(--text-tiny);
+      color: var(--ink-mute);
+      margin-bottom: var(--space-5);
+    }
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .breadcrumb li + li::before {
+      content: "/";
+      margin-right: var(--space-2);
+      color: var(--line);
+    }
+    .breadcrumb a {
+      color: var(--ink-mute);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb [aria-current="page"] { color: var(--ink-soft); }
+
+    .article { max-width: 46rem; }
+    .article__meta {
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+      margin: var(--space-4) 0 var(--space-7);
+    }
+    .article h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-h2);
+      color: var(--ink);
+      margin: var(--space-8) 0 var(--space-4);
+      line-height: 1.2;
+    }
+    .article h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-h4);
+      color: var(--ink);
+      margin: var(--space-6) 0 var(--space-3);
+    }
+    .article p {
+      font-size: var(--text-body);
+      line-height: 1.75;
+      color: var(--ink-soft);
+      margin: 0 0 var(--space-5);
+    }
+    .article ul:not(.check-list):not(.keep-reading__list) {
+      margin: 0 0 var(--space-5);
+      padding-left: var(--space-6);
+    }
+    .article li {
+      font-size: var(--text-body);
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: var(--space-3);
+    }
+    .article li strong { color: var(--ink); }
+    .article a { color: var(--blue); }
+    .article a:hover { color: var(--blue-dark); }
+
+    .keep-reading__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .keep-reading__list { grid-template-columns: repeat(3, 1fr); }
+    }
+    .keep-reading__link {
+      display: block;
+      height: 100%;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-16);
+      padding: var(--space-5);
+      text-decoration: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .keep-reading__link:hover {
+      border-color: var(--blue);
+      box-shadow: var(--shadow-lifted-sm);
+    }
+    .keep-reading__kind {
+      display: block;
+      font-size: var(--text-tiny);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      margin-bottom: var(--space-2);
+    }
+    .keep-reading__title {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-h4);
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: var(--space-2);
+    }
+    .keep-reading__desc {
+      display: block;
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+      line-height: 1.55;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .keep-reading__link { transition: none; }
+    }
+  </style>
+
+  <!-- JSON-LD: BlogPosting + BreadcrumbList -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "The Camera App That Doesn't Save to Your Camera Roll (And Why You Need One)",
+      "description": "Why a camera app that doesn't save to your Camera Roll matters: job-site shots, receipts, and evidence photos stay out of personal backups. Free to try.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-22",
+      "author": {
+        "@type": "Organization",
+        "name": "PhotoPots Team",
+        "url": "https://www.photopots.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhotoPots",
+        "url": "https://www.photopots.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.photopots.com/assets/img/app-icon-512.png"
+        }
+      },
+      "image": "https://www.photopots.com/assets/img/og-image.png",
+      "mainEntityOfPage": "https://www.photopots.com/blog/camera-app-that-doesnt-save-to-camera-roll/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.photopots.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.photopots.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Camera App That Doesn't Save to Your Camera Roll",
+          "item": "https://www.photopots.com/blog/camera-app-that-doesnt-save-to-camera-roll/"
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="../../index.html" aria-label="PhotoPots home">
+          <img src="../../assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../../features.html">Features</a></li>
+          <li><a class="nav__link" href="../../how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="../../pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="../../blog/" aria-current="page">Blog</a></li>
+          <li><a class="nav__link" href="../../faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main id="main">
+    <section class="section section--cream">
+      <div class="container container--narrow">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../blog/">Blog</a></li>
+            <li aria-current="page">The Camera App That Doesn't Save to Your Camera Roll</li>
+          </ol>
+        </nav>
+
+        <span class="eyebrow">Blog</span>
+        <h1>The Camera App That Doesn't Save to Your Camera Roll (And Why You Need One)</h1>
+        <p class="article__meta">By the PhotoPots Team · July 22, 2026 · 6 min read</p>
+
+        <article class="article">
+          <p>Here's a strange truth about the iPhone: every photo you take goes to the same place. The shot of a cracked foundation you're paid to document sits next to your kid's birthday cake. A camera app that doesn't save to your Camera Roll fixes that at the source — the photo lands in a work container the moment you press the shutter, and your personal library never sees it. If you communicate with photos for a living, it's one of those tools that feels obvious the first time you use it.</p>
+
+          <h2>The photos that were never meant for your Camera Roll</h2>
+          <p>Think about how many photos you take that aren't memories at all. They're records. For a lot of jobs, the camera is really a clipboard:</p>
+          <ul>
+            <li><strong>Job-site documentation.</strong> Contractors and field techs photograph progress, damage, and finished work. Those shots end up in invoices, dispute resolutions, and "before" proof — not in a slideshow.</li>
+            <li><strong>Receipts for expenses.</strong> Snap the receipt, file it, move on. It needs to be findable at tax time, not scrolling by between vacation photos.</li>
+            <li><strong>Whiteboards and flip charts.</strong> The meeting's over, the whiteboard gets erased, and the only copy of that plan is a photo. It belongs with the project, not with your weekend.</li>
+            <li><strong>Rental car inspections.</strong> Walk around the car, photograph every scratch and dent, timestamp everything. You hope you never need those photos — but if you do, you need them fast and you need them credible.</li>
+            <li><strong>Evidence photos.</strong> Inspectors, adjusters, property managers, nurses documenting wound care. These are sensitive images with real consequences, and they deserve better than a shared personal library.</li>
+          </ul>
+          <p>None of these belong in the same endless scroll as your family photos. Yet that's exactly where the default Camera app puts them.</p>
+
+          <h2>What goes wrong when work photos live in your Camera Roll</h2>
+          <p>Three things, and you've probably hit all three.</p>
+          <p><strong>First, photos get buried.</strong> You took forty shots of a job site on Tuesday. By Friday they're under two hundred personal photos, and finding "the one with the panel before we closed the wall" means scrolling and squinting. Your Camera Roll is a pile, not a filing system.</p>
+          <p><strong>Second, your personal cloud quietly backs up sensitive work shots.</strong> If iCloud Photos is on, every work photo syncs to your personal account and every device signed into it. Client interiors, patient documentation, confidential site conditions — replicated to the family iPad. Most people never think about this until they do, and then they can't stop thinking about it.</p>
+          <p><strong>Third, the Memories problem.</strong> iOS loves resurfacing old photos as sentimental montages. That's lovely for birthdays. It's considerably less lovely when "On this day" serves a client a water-damaged ceiling, or when you're showing a friend a photo and they swipe into a receipt from March. Embarrassing at best. A genuine confidentiality problem at worst.</p>
+
+          <h2>How capture-to-pot works in PhotoPots</h2>
+          <p>PhotoPots has its own camera built in. You open the app, pick a pot — say the blue "Smith Renovation" pot or the green "Expenses" pot — and shoot. That's it. The photo saves directly into that pot inside the app. It never touches your Camera Roll at all, so it never hits your personal iCloud backup, never shows up in Memories, and never photobombs anyone swiping through your pictures.</p>
+          <p>Pots have custom names and colors, so your brain learns the map fast: blue for the current job, orange for receipts, green for the rental property. And because each pot is a real container, everything about the photo — the GPS coordinates, the timestamp, the camera data — stays attached to it.</p>
+          <p>Already have work photos mixed into your Camera Roll? Sorting moves them out — the original is removed from your library, not just hidden — so the pile shrinks as you file. You can read more about that side of the app in <a href="../how-to-separate-work-and-personal-photos-iphone/">how to separate work and personal photos on iPhone</a>, or see the full picture on the <a href="../../features.html">features page</a>.</p>
+
+          <h2>Location and metadata stay intact — even when you crop</h2>
+          <p>For documentation photos, the metadata is half the value. A photo of storm damage that can prove <em>where</em> and <em>when</em> it was taken is worth far more than a pretty picture of the same roof.</p>
+          <p>PhotoPots preserves GPS metadata on every capture. And here's the part most apps get wrong: you can crop and edit a photo inside a pot without stripping that metadata. Tighten the frame on the damage, straighten the whiteboard, trim the receipt — the location, date, and time stay embedded in the file. Your evidence stays evidence.</p>
+
+          <h2>Share once, straight to the tools you already use</h2>
+          <p>A documented photo that stays on your phone helps no one. From any pot, one tap sends photos wherever the work happens: email to the office, Messages to a client, Slack for the crew, your project management app, or a shared drive for the claim file. No exporting to the Camera Roll first, no digging through the pile to find the shot again. Capture, tap, sent — and the original stays filed in the pot with its metadata intact. If you want the deeper workflow, the <a href="../work-photo-documentation-guide/">work photo documentation guide</a> walks through it step by step, and <a href="../../how-it-works.html">how PhotoPots works</a> covers sorting, capture, and sync end to end.</p>
+
+          <h2>Keep the records, lose the clutter</h2>
+          <p>Your Camera Roll should be for your life. Your work photos deserve a container that keeps them findable, shareable, and out of your personal backup. That's the whole idea behind a camera app that skips the Camera Roll — and it's why we built one into PhotoPots. Free gets you 25 sorts a week and full capture-to-pot; Pro removes the limits. <a href="../../pricing.html">See pricing</a>, or just download it and shoot your next receipt straight into a pot.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your Camera Roll is not a filing system.</h2>
+            <p class="cta-banner__sub">Capture straight into a work pot — never into your personal library. Free for iPhone, iPad &amp; Mac.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots free</a>
+            <a class="btn btn--secondary btn--lg" href="../../camera-that-skips-camera-roll/">See the capture-to-pot camera</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keep reading -->
+    <section class="section section--sand">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--orange">Keep reading</span>
+          <h2 class="section-title">More from the PhotoPots blog</h2>
+        </div>
+        <ul class="keep-reading__list">
+          <li class="reveal">
+            <a class="keep-reading__link" href="../how-to-separate-work-and-personal-photos-iphone/">
+              <span class="keep-reading__kind">Blog</span>
+              <span class="keep-reading__title">How to Separate Work and Personal Photos on iPhone</span>
+              <span class="keep-reading__desc">Sorting that actually moves photos out of your Camera Roll — not just hides them.</span>
+            </a>
+          </li>
+          <li class="reveal reveal--delay-1">
+            <a class="keep-reading__link" href="../work-photo-documentation-guide/">
+              <span class="keep-reading__kind">Blog</span>
+              <span class="keep-reading__title">The Work Photo Documentation Guide</span>
+              <span class="keep-reading__desc">A practical workflow for photos that hold up: capture, metadata, filing, and sharing.</span>
+            </a>
+          </li>
+          <li class="reveal reveal--delay-2">
+            <a class="keep-reading__link" href="../../camera-that-skips-camera-roll/">
+              <span class="keep-reading__kind">Feature</span>
+              <span class="keep-reading__title">A Camera That Skips the Camera Roll</span>
+              <span class="keep-reading__desc">The PhotoPots in-app camera: shoot straight into a pot, metadata preserved.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../../assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="../../features.html">Features</a></li>
+            <li><a href="../../how-it-works.html">How it works</a></li>
+            <li><a href="../../pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="../../blog/">Blog</a></li>
+            <li><a href="../../faq.html">FAQ</a></li>
+            <li><a href="../../support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

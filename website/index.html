@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PhotoPots — Keep Work and Life Photos Apart</title>
+  <meta name="description" content="PhotoPots keeps work and personal photos in separate pots. Sort or capture into a pot — originals leave your Camera Roll. Free for iPhone, iPad & Mac.">
+
+  <link rel="canonical" href="https://www.photopots.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PhotoPots">
+  <meta property="og:title" content="PhotoPots — Keep Work and Life Photos Apart">
+  <meta property="og:description" content="PhotoPots keeps work and personal photos in separate pots. Sort or capture into a pot — originals leave your Camera Roll. Free for iPhone, iPad & Mac.">
+  <meta property="og:url" content="https://www.photopots.com/">
+  <meta property="og:image" content="https://www.photopots.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PhotoPots — Keep Work and Life Photos Apart">
+  <meta name="twitter:description" content="PhotoPots keeps work and personal photos in separate pots. Sort or capture into a pot — originals leave your Camera Roll. Free for iPhone, iPad & Mac.">
+  <meta name="twitter:image" content="https://www.photopots.com/assets/img/og-image.png">
+
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fonts: Nunito (rounded, friendly, heavy headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+
+  <!-- Styles (tokens first, then main) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Scripts: config BEFORE main, both deferred -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- ============================================================
+       Home-page-only styles: interactive sorting demo, hero shapes,
+       animated flow illustrations, audience cards.
+       ============================================================ -->
+  <style>
+    /* ---------- Hero: floating pastel pot shapes ---------- */
+    .hero--home { position: relative; overflow: hidden; }
+    .hero--home .container { position: relative; z-index: 1; }
+    .hero-shape {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.55;
+      border-radius: 34% 66% 62% 38% / 48% 42% 58% 52%;
+      animation: heroFloat 9s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .hero-shape--cyan   { width: 180px; height: 180px; background: var(--cyan-tint);   top: 6%;  left: -40px;  animation-duration: 11s; }
+    .hero-shape--orange { width: 130px; height: 130px; background: var(--orange-tint); top: 12%; right: -24px; animation-duration: 8s;  animation-delay: -3s; }
+    .hero-shape--violet { width: 90px;  height: 90px;  background: var(--violet-tint); top: 46%; left: 4%;    animation-duration: 10s; animation-delay: -5s; }
+    .hero-shape--green  { width: 110px; height: 110px; background: var(--green-tint);  top: 52%; right: 5%;   animation-duration: 12s; animation-delay: -2s; }
+    .hero-shape--blue   { width: 70px;  height: 70px;  background: var(--blue-tint);   top: 30%; left: 12%;   animation-duration: 7s;  animation-delay: -6s; }
+    @keyframes heroFloat {
+      from { transform: translateY(0) rotate(0deg); }
+      to   { transform: translateY(-22px) rotate(6deg); }
+    }
+
+    /* ---------- Interactive sorting demo ---------- */
+    .demo {
+      margin-top: var(--space-7);
+      width: 100%;
+      max-width: 880px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-24);
+      box-shadow: var(--shadow-lifted);
+      padding: clamp(var(--space-5), 4vw, var(--space-7));
+      text-align: left;
+    }
+    .demo__hint {
+      text-align: center;
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+      margin-bottom: var(--space-5);
+    }
+    .demo__hint strong { color: var(--ink); }
+
+    .demo__roll {
+      background: var(--sand);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-16);
+      padding: var(--space-4);
+      transition: background-color 0.4s var(--ease-out);
+    }
+    .demo__roll.is-empty { background: var(--green-tint); border-color: transparent; }
+    .demo__roll-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    .demo__roll-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-tiny);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .demo__roll-count { font-size: var(--text-tiny); color: var(--ink-mute); }
+
+    .demo__photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      min-height: 108px;
+    }
+
+    .demo-photo {
+      width: 92px;
+      padding: 6px 6px 8px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-12);
+      box-shadow: var(--shadow-lifted-sm);
+      cursor: grab;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+      transition: transform 0.25s var(--ease-out), opacity 0.3s var(--ease-out),
+                  box-shadow 0.2s var(--ease-out);
+      position: relative;
+      z-index: 1;
+    }
+    .demo-photo:hover { transform: translateY(-3px); box-shadow: var(--shadow-lifted); }
+    .demo-photo.is-dragging {
+      transition: none;
+      cursor: grabbing;
+      box-shadow: var(--shadow-lifted);
+      pointer-events: none;
+      z-index: 60;
+    }
+    .demo-photo.is-selected {
+      box-shadow: 0 0 0 3px var(--blue), var(--glow-blue-soft);
+      transform: translateY(-3px) scale(1.04);
+    }
+    .demo-photo.is-sorted {
+      transition: transform 0.38s cubic-bezier(0.5, -0.1, 0.6, 1), opacity 0.38s ease-in;
+      pointer-events: none;
+      z-index: 60;
+    }
+    .demo-photo.is-gone { display: none; }
+
+    .demo-photo__scene {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 70px;
+      border-radius: var(--radius-10);
+      overflow: hidden;
+      font-size: 34px;
+      line-height: 1;
+    }
+    .demo-photo__tag {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-mute);
+      text-align: center;
+    }
+
+    /* CSS-only photo scenes */
+    .ph-receipt { background: var(--white); border: 1px dashed var(--line); flex-direction: column; gap: 5px; padding: 10px 12px; }
+    .ph-receipt__lines {
+      width: 100%; height: 30px;
+      background: repeating-linear-gradient(to bottom, var(--line) 0 2px, transparent 2px 8px);
+    }
+    .ph-receipt__total { width: 60%; height: 6px; border-radius: var(--radius-full); background: var(--orange); align-self: flex-end; }
+
+    .ph-whiteboard { background: var(--green-tint); }
+    .ph-whiteboard svg { width: 70%; height: 70%; }
+
+    .ph-jobsite    { background: var(--orange-tint); }
+    .ph-picnic     { background: var(--violet-tint); }
+    .ph-dog        { background: var(--cyan-tint); }
+
+    .ph-shot { background: var(--sand); flex-direction: column; gap: 6px; padding: 10px 12px; }
+    .ph-shot__row { display: flex; align-items: center; gap: 6px; width: 100%; }
+    .ph-shot__box { width: 10px; height: 10px; border-radius: 3px; border: 1.5px solid var(--ink-mute); flex: none; }
+    .ph-shot__bar { height: 5px; border-radius: var(--radius-full); background: var(--line); flex: 1; }
+    .ph-shot__bar--blue { background: var(--blue-tint-strong); }
+
+    /* Demo pots (buttons styled like pot tiles) */
+    .demo__pots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .demo-pot {
+      font: inherit;
+      text-align: center;
+      border: 2px solid transparent;
+      cursor: pointer;
+      width: 100%;
+    }
+    .demo-pot:hover { transform: translateY(-4px); }
+    .demo-pot.is-target {
+      transform: translateY(-4px) scale(1.05);
+      border-color: var(--tile-accent, var(--blue-dark));
+    }
+    .demo-pot.is-hit   { animation: potBounce 0.45s var(--ease-out); }
+    .demo-pot.is-shake { animation: potShake 0.4s var(--ease-out); }
+    .demo-pot__icon { width: 28px; height: 28px; margin: 0 auto var(--space-2); color: var(--tile-accent, var(--blue-dark)); }
+    .demo-pot__count {
+      display: block;
+      font-size: var(--text-tiny);
+      color: var(--ink-mute);
+      margin-top: 2px;
+    }
+    .demo-pot__count span { font-weight: 800; color: var(--ink); display: inline-block; }
+    .demo-pot__count span.is-pop { animation: countPop 0.35s var(--ease-out); }
+
+    @keyframes potBounce {
+      0% { transform: scale(1); } 35% { transform: scale(1.08); }
+      70% { transform: scale(0.97); } 100% { transform: scale(1); }
+    }
+    @keyframes potShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); } 50% { transform: translateX(5px); }
+      75% { transform: translateX(-3px); }
+    }
+    @keyframes countPop {
+      0% { transform: scale(1); } 50% { transform: scale(1.6); } 100% { transform: scale(1); }
+    }
+
+    .demo__caption {
+      margin-top: var(--space-5);
+      text-align: center;
+      font-size: var(--text-small);
+      color: var(--ink-mute);
+      transition: color 0.3s var(--ease-out);
+    }
+    .demo__caption.is-done { color: var(--green-dark); font-weight: 800; }
+    .demo__reset { display: block; margin: var(--space-4) auto 0; }
+    .demo__reset[hidden] { display: none; }
+
+    /* Confetti dots (JS-spawned) */
+    .confetti-dot {
+      position: fixed;
+      width: 9px; height: 9px;
+      border-radius: 3px;
+      z-index: 300;
+      pointer-events: none;
+      animation: confettiPop 0.85s var(--ease-out) forwards;
+    }
+    @keyframes confettiPop {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.6); opacity: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .demo__pots { grid-template-columns: 1fr; }
+      .demo-photo { width: 84px; }
+    }
+
+    /* ---------- Problem section mockups ---------- */
+    .pain {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-16);
+      box-shadow: var(--shadow-lifted-sm);
+      padding: var(--space-5);
+    }
+    .pain__frame {
+      background: var(--sand);
+      border-radius: var(--radius-12);
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    .pain__frame-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-tiny);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: var(--space-3);
+    }
+    .pain__photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); }
+    .pain__thumb {
+      aspect-ratio: 1;
+      border-radius: var(--radius-10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .pain__thumb--odd {
+      outline: 2.5px solid var(--red);
+      outline-offset: 2px;
+      position: relative;
+    }
+    .pain__thumb--odd::after {
+      content: "?";
+      position: absolute;
+      top: -8px; right: -8px;
+      width: 18px; height: 18px;
+      border-radius: var(--radius-full);
+      background: var(--red);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pain__chat { display: grid; gap: var(--space-2); }
+    .pain__bubble {
+      max-width: 82%;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-12);
+      background: var(--white);
+      border: 1px solid var(--line);
+      font-size: var(--text-tiny);
+      color: var(--ink-soft);
+    }
+    .pain__bubble--them { justify-self: end; background: var(--blue-tint); border-color: transparent; }
+    .pain__bubble--old { opacity: 0.55; }
+    .pain__title { font-size: var(--text-h4); margin-bottom: var(--space-2); }
+    .pain__body { font-size: var(--text-small); }
+
+    /* ---------- Animated flow illustrations ---------- */
+    .flow {
+      position: relative;
+      height: 190px;
+      background: var(--sand);
+      border-radius: var(--radius-16);
+      margin-bottom: var(--space-5);
+      overflow: hidden;
+    }
+    .flow__node {
+      position: absolute;
+      bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      width: 84px;
+    }
+    .flow__node-icon {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-16);
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lifted-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+    }
+    .flow__node-label { font-size: 11px; font-weight: 700; color: var(--ink-mute); text-align: center; }
+    .flow__node--camera { left: 7%; }
+    .flow__node--roll   { left: 50%; transform: translateX(-50%); opacity: 0.45; }
+    .flow__node--roll .flow__node-icon { position: relative; }
+    .flow__node--roll .flow__node-icon::after {
+      content: "";
+      position: absolute;
+      left: 8%; right: 8%; top: 50%;
+      height: 2.5px;
+      border-radius: var(--radius-full);
+      background: var(--red);
+      transform: rotate(-24deg);
+    }
+    .flow__node--pot { right: 7%; }
+    .flow__node--pot .flow__node-icon {
+      background: linear-gradient(150deg, var(--blue-tint), var(--blue-tint-strong));
+      border-color: transparent;
+      box-shadow: var(--glow-blue-soft);
+      animation: potPulse 4.2s var(--ease-out) infinite;
+    }
+    .flow__chip {
+      position: absolute;
+      width: 30px; height: 30px;
+      border-radius: 9px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lifted-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      left: 9%;
+      bottom: 34px;
+      opacity: 0;
+      animation: captureFly 4.2s var(--ease-out) infinite;
+    }
+    @keyframes captureFly {
+      0%   { left: 9%;  opacity: 0; transform: translateY(0) scale(0.7); }
+      8%   { left: 9%;  opacity: 1; transform: translateY(0) scale(1); }
+      50%  { left: 46%; opacity: 1; transform: translateY(-76px) scale(1); }
+      88%  { left: 82%; opacity: 1; transform: translateY(0) scale(1); }
+      96%, 100% { left: 82%; opacity: 0; transform: translateY(0) scale(0.3); }
+    }
+    @keyframes potPulse {
+      0%, 80%, 100% { transform: scale(1); }
+      88% { transform: scale(1.12); }
+      94% { transform: scale(1); }
+    }
+
+    /* Sort flow (existing photos) */
+    .sortflow {
+      position: relative;
+      height: 190px;
+      background: var(--sand);
+      border-radius: var(--radius-16);
+      margin-bottom: var(--space-5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+    .sortflow__strip {
+      display: flex;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-12);
+      box-shadow: var(--shadow-lifted-sm);
+    }
+    .sortflow__mini {
+      width: 34px; height: 34px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      background: var(--sand);
+    }
+    .sortflow__mini--moving {
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lifted-sm);
+      animation: sortDrop 3.6s var(--ease-out) infinite;
+    }
+    .sortflow__pot {
+      width: 96px;
+      padding: var(--space-3) var(--space-2);
+      border-radius: var(--radius-16);
+      background: linear-gradient(150deg, var(--violet-tint), var(--violet-tint-strong));
+      box-shadow: var(--glow-violet-soft);
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-tiny);
+      color: var(--ink);
+      animation: potPulse 3.6s var(--ease-out) infinite;
+    }
+    @keyframes sortDrop {
+      0%, 30%  { transform: translateY(0) scale(1); opacity: 1; }
+      60%      { transform: translateY(64px) scale(0.85); opacity: 1; }
+      70%, 90% { transform: translateY(74px) scale(0.3); opacity: 0; }
+      100%     { transform: translateY(0) scale(1); opacity: 0; }
+    }
+
+    /* ---------- Audience cards ---------- */
+    .aud-card { text-align: left; }
+    .aud-card__emoji {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      border-radius: var(--radius-12);
+      background: var(--cream);
+      border: 1px solid var(--line);
+      font-size: 24px;
+      margin-bottom: var(--space-4);
+    }
+
+    /* ---------- Trust strip ---------- */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-5);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .trust-item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .trust-item__icon {
+      flex: none;
+      width: 44px; height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--green-tint);
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-item__icon svg { width: 22px; height: 22px; }
+    .trust-item__title { font-size: var(--text-h4); margin-bottom: 2px; }
+    .trust-item__body { font-size: var(--text-small); }
+  </style>
+
+  <!-- JSON-LD: Organization + SoftwareApplication + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "PhotoPots",
+        "url": "https://www.photopots.com/",
+        "logo": "https://www.photopots.com/assets/img/app-icon-512.png"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "PhotoPots",
+        "operatingSystem": "iOS, macOS",
+        "applicationCategory": "PhotoApplication",
+        "description": "PhotoPots keeps work and personal photos in separate pots. Sort or capture into a pot — originals leave your Camera Roll. Free for iPhone, iPad & Mac.",
+        "url": "https://www.photopots.com/",
+        "image": "https://www.photopots.com/assets/img/og-image.png",
+        "offers": [
+          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pro", "priceCurrency": "USD", "url": "https://www.photopots.com/pricing.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do sorted photos really leave my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Sorting moves the original photo into the pot — it is removed from your Camera Roll, not just hidden in an album. Your Camera Roll stays personal, and your pots hold the rest."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do photos taken with the in-app camera touch my Camera Roll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. When you capture straight into a pot, the photo is saved directly into that pot and never appears in your Camera Roll at all."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I lose GPS location or other metadata?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. PhotoPots preserves your photo metadata, including GPS location, even when you crop or edit a photo inside a pot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I share or move a photo out of a pot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Any photo in a pot can be shared anywhere with one tap — messages, email, or back to your Camera Roll if you want it there."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does PhotoPots sync across my devices?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PhotoPots syncs your pots through your iCloud account, so the same pots and photos appear on your iPhone, iPad, and Mac. There are no PhotoPots servers and no accounts to create."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Free and Pro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Free gives you 25 sorts a week. Pro removes the limit, so you can sort as many photos as you like. That is the only difference."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="index.html" aria-label="PhotoPots home" aria-current="page">
+          <img src="assets/img/logo.svg" alt="" width="32" height="32">
+          <span>PhotoPots</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="features.html">Features</a></li>
+          <li><a class="nav__link" href="how-it-works.html">How it works</a></li>
+          <li><a class="nav__link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav__link" href="blog/">Blog</a></li>
+          <li><a class="nav__link" href="faq.html">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" data-appstore>Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO + INTERACTIVE DEMO ============================ -->
+    <section class="hero hero--home">
+      <span class="hero-shape hero-shape--cyan" aria-hidden="true"></span>
+      <span class="hero-shape hero-shape--orange" aria-hidden="true"></span>
+      <span class="hero-shape hero-shape--violet" aria-hidden="true"></span>
+      <span class="hero-shape hero-shape--green" aria-hidden="true"></span>
+      <span class="hero-shape hero-shape--blue" aria-hidden="true"></span>
+
+      <div class="container">
+        <h1 class="hero__title">Keep work and life photos <span class="hl">apart</span>.</h1>
+        <p class="hero__sub">PhotoPots puts your photos into separate pots — work in one, life in another. Sort what's already in your Camera Roll, or capture straight into a pot and skip the Camera Roll entirely.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" data-appstore>Download free</a>
+          <a class="btn btn--secondary btn--lg" href="how-it-works.html">See how it works</a>
+        </div>
+        <p class="hero__note">Free · 25 sorts a week · iPhone, iPad &amp; Mac</p>
+
+        <!-- Interactive sorting demo -->
+        <div class="demo" id="pot-demo">
+          <p class="demo__hint"><strong>Try it.</strong> Drag each photo into its pot — or tap a photo, then tap a pot.</p>
+
+          <div class="demo__roll" id="demo-roll">
+            <div class="demo__roll-head">
+              <span class="demo__roll-title">Camera Roll</span>
+              <span class="demo__roll-count"><span id="demo-roll-count">6</span> photos</span>
+            </div>
+            <div class="demo__photos" id="demo-photos">
+              <button type="button" class="demo-photo" data-pot="receipts" aria-label="Receipt photo. Sort it into the Receipts pot.">
+                <span class="demo-photo__scene ph-receipt" aria-hidden="true">
+                  <span class="ph-receipt__lines"></span>
+                  <span class="ph-receipt__total"></span>
+                </span>
+                <span class="demo-photo__tag">Receipt</span>
+              </button>
+
+              <button type="button" class="demo-photo" data-pot="work" aria-label="Whiteboard photo. Sort it into the Work pot.">
+                <span class="demo-photo__scene ph-whiteboard" aria-hidden="true">
+                  <svg viewBox="0 0 60 44" fill="none" stroke-linecap="round" stroke-width="2.5" aria-hidden="true">
+                    <rect x="2" y="2" width="56" height="40" rx="5" fill="var(--white)" stroke="var(--line)"/>
+                    <path d="M9 14c6-6 10 5 16-1s10 5 16 0" stroke="var(--blue)"/>
+                    <path d="M9 24c5-4 9 4 14 0" stroke="var(--green)"/>
+                    <path d="M9 33h14" stroke="var(--orange)"/>
+                    <circle cx="46" cy="30" r="4" stroke="var(--red)"/>
+                  </svg>
+                </span>
+                <span class="demo-photo__tag">Whiteboard</span>
+              </button>
+
+              <button type="button" class="demo-photo" data-pot="work" aria-label="Job site photo. Sort it into the Work pot.">
+                <span class="demo-photo__scene ph-jobsite" aria-hidden="true">🏗️</span>
+                <span class="demo-photo__tag">Job site</span>
+              </button>
+
+              <button type="button" class="demo-photo" data-pot="home" aria-label="Family picnic photo. Sort it into the Home pot.">
+                <span class="demo-photo__scene ph-picnic" aria-hidden="true">🧺</span>
+                <span class="demo-photo__tag">Picnic</span>
+              </button>
+
+              <button type="button" class="demo-photo" data-pot="home" aria-label="Dog photo. Sort it into the Home pot.">
+                <span class="demo-photo__scene ph-dog" aria-hidden="true">🐶</span>
+                <span class="demo-photo__tag">Dog</span>
+              </button>
+
+              <button type="button" class="demo-photo" data-pot="receipts" aria-label="Screenshot of an order confirmation. Sort it into the Receipts pot.">
+                <span class="demo-photo__scene ph-shot" aria-hidden="true">
+                  <span class="ph-shot__row"><span class="ph-shot__box"></span><span class="ph-shot__bar"></span></span>
+                  <span class="ph-shot__row"><span class="ph-shot__box"></span><span class="ph-shot__bar ph-shot__bar--blue"></span></span>
+                  <span class="ph-shot__row"><span class="ph-shot__box"></span><span class="ph-shot__bar"></span></span>
+                </span>
+                <span class="demo-photo__tag">Screenshot</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="demo__pots">
+            <button type="button" class="demo-pot pot-tile pot-tile--blue" data-pot="work" aria-label="Work pot">
+              <svg class="demo-pot__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="13" rx="3"/>
+                <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+              </svg>
+              <span class="pot-tile__name">Work</span>
+              <span class="demo-pot__count"><span data-count>0</span> photos</span>
+            </button>
+
+            <button type="button" class="demo-pot pot-tile pot-tile--orange" data-pot="receipts" aria-label="Receipts pot">
+              <svg class="demo-pot__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 3h14v18l-2.5-1.6L14 21l-2-1.4L10 21l-2.5-1.6L5 21z"/>
+                <path d="M9 8h6M9 12h6"/>
+              </svg>
+              <span class="pot-tile__name">Receipts</span>
+              <span class="demo-pot__count"><span data-count>0</span> photos</span>
+            </button>
+
+            <button type="button" class="demo-pot pot-tile pot-tile--violet" data-pot="home" aria-label="Home pot">
+              <svg class="demo-pot__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 11.5 12 4l8 7.5"/>
+                <path d="M6.5 10.5V20h11v-9.5"/>
+              </svg>
+              <span class="pot-tile__name">Home</span>
+              <span class="demo-pot__count"><span data-count>0</span> photos</span>
+            </button>
+          </div>
+
+          <p class="demo__caption" id="demo-caption">Six photos. Three pots. A few seconds.</p>
+          <button type="button" class="btn btn--secondary btn--sm demo__reset" id="demo-reset" hidden>Sort again</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROBLEM ============================ -->
+    <section class="section section--cream" id="problem">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--red">The problem</span>
+          <h2 class="section-title">Work photos don't belong in your Memories.</h2>
+          <p class="section-sub">One Camera Roll holds everything — and it shows up at the worst times.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="pain reveal">
+            <div class="pain__frame" aria-hidden="true">
+              <p class="pain__frame-title">Memories · This year</p>
+              <div class="pain__photos">
+                <span class="pain__thumb" style="background: var(--violet-tint);">🎂</span>
+                <span class="pain__thumb" style="background: var(--cyan-tint);">🏖️</span>
+                <span class="pain__thumb pain__thumb--odd" style="background: var(--white);">🧾</span>
+                <span class="pain__thumb" style="background: var(--green-tint);">🐶</span>
+              </div>
+            </div>
+            <h3 class="pain__title">Your Memories slideshow, sponsored by receipts</h3>
+            <p class="pain__body">Your phone builds a lovely montage of your year — and right between the birthday and the beach, there's a photo of a hardware-store receipt. Work photos follow you home, into every slideshow and suggestion.</p>
+          </div>
+
+          <div class="pain reveal reveal--delay-1">
+            <div class="pain__frame" aria-hidden="true">
+              <p class="pain__frame-title">Messages · Client thread</p>
+              <div class="pain__chat">
+                <span class="pain__bubble pain__bubble--old">Can you send the photo of the panel again?</span>
+                <span class="pain__bubble pain__bubble--them pain__bubble--old">Sure — one sec…</span>
+                <span class="pain__bubble pain__bubble--them">…scrolling…</span>
+                <span class="pain__bubble">It's here somewhere. Sent it to myself in March?</span>
+              </div>
+            </div>
+            <h3 class="pain__title">The job photo that vanished into a chat thread</h3>
+            <p class="pain__body">You know you took it. It might be in a message, an email, or somewhere in 8,000 Camera Roll photos. When work photos have no home of their own, finding one is archaeology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TWO WAYS ============================ -->
+    <section class="section" id="ways">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">How it works</span>
+          <h2 class="section-title">Two ways to keep photos apart</h2>
+          <p class="section-sub">Clean up what's already there, and stop the pile from growing.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="reveal">
+            <div class="sortflow" aria-hidden="true">
+              <div class="sortflow__strip">
+                <span class="sortflow__mini">🧾</span>
+                <span class="sortflow__mini">🏗️</span>
+                <span class="sortflow__mini sortflow__mini--moving">📋</span>
+              </div>
+              <div class="sortflow__pot">Rental 12B</div>
+            </div>
+            <h3 class="card__title">Sort what's already there</h3>
+            <p class="card__body">Pick photos from your Camera Roll and drop them into a pot. Sorting <strong>moves</strong> the original — it's removed from your Camera Roll, not just hidden in an album. Twenty minutes on the couch and your roll is yours again.</p>
+          </div>
+
+          <div class="reveal reveal--delay-1">
+            <div class="flow" aria-hidden="true">
+              <div class="flow__node flow__node--camera">
+                <span class="flow__node-icon">📷</span>
+                <span class="flow__node-label">In-app camera</span>
+              </div>
+              <div class="flow__node flow__node--roll">
+                <span class="flow__node-icon">🖼️</span>
+                <span class="flow__node-label">Camera Roll</span>
+              </div>
+              <div class="flow__node flow__node--pot">
+                <span class="flow__node-icon">🔵</span>
+                <span class="flow__node-label">Work pot</span>
+              </div>
+              <span class="flow__chip">🏗️</span>
+            </div>
+            <h3 class="card__title">Capture straight into a pot</h3>
+            <p class="card__body">Snap a photo with the in-app camera and choose a pot. It lands there directly and <strong>never touches your Camera Roll</strong>. Work shots start separated — there's nothing to clean up later.</p>
+          </div>
+        </div>
+
+        <p class="text-center mt-6 reveal"><a class="btn btn--ghost" href="how-it-works.html">See the full walkthrough →</a></p>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURES ============================ -->
+    <section class="section section--cream" id="features">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Features</span>
+          <h2 class="section-title">Small app. Serious separation.</h2>
+          <p class="section-sub">Everything here exists to keep work photos findable and personal photos personal.</p>
+        </div>
+
+        <ul class="card-grid">
+          <li class="card reveal">
+            <div class="card__icon card__icon--violet">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="2"/>
+                <rect x="3.5" y="13" width="7.5" height="7.5" rx="2"/><rect x="13" y="13" width="7.5" height="7.5" rx="2"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Custom pots</h3>
+            <p class="card__body">Name them, color them, make as many as you need. "Job — Miller St", "Rentals", "Family". Your pots, your call.</p>
+          </li>
+
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/>
+              </svg>
+            </div>
+            <h3 class="card__title">GPS metadata preserved</h3>
+            <p class="card__body">Sorting never strips location data. The photo of the site stays pinned to the site — useful when a client asks "where was this taken?"</p>
+          </li>
+
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/><path d="M8 9h5M8 12h3.5"/>
+              </svg>
+            </div>
+            <h3 class="card__title">OCR search</h3>
+            <p class="card__body">Search the words inside your photos. Type "invoice" or a serial number and get the exact receipt or nameplate, not 400 maybes.</p>
+          </li>
+
+          <li class="card reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v11"/><path d="M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-7"/>
+              </svg>
+            </div>
+            <h3 class="card__title">One-tap share</h3>
+            <p class="card__body">Send a job photo to a client, a receipt to your accountant, a class photo to a parent — from the pot, in one tap, anywhere.</p>
+          </li>
+
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 3v13a1 1 0 0 0 1 1h13"/><path d="M3 7h13a1 1 0 0 1 1 1v13"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Crop without losing metadata</h3>
+            <p class="card__body">Crop out the messy background, straighten the whiteboard. Every byte of metadata — GPS included — stays right where it was.</p>
+          </li>
+
+          <li class="card reveal reveal--delay-2">
+            <div class="card__icon card__icon--blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 18.5a4.5 4.5 0 0 1-.9-8.9 6 6 0 0 1 11.7-1.5A4 4 0 0 1 17.5 18.5z"/>
+              </svg>
+            </div>
+            <h3 class="card__title">iCloud sync</h3>
+            <p class="card__body">Sort on your phone at the job site, find it on your Mac at the desk. Pots sync across iPhone, iPad, and Mac through your iCloud.</p>
+          </li>
+
+          <li class="card reveal">
+            <div class="card__icon card__icon--red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="6" width="13" height="13" rx="2.5"/><path d="M8 3.5h9A2.5 2.5 0 0 1 19.5 6v9"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Batch screenshot triage</h3>
+            <p class="card__body">Screenshots pile up fast. Review them in a batch: keep the useful ones in a pot, clear the rest. Done in minutes.</p>
+          </li>
+
+          <li class="card reveal reveal--delay-1">
+            <div class="card__icon card__icon--violet">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="2"/>
+                <rect x="3.5" y="13" width="7.5" height="7.5" rx="2"/><path d="M16.75 14.25v5.5M14 17h5.5"/>
+              </svg>
+            </div>
+            <h3 class="card__title">Widget &amp; share extension</h3>
+            <p class="card__body">A home-screen widget jumps you straight into a pot. The share extension sends photos from any app into one — no detours.</p>
+          </li>
+        </ul>
+
+        <p class="text-center mt-6 reveal"><a class="btn btn--ghost" href="features.html">Explore every feature in detail →</a></p>
+      </div>
+    </section>
+
+    <!-- ============================ AUDIENCE ============================ -->
+    <section class="section" id="who">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--orange">Who it's for</span>
+          <h2 class="section-title">Built for people who work with photos</h2>
+          <p class="section-sub">If photos are how you communicate at work, your Camera Roll shouldn't be the filing cabinet.</p>
+        </div>
+
+        <ul class="card-grid">
+          <li class="card aud-card reveal">
+            <span class="aud-card__emoji" aria-hidden="true">🔨</span>
+            <h3 class="card__title">Contractors</h3>
+            <p class="card__body">Snap progress photos on site — they land in the job pot, GPS-stamped, ready to send the client. Not next to your kid's birthday.</p>
+          </li>
+          <li class="card aud-card reveal reveal--delay-1">
+            <span class="aud-card__emoji" aria-hidden="true">🏠</span>
+            <h3 class="card__title">Real estate agents</h3>
+            <p class="card__body">One pot per listing. Walkthrough shots stay out of your family album and findable by address.</p>
+          </li>
+          <li class="card aud-card reveal reveal--delay-2">
+            <span class="aud-card__emoji" aria-hidden="true">🔍</span>
+            <h3 class="card__title">Inspectors</h3>
+            <p class="card__body">Defect photos keep their location data and stay searchable, so the report practically writes its own captions.</p>
+          </li>
+          <li class="card aud-card reveal">
+            <span class="aud-card__emoji" aria-hidden="true">🩺</span>
+            <h3 class="card__title">Healthcare workers</h3>
+            <p class="card__body">Reference photos for the shift live in a work pot — separate from everything personal, gone from your roll.</p>
+          </li>
+          <li class="card aud-card reveal reveal--delay-1">
+            <span class="aud-card__emoji" aria-hidden="true">🍎</span>
+            <h3 class="card__title">Teachers</h3>
+            <p class="card__body">Whiteboard snapshots and field-trip photos go in the class pot, not between vacation pics.</p>
+          </li>
+          <li class="card aud-card reveal reveal--delay-2">
+            <span class="aud-card__emoji" aria-hidden="true">🛠️</span>
+            <h3 class="card__title">Field technicians</h3>
+            <p class="card__body">Serial numbers and meter reads, searchable by the text in the photo. "Unit 4472" finds the shot instantly.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ PRIVACY / TRUST ============================ -->
+    <section class="section section--cream section--tight" id="privacy">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--green">Privacy</span>
+          <h2 class="section-title">Your photos never leave your world</h2>
+        </div>
+
+        <ul class="trust-grid">
+          <li class="trust-item reveal">
+            <span class="trust-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            </span>
+            <div>
+              <h3 class="trust-item__title">On your devices</h3>
+              <p class="trust-item__body">Photos and pots live on your iPhone, iPad, and Mac. Nothing is uploaded to us.</p>
+            </div>
+          </li>
+          <li class="trust-item reveal reveal--delay-1">
+            <span class="trust-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            </span>
+            <div>
+              <h3 class="trust-item__title">In your iCloud</h3>
+              <p class="trust-item__body">Sync runs through your own iCloud account. There are no PhotoPots servers — there isn't one to breach.</p>
+            </div>
+          </li>
+          <li class="trust-item reveal reveal--delay-2">
+            <span class="trust-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            </span>
+            <div>
+              <h3 class="trust-item__title">No accounts</h3>
+              <p class="trust-item__body">No sign-up, no email, no password. Download the app and start sorting in seconds.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ PRICING PREVIEW ============================ -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Pricing</span>
+          <h2 class="section-title">Start free. Upgrade when the pile demands it.</h2>
+          <p class="section-sub">Free gets you 25 sorts a week. Pro removes the limit. That's it.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card reveal">
+            <h3 class="price-card__name">Free</h3>
+            <p class="price-card__price">$0 <small>forever</small></p>
+            <ul class="check-list price-card__features">
+              <li>25 sorts per week</li>
+              <li>Capture straight into a pot</li>
+              <li>Custom pots with names &amp; colors</li>
+              <li>iCloud sync across devices</li>
+            </ul>
+            <a class="btn btn--secondary" data-appstore>Download free</a>
+          </div>
+
+          <div class="price-card price-card--featured reveal reveal--delay-1">
+            <span class="price-card__badge">Best value</span>
+            <h3 class="price-card__name">Pro</h3>
+            <p class="price-card__price">Unlimited <small>sorts, every week</small></p>
+            <ul class="check-list price-card__features">
+              <li>Everything in Free</li>
+              <li>No weekly sort limit</li>
+              <li>Sort the whole backlog in one sitting</li>
+              <li>Support an indie app</li>
+            </ul>
+            <a class="btn btn--primary" href="pricing.html">Compare plans</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section section--cream" id="faq">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--violet">FAQ</span>
+          <h2 class="section-title">Fair questions</h2>
+        </div>
+
+        <div class="faq faq--center">
+          <details class="faq__item reveal">
+            <summary class="faq__q">Do sorted photos really leave my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>Yes. Sorting moves the original photo into the pot — it is removed from your Camera Roll, not just hidden in an album. Your Camera Roll stays personal, and your pots hold the rest.</p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">Do photos taken with the in-app camera touch my Camera Roll?</summary>
+            <div class="faq__a">
+              <p>No. When you capture straight into a pot, the photo is saved directly into that pot and never appears in your Camera Roll at all.</p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">Will I lose GPS location or other metadata?</summary>
+            <div class="faq__a">
+              <p>No. PhotoPots preserves your photo metadata, including GPS location, even when you crop or edit a photo inside a pot.</p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">Can I share or move a photo out of a pot?</summary>
+            <div class="faq__a">
+              <p>Yes. Any photo in a pot can be shared anywhere with one tap — messages, email, or back to your Camera Roll if you want it there.</p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">How does PhotoPots sync across my devices?</summary>
+            <div class="faq__a">
+              <p>PhotoPots syncs your pots through your iCloud account, so the same pots and photos appear on your iPhone, iPad, and Mac. There are no PhotoPots servers and no accounts to create.</p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary class="faq__q">What is the difference between Free and Pro?</summary>
+            <div class="faq__a">
+              <p>Free gives you 25 sorts a week. Pro removes the limit, so you can sort as many photos as you like. That is the only difference.</p>
+            </div>
+          </details>
+        </div>
+
+        <p class="text-center mt-6 reveal"><a class="btn btn--ghost" href="faq.html">Read the full FAQ →</a></p>
+      </div>
+    </section>
+
+    <!-- ============================ FINAL CTA ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2 class="cta-banner__title">Your Camera Roll is not a filing system.</h2>
+            <p class="cta-banner__sub">Put work photos in a work pot. It takes seconds — and the next photo you take never mixes in at all.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a class="btn btn--primary btn--lg" data-appstore>Download PhotoPots</a>
+            <a class="btn btn--secondary btn--lg" href="pricing.html">See pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo.svg" alt="PhotoPots logo" width="40" height="40">
+          <p class="footer__tagline">Keep work and life photos apart.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h2 class="footer__heading">Product</h2>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a data-appstore href="#">Download</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Resources">
+          <h2 class="footer__heading">Resources</h2>
+          <ul class="footer__links">
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h2 class="footer__heading">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2025</span> PhotoPots. All rights reserved.</span>
+        <span>Made for people who work with photos.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       Interactive sorting demo
+       - Pointer Events drag (mouse + touch) with pot hit-testing
+       - Tap-to-select then tap-a-pot fallback (also keyboard: Enter
+         selects a photo, Tab to a pot, Enter sorts)
+       - Correct pot: photo flies in, pot bounces, count pops
+       - Wrong pot: gentle shake, photo springs back
+       - All sorted: confetti burst + completion caption + reset
+       - Honors prefers-reduced-motion (instant, no confetti)
+       ============================================================ -->
+  <script>
+  (function () {
+    "use strict";
+
+    var demo = document.getElementById("pot-demo");
+    if (!demo) return;
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var roll = document.getElementById("demo-roll");
+    var photosEl = document.getElementById("demo-photos");
+    var rollCountEl = document.getElementById("demo-roll-count");
+    var caption = document.getElementById("demo-caption");
+    var resetBtn = document.getElementById("demo-reset");
+    var pots = Array.prototype.slice.call(demo.querySelectorAll(".demo-pot"));
+    var photos = Array.prototype.slice.call(demo.querySelectorAll(".demo-photo"));
+
+    var CAPTION_START = caption.textContent;
+    var CAPTION_DONE = "All sorted! In PhotoPots, sorted photos leave your Camera Roll — not just hidden.";
+    var CONFETTI_COLORS = ["#1C9DE0", "#2CD3E1", "#EA8A1E", "#D8453E", "#1D9E75", "#8C5BD9"];
+
+    var totalPhotos = photos.length;
+    var sortedCount = 0;
+    var selected = null;
+    var drag = null;
+
+    function rollCount() { return totalPhotos - sortedCount; }
+
+    function updateRollCount() {
+      rollCountEl.textContent = String(rollCount());
+      roll.classList.toggle("is-empty", rollCount() === 0);
+    }
+
+    function potAt(x, y) {
+      for (var i = 0; i < pots.length; i++) {
+        var r = pots[i].getBoundingClientRect();
+        if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return pots[i];
+      }
+      return null;
+    }
+
+    function clearTargets() {
+      pots.forEach(function (p) { p.classList.remove("is-target"); });
+    }
+
+    function deselect() {
+      if (selected) selected.classList.remove("is-selected");
+      selected = null;
+    }
+
+    function selectPhoto(photo) {
+      if (selected === photo) { deselect(); return; }
+      deselect();
+      selected = photo;
+      photo.classList.add("is-selected");
+    }
+
+    function restartAnimation(el, cls) {
+      el.classList.remove(cls);
+      void el.offsetWidth; /* reflow so the animation restarts */
+      el.classList.add(cls);
+      setTimeout(function () { el.classList.remove(cls); }, 500);
+    }
+
+    function finishSort(photo, pot) {
+      photo.classList.add("is-gone");
+      photo.classList.remove("is-sorted", "is-selected");
+      photo.style.transform = "";
+      photo.style.opacity = "";
+      if (selected === photo) selected = null;
+
+      sortedCount++;
+      updateRollCount();
+
+      var countEl = pot.querySelector("[data-count]");
+      countEl.textContent = String(parseInt(countEl.textContent, 10) + 1);
+      restartAnimation(countEl, "is-pop");
+      if (!reduceMotion) restartAnimation(pot, "is-hit");
+
+      if (sortedCount === totalPhotos) onAllSorted(pot);
+    }
+
+    function trySort(photo, pot, fromDrag) {
+      if (photo.dataset.pot !== pot.dataset.pot) {
+        /* Wrong pot: gentle shake, photo springs back */
+        if (!reduceMotion) restartAnimation(pot, "is-shake");
+        photo.style.transform = "";
+        return;
+      }
+
+      if (reduceMotion) { finishSort(photo, pot); return; }
+
+      /* Fly the photo into the pot center */
+      var pr = pot.getBoundingClientRect();
+      var ph = photo.getBoundingClientRect();
+      var dx = fromDrag && drag ? drag.dx : 0;
+      var dy = fromDrag && drag ? drag.dy : 0;
+      var layoutCX = (ph.left + ph.width / 2) - dx;
+      var layoutCY = (ph.top + ph.height / 2) - dy;
+      var tx = (pr.left + pr.width / 2) - layoutCX;
+      var ty = (pr.top + pr.height / 2) - layoutCY;
+
+      photo.classList.add("is-sorted");
+      photo.style.transform = "translate(" + tx + "px," + ty + "px) scale(0.12)";
+      photo.style.opacity = "0";
+      setTimeout(function () { finishSort(photo, pot); }, 400);
+    }
+
+    function confetti(pot) {
+      if (reduceMotion) return;
+      var r = pot.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var cy = r.top + r.height / 2;
+      for (var i = 0; i < 28; i++) {
+        var dot = document.createElement("span");
+        dot.className = "confetti-dot";
+        var angle = Math.random() * Math.PI * 2;
+        var dist = 60 + Math.random() * 120;
+        dot.style.left = cx + "px";
+        dot.style.top = cy + "px";
+        dot.style.background = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+        dot.style.setProperty("--tx", (Math.cos(angle) * dist) + "px");
+        dot.style.setProperty("--ty", (Math.sin(angle) * dist - 50) + "px");
+        dot.style.setProperty("--rot", Math.round(Math.random() * 540 - 270) + "deg");
+        document.body.appendChild(dot);
+        (function (d) {
+          d.addEventListener("animationend", function () { d.remove(); });
+        })(dot);
+      }
+    }
+
+    function onAllSorted(pot) {
+      confetti(pot);
+      caption.textContent = CAPTION_DONE;
+      caption.classList.add("is-done");
+      resetBtn.hidden = false;
+    }
+
+    /* ---------- Drag (Pointer Events: mouse + touch + pen) ---------- */
+    photosEl.addEventListener("pointerdown", function (e) {
+      var photo = e.target.closest(".demo-photo");
+      if (!photo || photo.classList.contains("is-gone")) return;
+      if (e.button !== undefined && e.button !== 0) return;
+      e.preventDefault();
+      drag = { el: photo, startX: e.clientX, startY: e.clientY, dx: 0, dy: 0, moved: false };
+      try { photo.setPointerCapture(e.pointerId); } catch (err) { /* older browsers */ }
+      photo.classList.add("is-dragging");
+      deselect();
+    });
+
+    document.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      drag.dx = e.clientX - drag.startX;
+      drag.dy = e.clientY - drag.startY;
+      if (Math.abs(drag.dx) + Math.abs(drag.dy) > 6) drag.moved = true;
+      if (!drag.moved) return;
+      drag.el.style.transform = "translate(" + drag.dx + "px," + drag.dy + "px) scale(1.06) rotate(" + (drag.dx * 0.04) + "deg)";
+      clearTargets();
+      var pot = potAt(e.clientX, e.clientY);
+      if (pot) pot.classList.add("is-target");
+    }, { passive: true });
+
+    function endDrag(e, cancelled) {
+      if (!drag) return;
+      var photo = drag.el;
+      var wasDrag = drag.moved && !cancelled;
+      var pot = wasDrag ? potAt(e.clientX, e.clientY) : null;
+      photo.classList.remove("is-dragging");
+      clearTargets();
+      if (pot) {
+        trySort(photo, pot, true);
+      } else {
+        photo.style.transform = "";
+        if (!wasDrag) selectPhoto(photo); /* it was a tap, not a drag */
+      }
+      drag = null;
+    }
+    document.addEventListener("pointerup", function (e) { endDrag(e, false); });
+    document.addEventListener("pointercancel", function (e) { endDrag(e, true); });
+
+    /* ---------- Tap/click a pot to sort the selected photo ---------- */
+    pots.forEach(function (pot) {
+      pot.addEventListener("click", function () {
+        if (selected) trySort(selected, pot, false);
+      });
+    });
+
+    /* ---------- Keyboard: Enter on a focused photo selects it ---------- */
+    photosEl.addEventListener("click", function (e) {
+      if (e.detail !== 0) return; /* keyboard-originated clicks only */
+      var photo = e.target.closest(".demo-photo");
+      if (photo && !photo.classList.contains("is-gone")) selectPhoto(photo);
+    });
+
+    /* ---------- Reset ---------- */
+    resetBtn.addEventListener("click", function () {
+      sortedCount = 0;
+      deselect();
+      photos.forEach(function (photo) {
+        photo.classList.remove("is-gone", "is-sorted", "is-selected", "is-dragging");
+        photo.style.transform = "";
+        photo.style.opacity = "";
+      });
+      pots.forEach(function (pot) {
+        pot.querySelector("[data-count]").textContent = "0";
+      });
+      caption.textContent = CAPTION_START;
+      caption.classList.remove("is-done");
+      resetBtn.hidden = true;
+      updateRollCount();
+    });
+  })();
+  </script>
+</body>
+</html>

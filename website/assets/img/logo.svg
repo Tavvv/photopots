@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PhotoPots logo">
+  <defs>
+    <radialGradient id="pp-lens" cx="42%" cy="36%" r="78%">
+      <stop offset="0%" stop-color="#4B4F59"/>
+      <stop offset="45%" stop-color="#2B2E36"/>
+      <stop offset="100%" stop-color="#14151A"/>
+    </radialGradient>
+    <radialGradient id="pp-aperture" cx="50%" cy="46%" r="55%">
+      <stop offset="0%" stop-color="#22252C"/>
+      <stop offset="100%" stop-color="#0B0C10"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 4 petals: cyan (TL), blue (TR), orange (BR), red (BL) -->
+  <g fill="none" stroke-width="86" stroke-linecap="round">
+    <path d="M245.4 104.4 A152 152 0 0 0 104.4 245.4" stroke="#2CD3E1"/>
+    <path d="M407.6 245.4 A152 152 0 0 0 266.6 104.4" stroke="#1C9DE0"/>
+    <path d="M266.6 407.6 A152 152 0 0 0 407.6 266.6" stroke="#EA8A1E"/>
+    <path d="M104.4 266.6 A152 152 0 0 0 245.4 407.6" stroke="#D8453E"/>
+  </g>
+
+  <!-- flash dot -->
+  <circle cx="415" cy="92" r="29" fill="#3B3E46"/>
+  <circle cx="406" cy="83" r="9" fill="#585D68" opacity="0.85"/>
+
+  <!-- separation halo -->
+  <circle cx="256" cy="256" r="140" fill="#FFFFFF"/>
+
+  <!-- lens -->
+  <circle cx="256" cy="256" r="126" fill="url(#pp-lens)"/>
+  <ellipse cx="196" cy="194" rx="42" ry="25" fill="#FFFFFF" opacity="0.14" transform="rotate(-38 196 194)"/>
+  <circle cx="258" cy="266" r="60" fill="url(#pp-aperture)"/>
+  <circle cx="250" cy="261" r="15" fill="#5A5F6B"/>
+  <ellipse cx="300" cy="237" rx="15" ry="22" fill="#FFFFFF" opacity="0.92" transform="rotate(-18 300 237)"/>
+</svg>
